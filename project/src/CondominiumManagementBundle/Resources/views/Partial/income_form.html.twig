@@ -1,0 +1,145 @@
+{{ form_start(form) }}
+    <div class="row">
+        <div class="col-md-6 col-lg-8">
+            <div class="row">
+                <div class="col-md-12">
+                    {%
+                        include 'CondominiumManagementBundle:Partial:alert_flash_message.html.twig'
+                    %}
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="row">
+                    <div class="col-md-4">
+                        <label class="control-label">
+                            {{ 'condo.label.invoice.title'|trans }}
+                            <span class="required-field">*</span>
+                        </label>
+                    </div>
+                    <div class="col-md-6">
+                        {{form_widget(
+                            form.title,
+                            {
+                                'attr': {
+                                    'class': 'form-control'
+                                }
+                            }
+                        )}}
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="row">
+                    <div class="col-md-4">
+                        <label class="control-label">
+                            {{ 'condo.label.income.invoice.category.name'|trans }}
+                        </label>
+                    </div>
+                    <div class="col-md-6">
+                        {{form_widget(
+                            form.incomeCategory,
+                            {
+                                'attr': {
+                                    'class': 'form-control'
+                                }
+                            }
+                        )}}
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="row">
+                    <div class="col-md-4">
+                        <label class="control-label">
+                            {{ 'condo.label.income.invoice.category.vat'|trans }} (%)
+                        </label>
+                    </div>
+                    <div class="col-md-6">
+                        {{form_widget(
+                            form.vat,
+                            {
+                                'attr': {
+                                    'class': 'form-control'
+                                }
+                            }
+                        )}}
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="row">
+                    <div class="col-md-4">
+                        <label class="control-label">
+                            {{ 'condo.label.income.invoice.category.grand.total'|trans }}
+                            ({{ currencySign }})
+                            <span class="text-muted small">
+                                ({{ 'condo.label.income.include.vat'|trans }})
+                            </span>
+                            <span class="required-field">*</span>
+                        </label>
+                    </div>
+                    <div class="col-md-6">
+                        {{form_widget(
+                            form.grandTotal,
+                            {
+                                'attr': {
+                                    'class': 'form-control'
+                                }
+                            }
+                        )}}
+                        <div class="text-danger">
+                            {% if  form_errors(form.grandTotal) %}
+                                <span>{{ 'the.value.should.be.number'|trans }}</span>
+                            {% endif %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="row">
+                    <div class="col-md-4">
+                        <label class="control-label">
+                            {{ 'condo.label.income.invoice.description'|trans }}
+                        </label>
+                    </div>
+                    <div class="col-md-6">
+                        {{form_widget(
+                            form.description,
+                            {
+                                'attr': {
+                                    'class': 'form-control'
+                                }
+                            }
+                        )}}
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="row">
+                    <div class="col-md-offset-4 col-md-10">
+                        <input
+                            type="submit"
+                            value="{{ 'btn.save'|trans }}"
+                            class="btn btn-success"
+                        >
+                        <a
+                            href="{{ path(
+                                'condominium_income_list',
+                                {'condominium': condominium.id}
+                            ) }}"
+                            class="btn btn-default"
+                        >
+                            {{ 'link.back'|trans }}
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-offset-1 col-md-2">
+            {%
+                include 'CondominiumManagementBundle:Partial:exchange_rate_info.html.twig'
+                with {'currencies': currencies }
+            %}
+        </div>
+    </div>
+{{ form_end(form) }}

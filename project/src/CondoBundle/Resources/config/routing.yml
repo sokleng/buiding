@@ -1,0 +1,8 @@
+condo_resource:
+    resource: "@CondoBundle/Controller/ResourceController.php"
+    type: annotation
+
+condo_home:
+    resource: "@CondoBundle/Controller/HomeController.php"
+    type: annotation
+

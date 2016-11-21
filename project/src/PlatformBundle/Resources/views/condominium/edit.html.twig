@@ -1,0 +1,19 @@
+{% extends 'PlatformBundle::content_page_layout.html.twig' %}
+{% set title = 'buildings.title.edit'|trans ~ ': ' ~ condominium.name %}
+
+{% block content %}
+    {{ form_start(form) }}
+        {% include 'PlatformBundle:Partial:comdominium_form.html.twig' %}
+    {{ form_end(form) }}
+    {{ form_start(delete_form) }}
+    <div class="row">
+        <div class="col-xs-offset-2 col-xs-10">
+            <input
+                type="submit"
+                value="{{ 'btn.delete'|trans }}"
+                class="btn btn-danger pull-left"
+            >
+        </div>
+    </div>
+    {{ form_end(delete_form) }}
+{% endblock %}

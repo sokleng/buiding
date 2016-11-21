@@ -1,0 +1,9 @@
+{% if alt is not defined %}
+    {% set alt = 'image' %}
+{% endif %}
+{% if resource is not null %}
+    <img class="img-responsive img-list-item"
+         src="{{ path('condo_resource', {'fileId': resource.id}) }}"
+         alt="{{ alt }}"
+    >
+{% endif %}

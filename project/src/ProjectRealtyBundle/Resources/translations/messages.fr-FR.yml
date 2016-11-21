@@ -1,0 +1,16 @@
+project.unit.label.id: ça
+project.unit.label.floor: étage
+project.unit.label.roomNumber: Numéro de chambre
+project.unit.label.price: Prix
+project.unit.label.type: Type
+project.unit.label.status: statut
+project.setting.unit.status.label.name: Name
+project.setting.unit.status.label.closedStatus: Is A Closed Status
+project.setting.unit.status.label.enabled: Enabled
+project.unit.room.number: Room Number
+project.unit.type: Type
+project.unit.floor: Floor
+project.unit.price: Price
+project.unit.button.edit: Edit
+project.unit.status: Status
+project.unit.action: Actions

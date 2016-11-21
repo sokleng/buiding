@@ -1,0 +1,132 @@
+ {{ form_start(form) }}
+    <div class="form-group">
+        <div class="row">
+            <label class="col-xs-2 control-label">
+                {{ 'condo.unit.label.room.number'|trans }}
+                <span class="required-field">*</span>
+            </label>
+            <div class="col-xs-2">
+                {{form_widget(
+                    form.room_number,
+                    {
+                        'attr': {
+                            'class': 'form-control'
+                        }
+                    }
+                )}}
+                <div class="text-danger">
+                    {% if  form_errors(form.room_number) %}
+                        <span>{{ 'the.value.should.be.number'|trans }}</span>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="row">
+            <label class="col-xs-2 control-label">
+                {{ 'condo.unit.label.type'|trans }}
+            </label>
+            <div class="col-xs-2">
+                {{form_widget(
+                    form.type,
+                    {
+                        'attr': {
+                            'class': 'form-control'
+                        }
+                    }
+                )}}
+            </div>
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="row">
+            <label class="col-xs-2 control-label">
+                {{ 'condo.unit.label.floor'|trans }}
+            </label>
+            <div class="col-xs-2">
+                {{form_widget(
+                    form.floor,
+                    {
+                        'attr': {
+                            'class': 'form-control'
+                        }
+                    }
+                )}}
+            </div>
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="row">
+            <label class="col-xs-2 control-label">
+                {{ 'condo.unit.price'|trans }}
+                ({{ currencySign }})
+                <span class="required-field">*</span>
+            </label>
+            <div class="col-xs-2">
+                {{form_widget(
+                    form.price,
+                    {
+                        'attr': {
+                            'class': 'form-control'
+                        }
+                    }
+                )}}
+                <div class="text-danger">
+                    {% if  form_errors(form.price) %}
+                        <span>{{ 'the.value.should.be.number'|trans }}</span>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="row">
+            <label class="col-xs-2 control-label">
+                {{ 'condo.unit.label.pay.by'|trans }}
+            </label>
+            <div class="col-xs-2">
+                {{form_widget(
+                    form.payBy,
+                    {
+                        'attr': {
+                            'class': 'form-control'
+                        }
+                    }
+                )}}
+            </div>
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="row">
+            <label class="col-xs-2 control-label">
+                {{ 'condo.unit.label.is.locked'|trans }}
+            </label>
+            <div class="col-xs-2">
+                {{form_widget(form.isLocked)}}
+            </div>
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="row">
+            <div class="col-xs-offset-2 col-xs-10">
+                <input
+                    type="submit"
+                    value="{{ 'btn.save'|trans }}"
+                    class="btn btn-success"
+                />
+                <a
+                    href="{{
+                        path(
+                            'condominium_units_list',
+                            {'condominium': condominium.id}
+                        )
+                    }}"
+                    class="btn btn-default"
+                >
+                    {{ 'link.back'|trans }}
+                </a>
+            </div>
+        </div>
+    </div>
+{{ form_end(form) }}

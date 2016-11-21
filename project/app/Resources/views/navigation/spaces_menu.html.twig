@@ -1,0 +1,93 @@
+{% if app.user.roles | length >= 1 %}
+    <li class="dropdown">
+        <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+            {% set queryUri = app.request.pathinfo %}
+            {% set locale = app.request.attributes.get('_locale') %}
+            {% if locale ~ '/' ~ 'client' in queryUri %}
+                <i class="fa fa-users fa-fw"></i>
+                {{ 'link.clients' | trans }}
+            {% elseif locale ~ '/' ~ 'condominium' in queryUri %}
+                <i class="fa fa-building fa-fw"></i>
+                {{ 'link.buildings' | trans }}
+            {% elseif locale ~ '/' ~ 'service' in queryUri %}
+                <i class="fa fa-shopping-basket fa-fw"></i>
+                {{ 'link.services' | trans }}
+            {% elseif locale ~ '/' ~ 'project' in queryUri %}
+                <i class="fa fa-briefcase fa-fw"></i>
+                {{ 'link.projects' | trans }}
+            {% elseif locale ~ '/' ~ 'platform' in queryUri %}
+                <i class="fa fa-plus-square-o fa-fw"></i>
+                {{ 'link.platforms' | trans }}
+            {% elseif locale ~ '/' ~ 'developer' in queryUri %}
+                <i class="fa fa-user fa-fw"></i>
+                {{ 'link.developers' | trans }}
+            {% elseif locale ~ '/' ~ 'realty' in queryUri %}
+                <i class="fa fa-building-o fa-fw"></i>
+                {{ 'link.realty.companies' | trans }}
+            {% else %}
+                <i class="fa fa-bars fa-fw"></i>
+            {% endif %}
+            <i class="fa fa-caret-down"></i>
+        </a>
+        <ul class="dropdown-menu">
+            {% if is_granted(constant('CondoBundle\\Constant\\SecurityRole::ADMIN')) or
+                is_granted(constant('CondoBundle\\Constant\\SecurityRole::CLIENT'))
+            %}
+                <li>
+                    <a href="{{ path('client_default') }}">
+                        <i class="fa fa-users fa-fw"></i>
+                        {{ 'link.clients' | trans }}
+                    </a>
+                </li>
+            {% endif %}
+            {% if is_granted(constant('CondoBundle\\Constant\\SecurityRole::CONDOMINIUM')) %}
+                <li>
+                    <a href="{{ path('condominium_management_default') }}">
+                        <i class="fa fa-building fa-fw"></i>
+                        {{ 'link.buildings' | trans }}
+                    </a>
+                </li>
+            {% endif %}
+            {% if is_granted(constant('CondoBundle\\Constant\\SecurityRole::SERVICE')) %}
+                <li>
+                    <a href="{{ path('service_default') }}">
+                        <i class="fa fa-shopping-basket fa-fw"></i>
+                        {{ 'link.services' | trans }}
+                    </a>
+                </li>
+            {% endif %}
+            {% if is_granted(constant('CondoBundle\\Constant\\SecurityRole::PROJECT')) %}
+                <li>
+                    <a href="{{ path('project_realty_default') }}">
+                        <i class="fa fa-briefcase fa-fw"></i>
+                        {{ 'link.projects' | trans }}
+                    </a>
+                </li>
+            {% endif %}
+            {% if is_granted(constant('CondoBundle\\Constant\\SecurityRole::ADMIN')) %}
+                <li>
+                    <a href="{{ path('platform_user_list') }}">
+                        <i class="fa fa-plus-square-o fa-fw"></i>
+                        {{ 'link.platforms' | trans }}
+                    </a>
+                </li>
+            {% endif %}
+            {% if is_granted(constant('CondoBundle\\Constant\\SecurityRole::DEVELOPER')) %}
+                <li>
+                    <a href="{{ path('developer_home') }}">
+                        <i class="fa fa-user fa-fw"></i>
+                        {{ 'link.developers' | trans }}
+                    </a>
+                </li>
+            {% endif %}
+            {% if is_granted(constant('CondoBundle\\Constant\\SecurityRole::REALTY_COMPANY')) %}
+                <li>
+                    <a href="{{ path('realty_company_home') }}">
+                        <i class="fa fa fa-building-o fa-fw"></i>
+                        {{ 'link.realty.companies' | trans }}
+                    </a>
+                </li>
+            {% endif %}
+        </ul>
+    </li>
+{% endif %}

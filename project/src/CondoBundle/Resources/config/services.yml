@@ -1,0 +1,48 @@
+services:
+    app.twig_extension.issue_status:
+        class: CondoBundle\Twig\Extension\IssueStatus
+        public: false
+        tags:
+            - { name: twig.extension }
+
+    app.twig_extension.time_of_the_day:
+        class: CondoBundle\Twig\Extension\TimeOfTheDay
+        public: false
+        tags:
+            - { name: twig.extension }
+
+    app.twig_extension.day_of_the_week:
+        class: CondoBundle\Twig\Extension\DayOfTheWeek
+        public: false
+        tags:
+            - { name: twig.extension }
+    app.wit_ai:
+        class: CondoBundle\Service\WitAi
+        arguments:
+            - "%app_wit_token%"
+            - "@doctrine"
+            - "@security.token_storage"
+
+    app.twig_extension.payment_status:
+        class: CondoBundle\Twig\Extension\PaymentStatus
+        public: false
+        tags:
+            - { name: twig.extension }
+
+    app.twig_extension.payment_method:
+        class: CondoBundle\Twig\Extension\PaymentMethod
+        public: false
+        tags:
+            - { name: twig.extension }
+
+    app.twig_extension.client_status:
+        class: CondoBundle\Twig\Extension\ClientStatus
+        public: false
+        tags:
+            - { name: twig.extension }
+
+    app.twig_extension.invoice_status:
+        class: CondoBundle\Twig\Extension\InvoiceStatus
+        public: false
+        tags:
+            - { name: twig.extension }

@@ -1,0 +1,37 @@
+@import 'variable';
+
+.pagination {
+    padding: 45px 0;
+    > .active > a,
+    > .active > a:focus,
+    > .active > a:hover,
+    > .active > span,
+    > .active > span:focus,
+    > .active> span:hover {
+        background-color: #ff4d4d;
+        border-color: #ff4d4d;
+    }
+
+    > li {
+        > a:focus,
+        > a:hover,
+        > span:focus,
+        > span:hover {
+            color: $white-color;
+            background-color: $dark-pink-color;
+            border-color: $dark-pink-color;
+        }
+
+        > a,
+        > span {
+            position: relative;
+            float: left;
+            margin: 0 3px;
+            text-decoration: none;
+            padding: 8px 15px;
+            color: $dark-gray-color;
+            background: $white-color;
+            border: 1px solid $white-color;
+        }
+    }
+}

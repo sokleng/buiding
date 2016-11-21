@@ -1,0 +1,11 @@
+{% extends 'ProjectRealtyBundle::content_page_layout.html.twig' %}
+{% set title = project.name ~ ' - Edit Public Listing' %}
+
+{% block content %}
+   {%
+    include 'ProjectRealtyBundle:PublicListing:public_listing_form.html.twig' with
+        {
+            'isEditpage': true
+        }
+   %}
+{% endblock %}

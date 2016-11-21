@@ -1,0 +1,76 @@
+condominium.label.floor: ជាន់
+condominium.label.roomNumber: លេខ​បន្ទាប់
+condominium.label.isOwner: ជាម្ចាស់
+condominium.label.add: បញ្ចូល
+
+unit.message.issue.thanks: សូមអរគុណសំរាប់ការរាយការណ៍អំពីបញ្ហា
+unit.message.thanks: សូមអរគុណសម្រាប់ការផ្តល់មតិកែលម្អរលើបញ្ហា
+unit.message.sorry: យើងពិតជាសោកស្តាយដែលឮថាអ្នកមានបញ្ហា, យើងនឹងផ្តល់ការជូនដំណឹងដល់លោកអ្នក នៅពេលដែលបញ្ហានេះបានដោះស្រាយ។
+unit.services: ការផ្តល់សេវា
+unit.issues: បញ្ហា​នានា
+unit.feedback: ផ្តល់​យោបល់​ត្រឡប់
+unit.open: បើក
+unit.closed: បិទ
+unit.issue.opened: បញ្ហាបានបើក
+unit.issue.in.progress: បញ្ហានៅក្នុងការរីកចំរើន
+unit.issue.closed: បញ្ហាបិទ
+unit.message.issues: មានបញ្ហាមួយ? អនុញ្ញាតឱ្យយើងដឹងពីអ្វីដែលកំពុងកើតឡើង។
+unit.message.feedback: ផ្ដល់មតិឱ្យយើងនិងជួយយើងកែលម្អ
+
+order.th.building: ខុនដូ
+order.th.service: សេវាកម្ម
+order.th.price: តម្លៃ
+order.th.status: ស្ថានភាព
+order.th.vat: តម្លៃនៃការបង់ពន្ធ
+order.th.quantity: បរិមាណ
+order.th.total.price: តម្លៃ​សរុប
+order.th.sub.total: សរុបរង
+order.td.total.price: តម្លៃ​សរុប
+order.th.order.time: ម៉ោងការបញ្ជាទិញ
+order.th.unit: អង្គភាព
+order.th.name: ឈ្មោះ
+order.th.reference: ឯកសារយោង
+
+service.open: បើក
+service.closed: បិទ
+service.title.panel.products: ផលិតផល
+service.title.panel.open: បើក
+service.title.panel.closed: បិទ
+service.title.panel.your.selection: ការ​ជ្រើសរើស​របស់​អ្នក
+service.th.price: តម្លៃ
+service.th.item: ទំនិញ
+service.btn.checkout: ពិនិត្យ​មុន​ពេល​ចេញ
+service.btn.add: បន្ថែម
+service.label.total: សរុប
+service.label.sub.total: សរុបមិនជាប់ពន្ធ
+
+client.order.detail.address: អាសយដ្ឋាន
+client.order.detail.contact.name: ឈ្មោះ​ទំនាក់ទំនង
+client.order.detail.contact.phone.number: លេខទូរស័ព្ទទំនាក់ទំនង
+client.order.detail.condominium: អគារ
+client_issue.label.create.new.issue: បង្កើតបញ្ហាថ្មី
+client_issue.th.id: លេខសម្គាល់
+client_issue.th.date: កាលបរិច្ឆេទ
+client_issue.th.description: បរិយាយ
+client_issue.th.status: ស្ថានភាព
+client_issue.th.action: សកម្មភាព
+client_issue.label.this.issue.was.cancelled: បញ្ហានេះគឺជាបញ្ហាបោះបង់
+
+checkout.th.item: ទំនិញ
+checkout.th.price: តម្លៃ
+checkout.label.total: សរុប
+checkout.label.sub.total: តម្លៃសរុបមិនជាប់ពន្ធ
+checkout.label.condominium: ខុនដូ
+checkout.label.address: អាសយដ្ឋាន
+checkout.label.room.number: លេខ​បន្ទប់
+checkout.label.contact.name: ឈ្មោះ​ទំនាក់ទំនង
+checkout.label.contact.number: លេខ​ទំនាក់​ទំនង
+checkout.title.panel.your.order: ការបញ្ជាទិញរបស់អ្នក
+checkout.title.panel.delivery.details: សេចក្ដីលម្អិតការដឹកជញ្ជូន
+checkout.title.panel.additional.comments: មតិបន្ថែម
+checkout.btn.submit.order: ដាក់ការបញ្ជាទិញ
+
+link.news: ពត៌មាន
+link.feedback: ផ្តល់​យោបល់​ត្រឡប់
+link.issues: បញ្ហា​នានា
+link.order.history: ប្រវត្តិបញ្ជាទិញ

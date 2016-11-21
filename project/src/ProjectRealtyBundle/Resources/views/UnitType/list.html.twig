@@ -1,0 +1,70 @@
+{% extends 'ProjectRealtyBundle::content_page_layout.html.twig' %}
+{% set title =  'project.name'|trans ~ ' - Settings - Unit Types' %}
+
+{% block content %}
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <a href="{{ path('project_unitType_new', {'project': project.id}) }}"
+                       class="btn btn-success"
+                    >
+                        {{ 'unit.type.link.add.new.unit.type'|trans }}
+                    </a>
+                </div>
+                <!-- /.panel-heading -->
+                <div class="panel-body">
+                    <div class="dataTable_wrapper">
+                        <table class="table table-striped table-bordered table-hover"
+                               id="unit_type_table"
+                        >
+                            <thead>
+                            <tr>
+                                <th>{{ 'unit.type.th.code'|trans }}</th>
+                                <th>{{ 'unit.type.th.unit.size'|trans }}</th>
+                                <th>{{ 'unit.type.th.common.area.size'|trans }}</th>
+                                <th>{{ 'unit.type.th.total.area.size'|trans }}</th>
+                                <th>{{ 'unit.type.th.room'|trans }}</th>
+                                <th>{{ 'unit.type.th.bedroom'|trans }}</th>
+                                <th>{{ 'unit.type.th.bathroom'|trans }}</th>
+                                <th>{{ 'unit.type.th.actions'|trans }}</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            {% for unitType in project.unitTypes %}
+                                <tr>
+                                    <td>{{ unitType.code }}</td>
+                                    <td>{{ unitType.size }}</td>
+                                    <td>{{ unitType.commonAreaSize }}</td>
+                                    <td>{{ unitType.totalSize }}</td>
+                                    <td>{{ unitType.roomCount }}</td>
+                                    <td>{{ unitType.bedroomCount }}</td>
+                                    <td>{{ unitType.bathroomCount }}</td>
+                                    <td>
+                                        <a href="{{ path('project_unitType_edit', {'project': project.id, 'type': unitType.id}) }}"
+                                           class="btn btn-sm btn-primary"
+                                        >
+                                            {{ 'action.edit'|trans }}
+                                        </a>
+                                    </td>
+                                </tr>
+                            {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+                    <!-- /.table-responsive -->
+                </div>
+                <!-- /.panel-body -->
+            </div>
+            <!-- /.panel -->
+        </div>
+        <!-- /.col-lg-12 -->
+    </div>
+{% endblock %}
+
+{% block additional_resources %}
+    {{ parent() }}
+    {% include 'CondoBundle:partials:datatable_resource.html.twig' with
+        {'selector': '#unit_type_table'}
+    %}
+{% endblock %}

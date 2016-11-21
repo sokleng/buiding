@@ -1,0 +1,203 @@
+{{ form_start(form) }}
+    <div class="row">
+        <div class="form-group">
+            <div class="row">
+                <div class="col-md-12">
+                    {%
+                        include 'CondominiumManagementBundle:Partial:alert_flash_message.html.twig'
+                    %}
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-6 col-lg-4">
+            <div class="form-group">
+                <div class="row">
+                    <div class="col-md-6">
+                        <label class="control-label">
+                            {{ 'condo.label.client.invoice.title'|trans }}
+                            <span class="required-field">*</span>
+                        </label>
+                    </div>
+                    <div class="col-md-6">
+                        {{form_widget(
+                            form.title,
+                            {
+                                'attr': {
+                                    'class': 'form-control',
+                                }
+                            }
+                        )}}
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="row">
+                    <div class="col-md-6">
+                        <label class="control-label">
+                            {{ 'condo.label.client.invoice.category.name'|trans }}
+                        </label>
+                    </div>
+                    <div class="col-md-6">
+                        {{form_widget(
+                            form.incomeCategory,
+                            {
+                                'attr': {
+                                    'class': 'form-control'
+                                }
+                            }
+                        )}}
+                    </div>
+                </div>
+            </div>
+            {% set vat = invoice.vat %}
+            {% if invoice.vat is null %}
+                {% set vat = clientUnit.vat %}
+            {% endif %}
+            <div class="form-group">
+                <div class="row">
+                    <div class="col-md-6">
+                        <label class="control-label">
+                            {{ 'condo.label.client.invoice.vat'|trans }} (%)
+                        </label>
+                    </div>
+                    <div class="col-md-6">
+                        {{form_widget(
+                            form.vat,
+                            {
+                                'attr': {
+                                    'class': 'form-control',
+                                    'value': vat,
+                                    'disabled': 'disabled'
+                                },
+                            }
+                        )}}
+                    </div>
+                </div>
+            </div>
+            {% set currencySign = ''  %}
+            {% if clientUnit.currency is not null %}
+                {% set currencySign = clientUnit.currency.sign %}
+            {% endif %}
+
+            {% set grandTotal = invoice.grandTotal %}
+            {% if invoice.grandTotal is null %}
+                {% set grandTotal = clientUnit.rentalPrice %}
+            {% endif %}
+            <div class="form-group">
+                <div class="row">
+                    <div class="col-md-6">
+                        <label class="control-label">
+                            {{ 'condo.label.client.invoice.grandTotal'|trans }}
+                            ({{currencySign}})
+                            <span class="text-muted small">
+                                ({{ 'condo.label.client.invoice.include.vat'|trans }})
+                            </span>
+                            <span class="required-field">*</span>
+                        </label>
+                    </div>
+                    <div class="col-md-6">
+                        {{form_widget(
+                            form.grandTotal,
+                            {
+                                'attr': {
+                                    'class': 'form-control',
+                                    'value': grandTotal
+                                }
+                            }
+                        )}}
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="row">
+                    <div class="col-md-6">
+                        <label class="control-label">
+                            {{ 'condo.label.client.invoice.description'|trans }}
+                        </label>
+                    </div>
+                    <div class="col-md-6">
+                        {{form_widget(
+                            form.description,
+                            {
+                                'attr': {
+                                    'class': 'form-control'
+                                }
+                            }
+                        )}}
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="row">
+                    <div class="col-md-offset-6 col-md-10">
+                        <input
+                            type="submit"
+                            value="{{ 'btn.save'|trans }}"
+                            class="btn btn-success"
+                        >
+                        <a
+                            href="{{ path(
+                                'condominium_client_invoices',
+                                {
+                                    'condominium': condominium.id,
+                                    'clientUnit': clientUnit.id
+                                }
+                            ) }}"
+                            class="btn btn-default"
+                        >
+                            {{ 'link.back'|trans }}
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-6 col-md-4">
+            <div class="panel panel-default">
+                <div class="panel-body">
+                    <table class="table text-primary">
+                        <tbody>
+                            <tr>
+                                <th>{{ 'condo.th.client.unit.floor'|trans }}</th>
+                                <td>
+                                    {{ clientUnit.unit.floor() }}
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>{{ 'condo.th.client.unit.room.number'|trans }}</th>
+                                <td>{{ clientUnit.unit.roomNumber}}</td>
+                            </tr>
+                            <tr>
+                                <th>{{ 'condo.th.client.unit.rental.price'|trans }}</th>
+                                <td>
+                                    {{ clientUnit.unit.price }}
+                                    ({{currencySign}})
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>{{ 'condo.th.client.unit.pay.by'|trans }}</th>
+                                <td> {{ clientUnit.paymentMethod|paymentMethod|trans }}</td>
+                            </tr>
+
+                            <tr>
+                                <th>{{ 'condo.th.client.unit.type'|trans }}</th>
+                                <td>
+                                    {% if clientUnit.unit.type is not null %}
+                                        {{ clientUnit.unit.type.code }}
+                                    {% endif %}
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-2">
+        <div class=" col-sm-12 col-md-12">
+            {%
+                include 'CondominiumManagementBundle:Partial:exchange_rate_info.html.twig'
+                with {'currencies': currencies }
+            %}
+        </div>
+        </div>
+    </div>
+{{ form_end(form) }}

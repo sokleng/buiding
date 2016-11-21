@@ -1,0 +1,65 @@
+{{ form_start(
+    form,
+    {
+        'attr': {
+            'class': 'form form-inline'
+        }
+    }
+) }}
+    <div class="form-inline">
+        <div class="col-xs-12 col-sm-12 col-md-2 form-group custom-input">
+            <label>{{ 'condo.invoice.show.by'|trans }}</label>
+            {{ form_widget(
+                form.showBy,
+                {
+                    'attr' : {
+                        'class': 'form-control'
+                    }
+                }
+            )}}
+        </div>
+        <div class="col-xs-12 col-sm-12 col-md-2 form-group custom-input">
+            <label>{{ 'condo.invoice.category'|trans }}</label>
+            {{ form_widget(
+                form.category,
+                {
+                    'attr' : {
+                        'class': 'form-control'
+                    }
+                }
+            )}}
+        </div>
+        <div class="col-xs-12 col-sm-12 col-md-2 form-group custom-input">
+            <label>{{ 'condo.invoice.start.date'|trans }}</label>
+            {{ form_widget(
+                form.startDate,
+                {
+                    'attr' : {
+                        'class': 'form-control datepicker'
+                    }
+                }
+            )}}
+        </div>
+        <div class="col-xs-12 col-sm-12 col-md-2 form-group custom-input">
+            <label>{{ 'condo.invoice.end.date'|trans }}</label>
+            {{ form_widget(
+                form.endDate,
+                {
+                    'attr' : {
+                        'class': 'form-control datepicker'
+                    }
+                }
+            )}}
+        </div>
+        <div class="col-xs-12 col-sm-12 col-md-2 form-group">
+            <div class="expend-search btn-block">
+                <button
+                    type="submit"
+                    class="btn btn-default btn-block"
+                >
+                    {{ 'btn.search'|trans }}
+                </button>
+            </div>
+        </div>
+    </div>
+{{ form_end(form) }}

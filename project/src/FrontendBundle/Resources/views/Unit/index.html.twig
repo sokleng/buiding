@@ -1,0 +1,117 @@
+{% extends "FrontendBundle::base_frontend_layout.html.twig" %}
+{% block local_stylesheets %}
+    {% stylesheets filter='scssphp'
+        "@FrontendBundle/Resources/public/scss/unit.scss"
+        "@FrontendBundle/Resources/public/scss/pagination.scss"
+        "@FrontendBundle/Resources/public/scss/footer.scss"
+    %}
+        <link rel="stylesheet" href="{{ asset_url }}"/>
+    {% endstylesheets %}
+{% endblock %}
+{% block base_content %}
+{% include 'FrontendBundle:Unit:header.html.twig' %}
+    <div class="unit-content">
+        <div class="unit-list">
+            <div
+                id="unit-type-switcher"
+                class="col-md-12"
+            >
+                <i
+                    id="switch-button"
+                    class="switch-button glyphicon glyphicon-th-list pull-right "
+                    aria-hidden="true"
+                    onclick="UnitTypes.switch_view()"
+                ></i>
+            </div>
+
+            <section id="list-units">
+                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                    <table class="table table-header">
+                        <tr>
+                            <th>{{ 'unit.th.type'|trans }}</th>
+                            <th>{{ 'unit.th.bathroom'|trans }}</th>
+                            <th>{{ 'unit.th.bedroom'|trans }}</th>
+                            <th>{{ 'unit.th.net_area'|trans }}</th>
+                        </tr>
+                    </table>
+                    <table class="table">
+                    {% for unitType in condoProject.project.unitTypes %}
+                        <tr>
+                            <td>{{ unitType.code }}</td>
+                            <td>{{ unitType.bathroomCount }}</td>
+                            <td>{{ unitType.bedroomCount }}</td>
+                            <td>{{ unitType.size }} m<sup>2</sup></td>
+                        </tr>
+                    {% endfor %}
+                    </table>
+                </div>
+            </section>
+        </div>
+        <div class="unit-list">
+            <section id="grid-units">
+                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                    {% for unitType in condoProject.project.unitTypes %}
+                        <div class="unit-type-grid">
+                            <div class="col-xs-12 col-sm-4 col-md-2 col-lg-2">
+                                <div class="unit-type-img">
+                                    <img
+                                        class="img-responsive"
+                                        src="http://o.homedsgn.com/wp-content/uploads/2013/05/Cat-Mountain-Residence-07-1.jpg">
+                                </div>
+                                <div class="unit-type-info text-uppercase">
+                                    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 no-padding">
+                                        <div class="col-md-12">
+                                            <span class="col-xs-8 col-sm-8 col-md-7 info-key">
+                                                {{ 'unit.th.type'|trans }}
+                                            </span>
+                                            <span class="col-xs-4 col-sm-4 col-md-5 info-value">
+                                                {{ unitType.code }}
+                                            </span>
+                                        </div>
+                                        <div class="col-md-12">
+                                            <span class="col-xs-8 col-sm-8 col-md-7 info-key">
+                                                {{ 'unit.th.net_area'|trans }}
+                                            </span>
+                                            <span class="col-xs-4 col-sm-4 col-md-5 info-value">
+                                                {{ unitType.size }}
+                                                <span class="text-lowercase">m<sup>2</sup></span>
+                                            </span>
+
+                                        </div>
+                                    </div>
+                                    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 no-padding">
+                                        <div class="col-md-12">
+                                            <span class="col-xs-8 col-sm-8 col-md-7 info-key">
+                                                {{ 'unit.th.bathroom'|trans }}
+                                            </span>
+                                            <span class="col-xs-4 col-sm-4 col-md-5 info-value">
+                                                {{ unitType.bathroomCount }}
+                                            </span>
+                                        </div>
+                                        <div class="col-md-12">
+                                            <span class="col-xs-8 col-sm-8 col-md-7 info-key">
+                                                {{ 'unit.th.bedroom'|trans }}
+                                            </span>
+                                            <span class="col-xs-4 col-sm-4 col-md-5 info-value">
+                                                {{ unitType.bedroomCount }}
+                                            </span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    {% endfor %}
+                </div>
+            </section>
+        </div>
+    </div>
+
+{% include 'FrontendBundle:navigation:footer.html.twig' %}
+{% endblock %}
+{% block local_javascripts %}
+    {% javascripts
+        '@FrontendBundle/Resources/public/js/unitTypes.js'
+    %}
+        <script src="{{ asset_url }}"></script>
+    {% endjavascripts %}
+{% endblock %}

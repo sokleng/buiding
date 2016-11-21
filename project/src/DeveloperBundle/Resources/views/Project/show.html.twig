@@ -1,0 +1,96 @@
+{% extends 'DeveloperBundle::content_page_layout.html.twig' %}
+{% set title = 'developer.projects.show.title'|trans ~ ': ' ~ project.name %}
+
+{% block content %}
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="panel panel-default">
+                <div class="panel-body">
+                    <table class="table table-striped">
+                        <tbody>
+                            <tr>
+                                <th>{{ 'developer_project.th.id'|trans }}</th>
+                                <td>{{ project.id }}</td>
+                            </tr>
+                            <tr>
+                                <th>{{ 'developer_project.th.developer'|trans }}</th>
+                                <td>{{ project.developer }}</td>
+                            </tr>
+                            <tr>
+                                <th>{{ 'developer_project.th.name'|trans }}</th>
+                                <td>{{ project.name }}</td>
+                            </tr>
+                            <tr>
+                                <th>{{ 'developer_project.th.contact.name'|trans }}</th>
+                                <td>{{ project.contactName }}</td>
+                            </tr>
+                            <tr>
+                                <th>{{ 'developer_project.th.contact.number'|trans }}</th>
+                                <td>{{ project.contactNumber }}</td>
+                            </tr>
+                            <tr>
+                                <th>{{ 'developer_project.th.description'|trans }}</th>
+                                <td>{{ project.description }}</td>
+                            </tr>
+                            <tr>
+                                <th>{{ 'developer_project.th.creation.date'|trans }}</th>
+                                <td>{{ project.creationDate | date }}</td>
+                            </tr>
+                            <tr>
+                                <td colspan="2">
+                                    <div class="form-group">
+                                        <div class="row">
+                                            <div class="col-xs-10">
+                                                <form method="post"
+                                                      action="{{ path(
+                                                        'developer_project_delete',
+                                                        {'developer':developer.id,
+                                                        'project': project.id }
+                                                        )
+                                                    }}"
+                                                >
+                                                    <a
+                                                        href="{{ path(
+                                                            'developer_project_edit',
+                                                                {
+                                                                    'developer': developer.id,
+                                                                    'project': project.id
+                                                                }
+                                                        )}}"
+                                                        class="btn btn-primary"
+                                                    >
+                                                        {{ 'link.action.edit'|trans }}
+                                                    </a>
+                                                    <a
+                                                        href="{{
+                                                                path(
+                                                                'developer_projects_list',
+                                                                {'developer':developer.id}
+                                                                )
+                                                            }}"
+                                                        class="btn btn-default"
+                                                    >
+                                                        {{ 'link.back'|trans }}
+                                                    </a>
+
+                                                        <input type="hidden"
+                                                               name="_method"
+                                                               value="DELETE"
+                                                        >
+                                                        <input type="submit"
+                                                               class="btn btn-danger"
+                                                               value="{{ 'btn.delete'|trans }}"
+                                                        >
+                                                </form>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

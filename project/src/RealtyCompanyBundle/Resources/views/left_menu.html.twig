@@ -1,0 +1,45 @@
+<div class="navbar-default sidebar" role="navigation" xmlns="http://www.w3.org/1999/html">
+    <div class="sidebar-nav navbar-collapse">
+        <ul class="nav" id="side-menu">
+            {% for realtyCompany in realtyCompanies %}
+            <li>
+                <a href="#">
+                    <i class="fa fa-building fa-fw"></i>
+                    <span class="menu-title">{{ realtyCompany.name }}</span>
+                </a>
+                <ul class="nav nav-second-level collapse in" aria-expanded="true">
+                    <li>
+                        <a href="{{ path(
+                            'realty_company_edit',
+                            {'company' : realtyCompany.id}
+                        ) }}">
+                            <i class="fa fa-pencil"></i>
+                            <span class="menu-title">{{ 'link.action.edit'|trans }}</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="{{ path('company_contacts_list', {'company': realtyCompany.id}) }}">
+                            <i class="fa fa-users fa-fw"></i>
+                            {{ 'link.contact'|trans }}
+                        </a>
+                    </li>
+                    <li>
+                        <a href="{{ path('realty_managers_show', { 'realtyCompany': realtyCompany.id }) }}">
+                            <i class="fa fa-users fa-fw"></i>
+                            <span class="menu-title">{{ 'link.manager'|trans }}</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="{{ path('payments_list', {'company' : realtyCompany.id}) }}">
+                            <i class="fa fa-money fa-fw"></i>
+                            <span class="menu-title">{{ 'link.invoices.to.developer'|trans }}</span>
+                        </a>
+                    </li>
+                </ul>
+            </li>
+            {% endfor %}
+        </ul>
+        {% include 'CondoBundle:partials:button_expand_collapse_menu.html.twig' %}
+    </div>
+    <!-- /.sidebar-collapse -->
+</div>

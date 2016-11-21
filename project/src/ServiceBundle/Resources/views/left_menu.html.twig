@@ -1,0 +1,54 @@
+<div class="navbar-default sidebar" role="navigation" xmlns="http://www.w3.org/1999/html">
+    <div class="sidebar-nav">
+        <ul class="nav" id="side-menu">
+            <li>
+                <a href="{{ path('service_dashboard') }}">
+                    <i class="fa fa-dashboard fa-fw"></i>
+                    <span class="menu-title">{{ 'service.label.dashboard'|trans }}</span>
+                </a>
+            </li>
+            {% for service in services %}
+                <li>
+                    <a href="#">
+                        <i class="fa fa-suitcase fa-fw"></i>
+                        <span class="menu-title">{{ service.title }}</span>
+                        <span class="fa arrow"></span>
+                        {% if service.isOpen %}
+                            <span class="label label-success">{{ 'service.label.open'|trans }}</span>
+                        {% else %}
+                            <span class="label label-danger">{{ 'service.label.closed'|trans }}</span>
+                        {% endif %}
+                    </a>
+                    <ul class="nav nav-second-level">
+                        <li>
+                            <a href="{{ path('service_orders_list', {'service': service.id}) }}">
+                                <i class="fa fa-shopping-cart fa-fw"></i>
+                                <span class="menu-title">{{ 'link.order'|trans }}</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="{{ path('service_openingTime_list', {'service': service.id}) }}">
+                                <i class="fa fa-clock-o fa-fw"></i>
+                                <span class="menu-title">{{ 'link.opening.time'|trans }}</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="{{ path('service_products_list', {'service': service.id}) }}">
+                                <i class="fa fa-table fa-fw"></i>
+                                <span class="menu-title">{{ 'link.product'|trans }}</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="{{ path('service_condominium_list', {'service': service.id}) }}">
+                                <i class="fa fa-building fa-fw"></i>
+                                <span class="menu-title">{{ 'link.buildings'|trans }}</span>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+            {% endfor %}
+        </ul>
+        {% include 'CondoBundle:partials:button_expand_collapse_menu.html.twig' %}
+    </div>
+    <!-- /.sidebar-collapse -->
+</div>

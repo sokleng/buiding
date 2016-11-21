@@ -1,0 +1,47 @@
+{% extends 'ClientBundle::content_page_layout.html.twig' %}
+{% set title = news.title %}
+{% block content %}
+    <div class="col-lg-12 nopadding-left">
+        <div class="col-lg-5 col-md-5 col-sm-12 col-xs-12 nopadding-left">
+            {% if news.picture is not null %}
+                <img class="img-responsive"
+                    src="{{
+                        path(
+                            'condo_resource',
+                            {'fileId': news.picture.id }
+                        )
+                    }}"
+                    alt="{{ news.title }}"
+                >
+            {% endif %}
+        </div>
+        <div
+            class="
+                {% if news.picture is not null %}
+                    col-lg-7 col-md-7
+                {% else %}
+                    col-lg-12 col-md-12
+                {% endif %}
+                col-sm-12 col-xs-12 nopadding-left
+            "
+        >
+            <p>{{ news.shortDescription }}</p>
+            <div>
+                {{ news.description|striptags }}
+            </div>
+            <a
+                href="{{
+                    path(
+                        'client_news_list',
+                        {
+                            'unit': unit.id
+                        }
+                    )
+                }}"
+            >
+                {{ 'link.back'|trans }}
+            </a>
+        </div>
+        <br/>
+    </div>
+{% endblock %}

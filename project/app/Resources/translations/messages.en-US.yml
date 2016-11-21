@@ -1,0 +1,48 @@
+placeholder.search: Search...
+progress.bar.label.complete: Completed
+pagination.label.page: page
+pagination.btn.jump: jump
+navigation.label.toggle.navigation: Toggle navigation
+action.edit: Edit
+action.delete: Delete
+action.show: Show
+
+btn.delete: Delete
+btn.create: Create
+btn.save: Save
+btn.add: Add
+btn.cancel: Cancel
+btn.edit: Edit
+btn.publish: Publish
+
+title.webridge.backend.template: WeBridge Backend Template
+link.action.edit: Edit
+link.back: Back
+link.see.all.alerts: See All Alerts
+link.new.comment: New Comment
+link.new.followers: New Followers
+link.message.sent: Message Sent
+link.task.completed: Task Completed
+link.read.all.messages: Read All Messages
+link.see.all.tasks: See All Tasks
+link.settings: Settings
+link.user.profile: User Profile
+link.logout: Logout
+link.clients: Clients
+link.buildings: Buildings
+link.services: Services
+link.projects: Projects
+link.platforms: Platforms
+link.developers: Developers
+link.realty.companies: Realty Companies
+link.order.history: Order History
+
+flash.create.success: Item "%name%" has been successfully created.
+flash.edit.success: Item "%name%" has been successfully updated.
+flash.delete.success: Item "%name%" has been deleted successfully.
+flash.create.error: An error has occurred during the creation of item "%name%".
+flash.edit.error: An error has occurred during update of item "%name%".
+flash.delete.error: An Error has occurred during deletion of item "%name%".
+
+label.pagination.page: Page
+label.pagination.jump: Jump

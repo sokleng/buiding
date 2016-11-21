@@ -1,0 +1,109 @@
+<div class="col-sm-6">
+    {{ form_start(form, {'attr': {'class' : 'form-horizontal'}}) }}
+    <div class="form-group">
+        <label class="col-sm-3 control-label">
+            {{ 'realty_projects.label.developer'|trans }}:
+        </label>
+        <div class="col-sm-6">
+            {{ form_widget(form.developer, {'attr': {'class' : 'form-control'}}) }}
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="col-sm-3 control-label">
+            {{ 'realty_projects.label.name'|trans }}:
+        </label>
+        <div class="col-sm-6">
+            {{ form_widget(form.name, {'attr': {'class' : 'form-control'}}) }}
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="col-sm-3 control-label">
+            {{ 'realty_projects.label.address'|trans }}:
+        </label>
+        <div class="col-sm-6">
+            {{ form_widget(form.address, {'attr': {'class' : 'form-control'}}) }}
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="col-sm-3 control-label">
+            {{ 'realty_projects.label.district'|trans }}:
+        </label>
+        <div class="col-sm-6 district">
+            {{ form_widget(form.district, {'attr': {'class' : 'form-control'}}) }}
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="col-sm-3 control-label">
+            {{ 'realty_projects.label.floor.count'|trans }}:
+        </label>
+        <div class="col-sm-6">
+            {{ form_widget(form.floorCount, {'attr': {'class' : 'form-control'}}) }}
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="col-sm-3 control-label">
+            {{ 'realty_projects.label.contact.name'|trans }}:
+        </label>
+        <div class="col-sm-6">
+            {{ form_widget(form.contactName, {'attr': {'class' : 'form-control'}}) }}
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="col-sm-3 control-label">
+            {{ 'realty_projects.label.contact.number'|trans }}:
+        </label>
+        <div class="col-sm-6">
+            {{ form_widget(form.contactNumber, {'attr': {'class' : 'form-control'}}) }}
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="col-sm-3 control-label">
+            {{ 'realty_projects.label.description'|trans }}:
+        </label>
+        <div class="col-sm-6">
+            {{ form_widget(form.description, {'attr': {'class' : 'form-control'}}) }}
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="col-sm-3">
+        </div>
+        <div class="col-sm-6">
+            <input type="submit" class="btn btn-success" value="{{'btn.save'|trans}}" />
+            <a
+                href="{{ path('platform_project_list') }}"
+                class="btn btn-default"
+            >
+                {{'link.back'|trans}}
+            </a>
+        </div>
+    </div>
+    {{ form_end(form) }}
+
+    {% if isEditpage is defined %}
+        <div class="form-group">
+            <div class="col-sm-2">
+            </div>
+            <div class="col-sm-6">
+                <form method="post"
+                    action="{{ path(
+                        'platform_project_delete',
+                        {'project': project.id}
+                    ) }}"
+                >
+                     <div class="form-group">
+                        <div class="col-xs-offset-1 col-xs-10">
+                            <input type="hidden"
+                                name="_method"
+                                value="DELETE"
+                            >
+                            <input type="submit"
+                                class="btn btn-danger"
+                                value="{{ 'btn.delete'|trans }}"
+                            >
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    {% endif %}
+</div>

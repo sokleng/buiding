@@ -1,0 +1,3 @@
+user_profile_edit:
+    resource: "@WeBridgeUserBundle/Controller/UserProfileController.php"
+    type: annotation

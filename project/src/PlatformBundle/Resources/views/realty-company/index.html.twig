@@ -1,0 +1,75 @@
+{% extends 'PlatformBundle::content_page_layout.html.twig' %}
+{% set title = 'realty_company.title.show'|trans %}
+
+{% block content %}
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <a href="{{ path('platform_realty_company_new') }}"
+                       class="btn btn-success"
+                    >
+                        {{ 'realty_companies.action.create'| trans }}
+                    </a>
+                </div>
+                <!-- /.panel-heading -->
+                <div class="panel-body">
+                    <div class="dataTable_wrapper">
+                        <table class="table table-striped table-bordered table-hover">
+                            <thead>
+                            <tr>
+                                <th>{{ 'realty_company.th.id' | trans }}</th>
+                                <th>{{ 'realty_company.th.company.name' | trans }}</th>
+                                <th>{{ 'realty_company.th.contact.number' | trans }}</th>
+                                <th>{{ 'realty_company.th.description' | trans }}</th>
+                                <th>{{ 'realty_company.th.creation.date' | trans }}</th>
+                                <th>{{ 'realty_company.th.actions' | trans }}</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            {% for realtyCompany in realtyCompanies %}
+                                <tr>
+                                    <td>{{ realtyCompany.id }}</td>
+                                    <td>
+                                        <a href="">
+                                            {{ realtyCompany.name }}
+                                        </a>
+                                    </td>
+                                    <td>{{ realtyCompany.contactNumber }}</td>
+                                    <td>{{ realtyCompany.description }}</td>
+                                    <td>{{ realtyCompany.creationDate | date }}</td>
+                                    <td>
+                                        <a
+                                            href="{{ path('platform_realty_company_show',
+                                                {
+                                                    'realtyCompany' : realtyCompany.id
+                                                })
+                                            }}"
+                                            class="btn btn-sm btn-primary"
+                                        >
+                                            {{ 'action.show' | trans }}
+                                        </a>
+                                        <a
+                                            href="{{ path(
+                                                'platform_realty_company_edit',
+                                                { 'realtyCompany': realtyCompany.id }
+                                            ) }}"
+                                            class="btn btn-sm btn-primary"
+                                        >
+                                            {{ 'action.edit'| trans }}
+                                        </a>
+                                    </td>
+                                </tr>
+                            {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+                    <!-- /.table-responsive -->
+                </div>
+                <!-- /.panel-body -->
+            </div>
+            <!-- /.panel -->
+        </div>
+        <!-- /.col-lg-12 -->
+    </div>
+{% endblock %}

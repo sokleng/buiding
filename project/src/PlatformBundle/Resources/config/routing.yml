@@ -1,0 +1,56 @@
+platform_home:
+    resource: "@AppBundle/Controller/"
+    type:     annotation
+    prefix:   /
+    requirements:
+        _locale: "%app_locales%"
+
+platform_area_country:
+    resource: "@PlatformBundle/Controller/CountryController.php"
+    type:     annotation
+    prefix:   /
+    requirements:
+        _locale: "%app_locales%"
+
+platform_area_city:
+    resource: "@PlatformBundle/Controller/CityController.php"
+    type:     annotation
+    prefix:   /
+    requirements:
+        _locale: "%app_locales%"
+
+platform_area_district:
+    resource: "@PlatformBundle/Controller/DistrictController.php"
+    type:     annotation
+    prefix:   /
+    requirements:
+        _locale: "%app_locales%"
+
+platform_user:
+    resource: "@PlatformBundle/Controller/UserController.php"
+    type: annotation
+    prefix: /
+
+platform_condos:
+    resource: "@PlatformBundle/Controller/CondominiumController.php"
+    type:     annotation
+
+platform_service_provider:
+    resource: "@PlatformBundle/Controller/ServiceProviderController.php"
+    type:     annotation
+
+platform_service:
+    resource: "@PlatformBundle/Controller/ServiceController.php"
+    type:     annotation
+
+platform_project:
+    resource: "@PlatformBundle/Controller/RealtyProjectController.php"
+    type:     annotation
+
+platform_realty_company:
+    resource: "@PlatformBundle/Controller/RealtyCompanyController.php"
+    type:     annotation
+
+platform_devloper:
+    resource: "@PlatformBundle/Controller/DeveloperController.php"
+    type:     annotation

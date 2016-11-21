@@ -1,0 +1,82 @@
+{% extends "FrontendBundle::content_page_layout.html.twig" %}
+{% set title = 'home.title.homepage'|trans %}
+
+{% block local_stylesheets %}
+    {% stylesheets filter='scssphp'
+        "@FrontendBundle/Resources/public/scss/searchMap.scss"
+    %}
+        <link rel="stylesheet" href="{{ asset_url }}"/>
+    {% endstylesheets %}
+{% endblock %}
+
+{% block content %}
+<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+    <br><br>
+</div>
+<section id="list-condomunium">
+    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 ">
+        <div class="container">
+            <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 no-padding">
+                {% for projectProfile in projectPublicListings %}
+                    <div class="sidebar-nav navbar-collapse">
+                        <ul class="nav side-menu">
+                            <li
+                                class='lat-and-lng'
+                                class="sidebar-select"
+                                data-name="{{ projectProfile.project.name }}"
+                                data-lat="{{projectProfile.latitude}}"
+                                data-lng="{{projectProfile.longitude}}"
+                            >
+                                <a href="#">
+                                    <div class="menu-image">
+                                        <div class="image-condominium">
+                                            {% include 'CondoBundle:partials:image_resource.html.twig'
+                                                with {'resource' : projectProfile.databaseFile}
+                                            %}
+                                        </div>
+                                        <div class="information-condo">
+                                            <h5> {{ projectProfile.project.name }}</h5>
+                                            <p>
+                                                <div class="address-text">
+                                                    <span
+                                                        class="text-gray"
+                                                    >
+                                                    {{ projectProfile.project.address }}
+                                                    </span>
+                                                </div>
+                                            </p>
+                                            <p>
+                                                <span
+                                                    class="text-gray"
+                                                >
+                                                    FOR UNIT: {{projectProfile.totalUnit}}
+                                                </span>
+                                            </p>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                {% endfor %}
+            </div>
+            <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8 no-padding">
+                <div id="map"></div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}
+
+{% block additional_resources %}
+    {% javascripts
+        "@FrontendBundle/Resources/public/js/map.js"
+    %}
+        <script src="{{ asset_url }}"></script>
+    {% endjavascripts %}
+    <script
+        src="https://maps.googleapis.com/maps/api/js?key={{ google_maps_api_key }}&callback=initMap"
+        async defer
+    >
+    </script>
+{% endblock %}

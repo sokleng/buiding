@@ -1,0 +1,55 @@
+<div class="form-group">
+    <div class="row">
+        <label class="col-xs-2 control-label">
+            {{ 'user.label.role.type.spaces'|trans }}
+            <span class="required-field">*</span>
+        </label>
+        <div class="col-xs-4">
+            <select class="form-control" name="spaceType">
+                {% for roleTypeSpace in roleTypeSpaces %}
+                    <option
+                        value="{{ roleTypeSpace.id }}"
+                        {% if user is defined and
+                            user.spaceType ==
+                            roleTypeSpace.id
+                        %}
+                            selected="selected"
+                        {% endif %}
+                    >
+                        {% if roleTypeSpace.name is defined %}
+                            {{ roleTypeSpace.name }}
+                        {% else %}
+                            {{ roleTypeSpace.title }}
+                        {% endif %}
+                    </option>
+                {% endfor %}
+            </select>
+        </div>
+    </div>
+</div>
+<div class="form-group">
+    <div class="row">
+        <label class="col-xs-2 control-label">
+            {{ 'user.label.modules'|trans }}
+            <span class="required-field">*</span>
+        </label>
+        <div class="col-xs-4">
+            {% for module in modules %}
+                <input
+                    type="checkbox"
+                    value="{{ module.key }}"
+                    name="module[{{ loop.index }}]"
+                    {% if user is defined %}
+                        {% for role in user.getRoles() %}
+                            {% if role == module.key %}
+                                checked="checked"
+                            {% endif %}
+                        {% endfor %}
+                    {% endif %}
+                >
+                <span>{{ module.name|trans }}</span>
+                <br/>
+            {% endfor %}
+        </div>
+    </div>
+</div>

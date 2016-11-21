@@ -1,0 +1,28 @@
+{% extends 'ClientBundle::content_page_layout.html.twig' %}
+{% set title = 'home.title.list'|trans %}
+
+{% block content %}
+    <div class="row">
+        {% for condo in condominiums %}
+            <div class="col-lg-4">
+                <a href="{{ path('client_add_unit', {'condominium': condo.id}) }}"
+                >
+                    <div class="panel panel-default">
+
+                        <div class="panel-heading">
+                            <h2>{{ condo.name }}</h2>
+                        </div>
+                        <div class="panel-body">
+                            {{ condo.address }},
+                            {{ condo.district.name }},
+                            {{ condo.district.city.name }},
+                            {{ condo.district.city.country.name }}
+                        </div>
+                    </div>
+                </a>
+
+            </div>
+        {% endfor %}
+    </div>
+{% endblock %}
+

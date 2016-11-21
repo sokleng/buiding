@@ -1,0 +1,36 @@
+condominium.th.id: Id
+condominium.th.name: Name
+condominium.th.address: Address
+condominium.th.creation.date: Creation Date
+condominium.th.actions: Actions
+building.label.served.buildings: Served Buildings
+building.label.available.buildings: Available Buildings
+service.title: 服务
+service.label.openingTime: 营业时间
+service.label.closingTime: 关闭时间
+service.label.dayOfTheWeekStart: 日的一周内开始
+service.label.dayOfTheWeekEnd: 日的一周内结束
+service.label.enabled: 启用
+service.label.create: 创建
+service.label.back: 背部
+service.message.no.order: You don't have any order yet!
+service.label.reference: Reference
+service.label.name: Name
+service.label.description: Description
+service.label.price: Price
+service.label.picture: Picture
+service.label.enabled: Enabled
+service.label.create: Create
+service.label.backToTheList: Back To The List
+project.payment.label.contact: Contact
+project.payment.label.unit: Unit
+project.payment.label.paymentMethod: Payment Method
+project.payment.label.receiver: Receiver
+project.payment.label.description: Description
+project.setting.unit.type.label.code: Code
+project.setting.unit.type.label.size: Size
+project.setting.unit.type.label.commonAreaSize: Common Area Size
+project.setting.unit.type.label.roomCount: Room Count
+project.setting.unit.type.label.bedroomCount: Bedroom Count
+project.setting.unit.type.label.bathroomCount: Bathroom Count
+project.setting.unit.type.label.description: Description

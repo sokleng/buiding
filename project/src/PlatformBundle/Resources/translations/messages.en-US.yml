@@ -1,0 +1,222 @@
+link.buildings: Buildings
+link.homepage: Home Page
+link.users: Users
+link.service.providers: Service Providers
+link.services: Services
+link.realty.projects: Realty Projects
+link.countries: Countries
+link.login.page: Login Page
+link.tables: Tables
+link.forms: Forms
+link.panels.and.wells: Panels and Wells
+link.buttons: Buttons
+link.notifications: Notifications
+link.typography: Typography
+link.icons: Icons
+link.grid: Grid
+link.developers: Developers
+link.service: Service
+link.global.setting: Global Settings
+link.realty: Realty
+link.user.add.new: Create A New User
+
+title.dropdown.page.samples: Page Samples
+title.dropdown.ui.elements: UI Elements
+title.dropdown.sample.pages: Sample Pages
+
+developers.th.id: ID
+developers.th.name: Name
+developers.th.description: Description
+developers.th.creation.date: Creation Date
+developers.title: Developers
+developers.action.create: Create a new Developer
+developers.th.actions: Actions
+developers.title.new: New Developer
+developers.label.name: Name
+developers.label.description: Description
+developers.title.edit: Developers
+developers.title.show: Developer
+developers.title.panel.managers: Managers
+developers.placeholder.username: Username
+developers.btn.add.user: Add User
+developers.th.email: Email
+developers.th.phone.number: Phone Number
+
+users.title: Users
+users.title.panel.users.list: Users list
+users.th.id: ID
+users.th.name: Name
+users.th.phone.number: Phone Number
+users.th.action: Action
+user.new.title: New User
+user.label.name: Name
+user.label.email: Email
+user.label.phone.number: Phone Number
+user.label.password: Password
+user.label.repeat.password: Repeat Password
+user.label.profile.picture: Profile Picture
+user.label.role.type: Role Type
+user.label.modules: Modules
+user.label.role.type.spaces: Role Type Spaces
+user.label.id: ID
+user.title.show: Show
+user.edit.title: Edit
+user.label.no.picture: N/A
+error.message.please.check.module: Please check modules.
+error.message.user.exist.created: User exist created.
+error.message.can.not.delete.user: Can not delete user.
+
+buildings.title: Buildings
+buildings.title.show: Building
+buildings.title.new: New Building
+buildings.title.edit: Edit Building
+buildings.title.panel.managers: Managers
+buildings.title.input.username: Username
+buildings.label.id: ID
+buildings.label.name: Name
+buildings.label.address: Address
+buildings.label.district: District
+buildings.label.vat: VAT
+buildings.label.rate: RATE
+buildings.label.vat.tin: VAT TIN
+buildings.label.creation.date: Creation Date
+buildings.label.currency: Currency
+buildings.th.id: ID
+buildings.th.name: Name
+buildings.th.address: Address
+buildings.th.currency: Currency
+buildings.th.District: District
+buildings.th.email: Email
+buildings.th.rate: RATE
+buildings.th.vat: VAT
+buildings.th.vat.tin: VAT TIN
+buildings.th.phone.number: Phone Number
+buildings.th.creation.date: Creation Date
+buildings.th.actions: Actions
+buildings.placeholder.username: Username
+buildings.action.create: Create a new Condominium
+buildings.btn.add.user: Add User
+
+service_providers.title: Service Providers
+service_providers.title.show: Service Provider
+service_providers.title.new: New Service Provider
+service_providers.title.edit: Edit Service Provider
+service_providers.title.input.username: Username
+service_providers.label.id: ID
+service_providers.label.company.name: Company Name
+service_providers.label.description: Description
+service_providers.label.contact.number: Contact Number
+service_providers.label.creation.date: Creation Date
+service_providers.label.currency: Currency
+service_providers.label.vat: VAT
+service_providers.label.rate: RATE
+service_providers.th.company.name: Company Name
+service_providers.th.description: Description
+service_providers.th.currency: Currency
+service_providers.th.contact.number: Contact Number
+service_providers.th.creation.date: Creation Date
+service_providers.th.actions: Actions
+service_providers.th.id: ID
+service_providers.action.create: Create a new Service Provider
+service.title.panel.managers: Managers
+service.th.id: ID
+service.th.name: Name
+service.th.email: Email
+service.th.phone.number: Phone Number
+service.placeholder.username: Username
+service.th.action: Action
+service.btn.add.user: Add User
+
+services.title: Services
+services.title.show: Service
+services.title.new: New Service
+services.title.edit: Edit Service
+services.label.id: ID
+services.label.type: Type
+services.label.title: Title
+services.label.description: Description
+services.label.service.provider: Service Provider
+services.label.creation.date: Creation Date
+services.label.managers: Managers
+services.th.id: ID
+services.th.type: Type
+services.th.title: Title
+services.th.creation.date: Creation Date
+services.th.description: Description
+services.th.actions: Actions
+services.action.create: Create a new Service
+
+realty_projects.title: Realty Projects
+realty_projects.title.show: Realty Project
+realty_projects.title.new: New Realty Project
+realty_projects.title.edit: Edit Realty Project
+realty_projects.title.panel.managers: Managers
+realty_projects.title.input.username: Username
+realty_projects.label.id: ID
+realty_projects.label.name: Name
+realty_projects.label.address: Address
+realty_projects.label.district: District
+realty_projects.label.floor.count: Floor Count
+realty_projects.label.contact.name: Contact Name
+realty_projects.label.contact.number: Contact Number
+realty_projects.label.description: Description
+realty_projects.label.developer: Developer
+realty_projects.th.id: ID
+realty_projects.th.name: Name
+realty_projects.th.email: Email
+realty_projects.th.phone.number: Phone Number
+realty_projects.th.address: Address
+realty_projects.th.district: District
+realty_projects.th.floor.count: Floor Count
+realty_projects.th.contact.name: Contact Name
+realty_projects.th.contact.number: Contact Number
+realty_projects.th.description: Description
+realty_projects.th.developer: Developer
+realty_projects.th.creation.date: Creation Date
+realty_projects.th.actions: Actions
+realty_projects.placeholder.username: Username
+realty_projects.action.create: Create a new Project
+realty_projects.btn.add.user: Add User
+
+countries.title: Countries
+countries.title.panel.datatables.advanced.tables: DataTables Advanced Tables
+countries.title.input.country.code: Country Code
+countries.title.input.country.name: Country Name
+countries.th.code: Code
+countries.th.name: Name
+countries.th.action: Action
+countries.btn.add.country: Add Country
+countries.lable.add.country: Add Country
+countries.lable.with.name: With Name
+countries.placeholder.code: Code
+countries.placeholder.name: Name
+
+homepage.title: Home Page
+
+realty_companies.action.create: Create a new Realty Company
+
+realty_company.title.panel.managers: Managers
+realty_company.title.input.username: Username
+realty_company.title.show: Realty Company
+realty_company.placeholder.username: Username
+realty_company.btn.add.user: Add User
+realty_company.th.id: ID
+realty_company.th.email: Email
+realty_company.th.phone.number: Phone Number
+realty_company.th.actions: Actions
+realty_company.th.name: Name
+realty_company.th.contact.number: Contact Number
+realty_company.th.creation.date: Create Date
+realty_company.th.description: Description
+realty_company.th.company.name: Company Name
+
+city.title.cities: Cities
+city.title.add.new.city.name: Add New City Name
+city.th.name: Name
+city.th.actions: Actions
+city.link.add.city: Add City
+
+platform.choose.currency: Choose Currency
+platform.warning: Warning
+platform.warning.change.the.currency.will.effect.to.the.system: Change the currency will effect to the system!
+platform.warning.we.update.price.of.unit.in.condominium: We update price of unit in condominium

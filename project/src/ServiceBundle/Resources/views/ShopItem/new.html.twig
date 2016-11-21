@@ -1,0 +1,80 @@
+{% extends 'ServiceBundle::content_page_layout.html.twig' %}
+{% set title = 'show.item.title.new'|trans %}
+
+{% block content %}
+    <div class="col-sm-6">
+        {{ form_start(form, {'attr': {'class' : 'form-horizontal'}}) }}
+            <div class="form-group">
+                <label class="col-sm-3">
+                    {{ 'show.item.label.reference'|trans }}:
+                </label>
+                <div class="col-sm-6">
+                    {{ form_widget(form.reference, {'attr': {'class' : 'form-control'}}) }}
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-3">
+                    {{ 'show.item.label.name'|trans }}:
+                    <span class="required-field">*</span>
+                </label>
+                <div class="col-sm-6">
+                    {{ form_widget(form.name, {'attr': {'class' : 'form-control'}}) }}
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-3">
+                    {{ 'show.item.label.unit.price'|trans }}:
+                    <span class="required-field">*</span>
+                </label>
+                <div class="col-sm-6">
+                    {{ form_widget(form.price, {'attr': {'class' : 'form-control'}}) }}
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-3">
+                    {{ 'show.item.label.picture'|trans }}:
+                    <span class="required-field">*</span>
+                </label>
+                <div class="col-sm-6">
+                    {{ form_widget(form.picture, {'attr': {'class' : 'form-control'}}) }}
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-3">
+                    {{ 'show.item.label.description'|trans }}:
+                    <span class="required-field">*</span>
+                </label>
+                <div class="col-sm-6">
+                    {{ form_widget(form.description, {'attr': {'class' : 'form-control'}}) }}
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-3">
+                    {{ 'show.item.label.enabled'|trans }}:
+                </label>
+                <div class="col-sm-1">
+                    {{ form_widget(form.enabled)}}
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-sm-offset-3 col-sm-6">
+                    <input
+                        class="btn btn-success"
+                        type="submit"
+                        value="{{ 'btn.create'|trans }}"
+                    />
+                    <a
+                        href="{{
+                            path('service_products_list',
+                            {'service': service.id})
+                        }}"
+                        class="btn btn-default"
+                    >
+                        {{ 'link.back'|trans }}
+                    </a>
+                </div>
+            </div>
+        {{ form_end(form) }}
+    </div>
+
+{% endblock %}

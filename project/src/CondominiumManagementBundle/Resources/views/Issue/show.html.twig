@@ -1,0 +1,300 @@
+{% extends 'CondominiumManagementBundle::content_page_layout.html.twig' %}
+{% set title = condominium.name ~ ' - #' ~ issue.unit.roomNumber ~' - Issue #' ~ issue.id %}
+
+{% set currencySign = '' %}
+{% if issue.currency is not null %}
+    {% set currencySign = issue.currency.sign %}
+{% else %}
+    {% set currencySign = condominium.currency.sign %}
+{% endif %}
+
+{% block content %}
+    <div class="row">
+        <div class="col-md-12">
+            {%
+                include 'CondominiumManagementBundle:Partial:alert_flash_message.html.twig'
+            %}
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="panel panel-default">
+                <div class="panel-heading lead">
+                        <span>
+                            {{ 'condo.label.issue'|trans }} #{{ issue.id }}
+                        </span>
+                    -
+                    <small>
+                        {{ issue.creationDate | date }}
+                        <span class="label label-danger">
+                            {{ 'condo.label.issue.price'|trans }} :
+                            {{ issue.price|number_format(2, '.', ',')}}
+                            {{ currencySign }}
+                        </span>
+                        {% if not issue.isClosed() %}
+                            <button
+                                type="button"
+                                action-type="edit"
+                                onclick="Issue.show_popup_modal(this)"
+                                class="btn btn-link"
+                            >
+                                <i class="fa fa-pencil fa-fw"></i>
+                            </button>
+                        {% endif %}
+                    </small>
+                    <div class="pull-right">
+                        <span>Status:</span>
+                        <span class="label label-default">
+                            {{ issue.status | issueStatus }}
+                        </span>
+                    </div>
+                </div>
+                <div class="panel-body">
+                    {{ issue.description }}
+                </div>
+                <div class="panel-footer">
+                    {% if issue.isOpen %}
+                        <button
+                            type="button"
+                            action-type="closed"
+                            class="btn btn-success pull-right btn-spaced"
+                            onclick="Issue.show_popup_modal(this)"
+                        >
+                            {{ 'condo.label.mark.issue.closed'|trans }}
+                        </button>
+                    {% endif %}
+                    {% if issue.isNew %}
+                        <button
+                            type="button"
+                            action-type="progress"
+                            class="btn btn-primary pull-left"
+                            onclick="Issue.show_popup_modal(this)"
+                        >
+                            {{ 'condo.label.mark.issue.progress'|trans }}
+                        </button>
+                    {% endif %}
+
+                    {% if not issue.isOpen %}
+                        <span class="col-xs-12 lead text-danger text-center">
+                            {{ 'condo.label.mark.issue.close'|trans }}
+                            {{ issue.closingDate | time_diff }}
+                        </span>
+                    {% endif %}
+                    <div class="clearfix"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    {% include 'CondominiumManagementBundle:Partial:issue_photos_videos.html.twig' %}
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="panel panel-default">
+                <div class="panel-heading lead">
+                    <i class="fa fa-comments fa-fw"></i>
+                    {{ 'condo.label.comments'|trans }}
+                </div>
+                <div class="panel-body">
+                    <ul class="chat">
+                        {% for message in issue.comments %}
+                            {% set isCurrent = message.user != issue.user %}
+                            <li class="clearfix">
+                                <span class="chat-img {{ isCurrent ? 'pull-right' : 'pull-left' }}">
+                                    <i class="fa fa-fw text-primary {{ isCurrent ? 'fa-user' : 'fa-life-ring' }}"></i>
+                                </span>
+                                <div class="chat-body clearfix">
+                                    <div class="header">
+                                        <small class="text-muted {{ isCurrent ? '' : 'pull-right' }}">
+                                            <i class="fa fa-clock-o fa-fw"></i>
+                                            {{ message.creationDate | time_diff }}
+                                        </small>
+                                        <strong class="primary-font {{ isCurrent ? 'pull-right' : '' }}">
+                                            {{ message.user.name }}
+                                        </strong>
+                                    </div>
+                                    <p>{{ message.comment }}</p>
+                                </div>
+                            </li>
+                        {% endfor %}
+                    </ul>
+                </div>
+                <div class="panel-footer">
+                    <form method="post"
+                          action="{{ path('condominium_issues_comments_new', {'issue': issue.id, 'condominium': condominium.id}) }}"
+                >
+                    <div class="input-group">
+                        <input class="form-control input-sm {{ issue.isOpen ? '' : 'disabled' }}"
+                               title="Comment"
+                               name="issue_comment"
+                               placeholder="Type your comment here..."
+                               type="text"
+                               aria-required="true"
+                               required
+                                {{ issue.isOpen ? '' : 'disabled' }}
+                        >
+                        <span class="input-group-btn">
+                            <button type="submit"
+                                    class="btn btn-primary btn-sm {{ issue.isOpen ? '' : 'disabled' }}"
+                                    {{ issue.isOpen ? '' : 'disabled' }}
+                            >
+                                {{ 'condo.label.send'|trans }}
+                            </button>
+                        </span>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <div
+        id="modal-action"
+        class="modal fade"
+        tabindex="-1"
+        role="dialog"
+        aria-labelledby="mySmallModalLabel"
+    >
+        {{ form_start(form) }}
+            <div class="modal-dialog modal-lg" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button
+                            type="button"
+                            class="close"
+                            data-dismiss="modal"
+                            aria-label="Close"
+                        >
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                        <h4 class="modal-title">{{ 'condo.issue.information'|trans }}</h4>
+                    </div>
+                    <div class="modal-body">
+                        <div class="row">
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <label>
+                                        {{ 'condo.issue.supplier.type'|trans }}
+                                    </label>
+                                    {{form_widget(
+                                        form.supplierType,
+                                        {
+                                            'attr': {
+                                                'class': 'form-control supplierType',
+                                                'onchange': 'Issue.channge_supplier_type()'
+                                            }
+                                        }
+                                    )}}
+                                </div>
+                                <div class="form-group">
+                                    <label>{{ 'condo.issue.supplier.name'|trans }}</label>
+                                    <strong class="text-danger">*</strong>
+                                    {% set supplierName = '' %}
+                                    {% set supplierId = '' %}
+                                    {% if issue.supplier is not null %}
+                                        {% set supplierName = issue.supplier.name %}
+                                        {% set supplierId = issue.supplier.id %}
+                                    {% endif %}
+                                    {{form_widget(
+                                        form.supplierName,
+                                        {
+                                            'attr': {
+                                                'class': 'form-control',
+                                                'value': supplierName
+                                            }
+                                        }
+                                    )}}
+                                    {{form_widget(
+                                        form.supplierId,
+                                        {
+                                            'attr': {
+                                                'class': 'form-control',
+                                                'value': supplierId
+                                            }
+                                        }
+                                    )}}
+                                </div>
+                                <div class="form-group">
+                                    <label>{{ 'condo.issue.price'|trans }} ({{ currencySign }})</label>
+                                    <small>
+                                        ({{ 'condo.label.issue.supplier.include.vat'|trans }})
+                                    </small>
+                                    <strong class="text-danger">*</strong>
+                                    {{form_widget(
+                                        form.price,
+                                        {
+                                            'attr': {
+                                                'class': 'form-control',
+                                                'required': 'true'
+                                            }
+                                        }
+                                    )}}
+                                    <div class="text-danger">
+                                        {% if  form_errors(form.price) %}
+                                            <span>{{ 'the.value.should.be.number'|trans }}</span>
+                                        {% endif %}
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-offset-2 col-md-4">
+                                {%
+                                    include 'CondominiumManagementBundle:Partial:exchange_rate_info.html.twig'
+                                    with {'currencies': currencies }
+                                %}
+                            </div>
+                            <div class="col-sm-12 col-md-12">
+                                <div class="panel">
+                                    <table class="table table-striped">
+                                        <tbody>
+                                            <tr>
+                                                <th>{{ 'condo.th.issue.supplier.email'|trans }}</th>
+                                                <td id='sumplier-email'></td>
+                                            </tr>
+                                            <tr>
+                                                <th>{{ 'condo.th.issue.supplier.phone'|trans }}</th>
+                                                <td id='supplier-phone'></td>
+                                            </tr>
+                                            <tr>
+                                                <th>{{ 'condo.th.issue.supplier.address'|trans }}</th>
+                                                <td id='supplier-address'></td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button
+                            type="button"
+                            class="btn btn-danger btn-sm"
+                            data-dismiss="modal"
+                        >
+                            {{ 'btn.cancel'|trans }}
+                        </button>
+                        <button
+                            type="submit"
+                            class="btn btn-primary btn-sm pull-right"
+                        >
+                            {{ 'btn.save'|trans }}
+                        </button>
+                  </div>
+                </div><!-- /.modal-content -->
+            </div><!-- /.modal-dialog -->
+        {{ form_end(form) }}
+    </div><!-- /.modal -->
+{% endblock %}
+{% block additional_resources %}
+    {%
+        include 'CondoBundle:partials:jquery_ui_resource.html.twig'
+    %}
+{% endblock %}
+
+{% block javascripts %}
+    {% javascripts
+        "@CondominiumManagementBundle/Resources/public/js/issue.js"
+    %}
+        <script>
+            var route = "{{ path('condominium_get_suppliers', {'condominium': condominium.id}) }}";
+            var route_info = "{{ path('condominium_get_suppliers_info', {'condominium': condominium.id}) }}";
+        </script>
+        <script src="{{ asset_url }}"></script>
+    {% endjavascripts %}
+{% endblock %}

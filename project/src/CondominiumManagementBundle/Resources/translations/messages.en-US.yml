@@ -1,0 +1,533 @@
+condo.label.id: ID
+condo.label.feedback: feedback
+condo.label.actions: Actions
+condo.label.unit: Unit
+condo.label.resident: Resident
+condo.label.resident.name: Resident Name
+condo.label.description: Description
+condo.label.status: Status
+condo.label.issue: Issue
+condo.label.issues: Issues
+condo.label.issue.price: Issue Price
+condo.label.comments: Comments
+condo.label.send: Send
+condo.label.cancel: Cancel
+condo.label.title: Title
+condo.label.author: Author
+condo.label.floor: Floor
+condo.label.clients: Clients
+condo.label.unit: Unit
+condo.label.news: News
+condo.label.services: Services
+condo.label.room.number: Room Number
+condo.label.residents.list: Client list
+condo.label.show.detail: Show Details
+condo.label.mark.as.read: Mark As Read
+condo.label.mark.issue.closed: Mark Issue as closed
+condo.label.mark.issue.progress: Mark Issue as In Progress
+condo.label.mark.issue.close: This issue was closed
+condo.label.publih.news: Publish a News
+condo.label.excel: Excel
+condo.label.pdf: PDF
+condo.label.income.category.name: Category Name
+condo.label.income.invoice.category.name: Category Name
+condo.label.invoice.title: Title
+condo.label.income.invoice.category.vat: VAT
+condo.label.income.invoice.category.grand.total: Grand Total
+condo.label.income.invoice.category.sub.total: Sub Total
+condo.label.income.invoice.description: Description
+condo.label.income.include.vat: Include VAT
+condo.label.invoice.expense: Expense
+condo.label.invoice.profit: Profit
+condo.label.invoice.income: Income
+condo.label.invoice.status: Status
+condo.label.invoice.payment.date: Paid Date
+condo.label.invoice.mark.as.paid.by: Mark as paid by
+condo.label.message.rollback: Are you sure rollback
+
+resident.title.panel.clients.list: Clients List
+resident.th.floor: Floor
+resident.th.room.number: Room Number
+resident.th.clients: Clients
+link.category: Category
+link.clients: Clients
+link.income: Income
+link.news: News
+link.issues: Issues
+link.feedback: Feedback
+link.dashboard: Dashboard
+link.income: Income
+link.category: Category
+link.expense: Expense
+link.profit: Profit
+link.suppliers: Suppliers
+link.reports: Reports
+link.setting: Setting
+link.exchange: Exchange
+link.create.new.expense: Create New Category
+link.company: Company
+link.individual: Individual
+link.invoice: Invoice
+
+feedback.title: Feedback
+feedback.title.feedback: Feedback
+feedback.th.id: ID
+feedback.th.date: Date
+feedback.th.feedback: Feedback
+feedback.th.action: Action
+feedback.th.rate: Rate
+feedback.label.rate: Rate
+feedback.rate.very.low: Very Low
+feedback.rate.low: Low
+feedback.rate.average: Average
+feedback.rate.high: High
+feedback.rate.very.high: Very High
+feedback.read: Read
+
+btn.no: No
+btn.yes: Yes
+new.title.news: News
+news.th.title: Title
+news.th.author: Author
+news.th.date: Date
+news.th.action: Action
+btn.public.a.news: Create News
+btn.mark.as.read: Mark as Read
+btn.mark.as.paid: Mark as Paid
+btn.mark.as.rollback: Rollback
+btn.issue.inoivced: Invoiced
+btn.issue.add.to.inoivce: Add to Invoice
+btn.condo.suppliers.individual.new: Create New Individual Supplier
+btn.condo.suppliers.company.new: Create New Company Supplier
+btn.condo.income.invoice.new: Create A New Income
+condo.suppliers.company.vat: VAT
+issue.title.issues: Issues
+service.title.services: Services
+service.title.panel.services.list: Services List
+service.th.company.name: Company Name
+service.th.contact.number: Contact Number
+service.th.service: Service
+service.th.status: Status
+
+unit.title: Units List
+unit.not.found: Unit not found.
+link.units: Units
+condo.unit.size: Size
+condo.unit.type: Type
+condo.unit.floor: Floor
+condo.unit.room.number: Room Number
+condo.unit.price: Unit Price
+condo.unit.button.edit: Edit
+condo.unit.status: Status
+condo.unit.action: Actions
+link.unit.type: Unit Type
+unit.type.title: Unit
+condo.unit.type.label.code:  Code
+condo.unit.type.label.size: Size
+condo.unit.type.label.commonAreaSize: Common Area Size
+condo.unit.type.label.roomCount: Room Count
+condo.unit.type.label.bedroomCount: BedRoom Count
+condo.unit.type.label.bathroomCount: BathRoom Count
+condo.unit.type.label.description: Description
+edit.unit.type: Edit Unit Type
+
+condo.report.title.expense: Expense
+condo.label.report.issue: Issue
+condo.label.report.room: Room
+condo.label.report.profit: Profit
+condo.label.report.feedback: Feedback
+condo.label.report.feedback.one.star: 1 Star
+condo.label.report.feedback.two.stars: 2 Stars
+condo.label.report.feedback.three.stars: 3 Stars
+condo.label.report.feedback.four.stars: 4 Stars
+condo.label.report.feedback.five.stars: 5 Stars
+condo.label.report.expense.grand.total: Grand Total
+condo.label.report.expense.sub.total: Sub Total
+condo.label.report.expense.vat: VAT
+condo.report.feedback.issue.room: Report Feedback, Issue, Room
+condo.report.room.available: Available
+condo.report.room.not.available: Not Available
+condo.report.feedback.one.star: 1 Star
+condo.report.feedback.two.star: 2 Stars
+condo.report.feedback.three.star: 3 Stars
+condo.report.feedback.four.star: 4 Stars
+condo.report.feedback.five.star: 5 Stars
+condo.report.expense.chart: Expense Chart
+condo.reprot.amount.paid: Amount Paid
+condo.reprot.amount.expense: Amount Expense
+condo.reprot.amount.unPaid: Amount Unpaid
+condo.report.room.new: New
+condo.report.room.closed: Closed
+condo.report.room.inprogress: In Progress
+condo.report.show.by: Show By
+condo.report.date.type: Date Type
+condo.report.creation: Creation
+condo.report.paid: Paid
+condo.report.day: Day
+condo.report.month: Month
+condo.report.Year: Year
+condo.report.from: From
+condo.report.to: To
+condo.th.issue.supplier.email: Email
+condo.th.issue.supplier.phone: Phone
+condo.th.issue.supplier.address: Address
+condo.label.issue.supplier.include.vat: Include VAT
+condo.th.report.expense.date: Date
+condo.th.report.expense.amount.expense: Amount Expense
+condo.th.report.expense.vat: VAT
+condo.th.report.expense.sub.total: Sub Total
+condo.th.report.expense.grand.total: Grand Total
+condo.th.report.issue.date: Date
+condo.th.report.issue.beginning: Beginning
+condo.th.report.issue.new: New
+condo.th.report.issue.closed: Closed
+condo.th.report.issue.ending: Ending
+codno.th.expense.id: ID
+condo.th.expense.name: Name
+condo.th.invoice.description: Description
+condo.th.invoice.action: Actions
+condo.th.invoice.status: Status
+condo.th.invoice.id: ID
+condo.th.invoice.title: Title
+condo.th.invoice.expense.category: Category
+condo.th.invoice.creation.date: Creation Date
+condo.th.invoice.vat: VAT
+condo.th.invoice.sub.total: Sub Total
+condo.th.invoice.grand.total: Grand Total
+condo.th.invoice.issue: Issue
+condo.th.report.unit.total.room: Total Room
+condo.th.report.unit.available: Available
+condo.th.report.unit.unavailable: Unavailable
+condo.th.report.client.date: Date
+condo.th.report.unit.date: Date
+condo.th.report.feedback.date: Date
+condo.th.report.client.clients: Clients
+condo.th.report.client.total.peoples: Total Peoples
+condo.th.report.feedback.one.star: 1 Star
+condo.th.report.feedback.two.stars: 2 Stars
+condo.th.report.feedback.three.stars: 3 Stars
+condo.th.report.feedback.four.stars: 4 Stars
+condo.th.report.feedback.five.stars: 5 Stars
+condo.th.report.income.date: Date
+condo.th.report.income.amount: Amount Income
+condo.th.report.income.vat: VAT
+condo.th.report.income.sub.total: Sub Total
+condo.th.report.income.grand.total: Grand Total
+
+condo.expense.label.grand.total: Grand Total
+condo.label.expense.descrition: Description
+condo.label.expense.title.edit: Edit Expense
+condo.label.expense.include.vat: Include VAT
+condo.expense.title.new: New Category
+condo.expense.title.edit: Edit Category
+condo.expense.invoice.title.new: New Invoice
+condo.expense.invoice.title.edit: Edit Invoice
+condo.label.expense.expense.category: Expense Category
+condo.label.expense.vat: VAT
+condo.label.expense.sub.total: Sub Total
+condo.label.expense.grand.total: Grand Total
+condo.expense.label.paided: Paided
+condo.th.client.unit.floor: Floor
+condo.th.client.unit.room.number: Room Number
+condo.th.client.unit.size: Unit Size
+condo.th.client.unit.rental.price: Rental Price
+condo.th.client.unit.type: Type
+condo.th.client.unit.pay.by: Pay By
+condo.label.client.invoice.description: Description
+condo.label.client.invoice.vat: VAT
+condo.label.client.invoice.grandTotal: Grand Total
+condo.label.client.invoice.title: Title
+condo.label.client.invoice.category.name: Category Name
+condo.label.client.invoice.include.vat: Include VAT
+condo.expend.label.grand.total: Grand Total
+condo.label.expend.descrition: Description
+condo.label.expend.title.edit: Edit Expend
+condo.expend.title.new: New Category
+condo.expend.invoice.title.new: New Invoice
+condo.expend.invoice.title.edit: Edit Invoice
+condo.label.expend.expend.category: Expend Category
+condo.label.expend.vat: VAT
+condo.label.expend.sub.total: Sub Total
+condo.expend.label.paided: Paid
+
+condo.label.date: Date
+condo.label.expense.name : Name
+condo.label.report.issue.new: New
+condo.label.report.issue.closed: Closed
+condo.label.report.issue.title.chart: Issue Report
+condo.label.report.issue.beginning: Beginning
+condo.label.report.issue.ending: Ending
+condo.label.report.client.clients: Clients
+condo.label.report.client.title.chart: Clients Report
+condo.report.unit.title.chart: Unit Report
+condo.report.feedback.title.chart: Feedback Report
+condo.report.income.title.chart: Income Report
+condo.report.income.expense.profit: Report Income, Expense, Profit
+condo.label.report.income: Income
+condo.label.report.expense: Expense
+condo.label.report.client.total.peoples: Total Peoples
+condo.label.report.unit.total.room: Total Room
+condo.label.report.unit.available: Available
+condo.label.report.unit.unavailable: Unavailable
+condo.label.report.income.vat: VAT
+condo.label.report.income.sub.total: Sub Total
+condo.label.report.income.grand.total: Grand Total
+condo.expense.title.invoice: Expense
+condo.label.invoice.description: Description
+condo.label.invoice.creation.date: Creation Date
+condo.label.invoice.grand.total: Grand Total
+condo.label.invoice.vat: VAT
+condo.label.invoice.sub.total: Sub Total
+condo.label.invoice.client.name: Client
+condo.label.invoice.category.name: Category Name
+condo.label.invoice.id: ID
+condo.label.invoice.invoice.show: Show Invoice
+condo.expense.title.invoice: Expense Invoices
+condo.unit.floor: Floor
+condo.unit.price: Price
+condo.unit.button.edit: Edit
+condo.unit.status: Status
+condo.unit.pay.by: Pay By
+condo.unit.is.locked: Is Locked
+condo.unit.action: Actions
+condo.unit.pay.by: Payment Method
+condo.unit.is.locked : Is Locked
+condo.unit.label.id: ID
+condo.unit.label.floor: floor
+condo.client.unit.label.vat: VAT
+condo.client.unit.amount.grand.total: Grand Total
+condo.client.unit.price: Unit Price
+condo.client.current.unit.price: Current Unit Price
+condo.client.unit.roomnumber: Unit Room Number
+condo.client.edit.price.manual: Edit Price Manual
+condo.client.get.price.from.unit: Get Price From Unit
+condo.client.title.invoice: Invoice
+condo.client.title.edit: Edit
+condo.client.title.delete: Delete
+condo.unit.label.room.number: Room Number
+condo.unit.label.price: Price
+condo.unit.label.type: Type
+condo.unit.label.pay.by: Pay By
+condo.unit.label.is.locked : Is Locked
+condo.unit.label.add.unit: Add Unit
+condo.unit.label.of.type: of Type
+condo.unit.label.on.floor: On Floor
+condo.unit.label.with.price: With a Price of
+unit.title.edit: Edit Unit
+unit.title.show: Unit
+unit.pay.by.day: Day
+unit.pay.by.month: Month
+unit.is.locked.yes: Yes
+unit.is.locked.no: No
+error.message.can.not.delete.unit: The unit is not available.
+error.message.unknown.exchange.rate: Please setup exchange rate!
+unit.link.add.new: Create A New Unit
+unit.title.new: New Unit
+link.create.new.invoice: Create A New Expense
+
+link.create.new.client: Create A New Client
+condo.client.label.status.available: Available
+condo.client.unit.label.unit: Choose Unit
+condo.client.unit.label.start.date: Start Date
+condo.client.unit.label.end.date: End Date
+condo.client.unit.label.pay.by: Pay By
+condo.client.unit.label.unit.price: Unit Price
+condo.client.label.name: Name
+condo.client.label.email: Email
+condo.client.label.phone: Phone
+condo.client.label.password: Password
+condo.client.label.repeat.password: Repeat Password
+condo.client.label.id.card: ID Card / Passport ID
+condo.client.label.profile.picture: Profile Picture
+condo.client.label.id.card.picture: Id Card Picture / Passport Picture
+condo.client.label.existing.clients: Existing Clients
+condo.client.label.nationality: Nationality
+condo.client.label.gender: Gender
+condo.client.label.address: Address
+client.nationality.cambodian: Cambodian
+client.nationality.english: English
+client.nationality.chinese: Chinese
+client.nationality.french: French
+client.gender.female: Female
+client.gender.male: Male
+condo.client.tab.user.info: User Info
+condo.client.tab.unit: Unit
+condo.client.unit.label.amount: Amount Of People
+condo.client.show.by: Show By
+condo.client.start.date: Start Date
+condo.client.end.date: End Date
+condo.client.status.staying: Staying
+condo.client.status.leave: Leave
+condo.client.status.all: All
+condo.client.unit.label.is.send.invoice: Is Send Invoice
+condo.client.unit.label.generated.invoice: Generated Invoice
+condo.client.unit.label.run.schedule.and.send:  Run Schedule And Send
+condo.client.unit.label.day: Day
+condo.client.unit.label.month: Month
+condo.client.unit.label.hour: Hour
+condo.client.unit.lable.day: Day
+condo.client.invoice.id: ID
+condo.client.invoice.vat: VAT
+condo.client.invoice.sub.total: Sub Total
+condo.client.invoice.grand.total: Grand Total
+condo.client.invoice.actions: Actions
+condo.client.invoice.new.btn: Create A New Invoice
+condo.client.invoice.new: New
+condo.client.invoice.edit: Edit
+condo.client.invoice.description: Description
+condo.client.invoice.title: Title
+condo.client.invoice.send.email.label.dear: Dear
+condo.client.invoice.send.email.text.content: Please check the invoice that attached bellow for this month.
+condo.client.invoice.send.email.thanks: Thanks
+condo.client.invoice.send.email.subject: Invoice for staying at
+condo.client.invoice.recipient.signature: Recipient's signature
+condo.client.invoice.customer.signature: Customer's signature
+condo.client.invoice.creation.date: Creation Date
+condo.client.invoice.status: Status
+condo.client.label.invoice.title: INVOICE
+condo.client.label.invoice.id: Invoice
+condo.client.label.invoice.date: Invoice Date
+condo.client.information: Client Information
+condo.client.rental.information: Rental Information
+client.th.name: Name
+client.th.phone: Phone
+client.th.unit: Unit
+client.th.id.card: ID Card
+client.th.start.date: Start Date
+client.th.end.date: End Date
+client.th.pay.by: Pay By
+client.th.unit.price: Unit Price
+client.th.rate: Rate
+client.th.vat: VAT
+client.th.grand.total: Grand Total
+client.th.unit.price: Unit Price
+client.th.unpaid.amount: Unpaid Amount
+client.th.rental.price: Rental Price
+client.title.list: Clients
+client.title.new: New client
+client.th.actions: Actions
+client.payment.method.day: Day
+client.payment.method.month: Month
+client.title.edit: Edit
+client.th.unit.room: Room Number
+client.status.leave: Leave
+client.status.staying: Staying
+client.status.all: All
+condo.placeholder.email: Email
+error.message.this.email.already.exist: This email already exist!
+error.message.invalid.user.form: Invalid user form
+error.message.user.can.not.delete: User can not delete
+error.message.please.select.end.date: Please select end date
+error.message.please.select.start.date: Please select start date
+error.message.this.supplier.was.in.used: This supplier was in used.
+btn.search: Search
+action.invoices: Invoices
+action.download.pdf: Download PDF
+
+label.report.room: Room
+label.report.issue: Issue
+label.report.feedback: Feedback
+label.error: Error
+
+flast.unitType.message.not.allow.user.to.delete.unitType.relationship.with.unit: User Can not Delete Unity Because Unity Have Relationship Whit Unit
+the.value.should.be.number: The value should be number.
+
+condo.news.label.title: Title
+condo.news.label.short.description: Short Description
+condo.news.label.description: Description
+condo.news.label.publish.date: Publish Date
+condo.news.label.end.date: End Date
+condo.news.label.picture: Image
+condo.news.label.is.published: Is published
+condo.news.label.id: ID
+condo.news.is.published.no: No
+condo.news.is.published.yes: Yes
+condo.news.show.title: News
+condo.news.edit.title: Edit
+condo.news.title: News
+
+condo.issue.new: Issue New
+condo.issue.in.progress: Issues In Progress
+condo.issue.closed: Issues Closed
+condo.issue.filter.new: New
+condo.issue.filter.in.progress: In Progress
+condo.issue.filter.closed: Closed
+condo.issue.filter.all: All
+condo.issue.filter.new.and.inprogress: New & In Progress
+condo.issue.label.show.by: Show By
+condo.issue.user.phone: Phone
+condo.issue.user.name: Name
+condo.issue.user.email: Email
+condo.issue.information: Issue Information
+condo.issue.supplier.type: Supplier Type
+condo.issue.supplier.type.company: Company
+condo.issue.supplier.type.individual: Individual
+condo.issue.supplier.name: Supplier Name
+condo.issue.price: Price
+condo.issue.vat: VAT
+
+condo.report.feedback.one.star: 1 Star
+condo.report.feedback.two.stars: 2 Stars
+condo.report.feedback.three.stars: 3 Stars
+condo.report.feedback.four.stars: 4 Stars
+condo.report.feedback.five.stars: 5 Stars
+
+condo.report.income.chart: Income Chart
+condo.report.income.number: Incomes
+
+condo.suppliers.company.new: New Company
+condo.suppliers.individual.new: New Individual
+condo.suppliers.company.edit: Edit Company
+condo.suppliers.individual.edit: Edit Individual
+condo.suppliers.id: ID
+condo.suppliers.company.name: Company Name
+condo.suppliers.contact.name: Contact Name
+condo.suppliers.email: Email
+condo.suppliers.is.vat: Is VAT
+condo.suppliers.fax: Fax
+condo.suppliers.tel: Tel
+condo.suppliers.address: Address
+condo.suppliers.company.vatin: VAT TIN
+condo.suppliers.individual.id.card: ID Card
+condo.suppliers.is.vat: Is VAT
+condo.suppliers.name: Name
+
+condo.th.expense.action: Actions
+condo.income.category: Category
+condo.income.client: Client
+condo.income.category.new: New Category
+condo.income.invoice.new: New Invoice
+condo.income.invoice.edit: Edit Invoice
+condo.income.invoice.show: Show Invoice
+condo.income.category.edit: Edit Category
+condo.income.category.new.btn: Create A New Income Category
+condo.th.income.category.id: ID
+condo.th.income.category.name: Name
+condo.th.income.category.actions: Actions
+condo.th.income.invoice.status: Status
+condo.th.income.invoice.client: Client
+condo.th.income.creation.date: Creation Date
+condo.th.income.invoice.category.grand.total: Grand Total
+condo.th.income.invoice.category.sub.total: Sub Total
+condo.th.income.invoice.category.vat: VAT
+condo.th.income.invoice.category.name: Category
+condo.th.income.invoice.title: Title
+
+condo.invoice.paid: Paid
+condo.invoice.unpaid: Unpaid
+condo.invoice.all: All
+condo.invoice.show.by: Show By
+condo.invoice.start.date: Start Date
+condo.invoice.end.date: End Date
+condo.invoice.show: Show Invoice
+condo.invoice.category: Category
+
+condo.invoice.title: Title
+condo.th.invoice.date: Date
+condo.th.invoice.income: Income
+condo.th.invoice.expense: Expense
+condo.th.invoice.profit: Profit
+condo.invoice.profit.title.chart: Profit Report
+
+currency.exchange.rate: Exchange Rate
+currency.exchange.rate.unknown: Unknown

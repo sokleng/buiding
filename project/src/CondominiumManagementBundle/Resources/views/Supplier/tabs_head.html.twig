@@ -1,0 +1,12 @@
+<ul class="nav nav-tabs">
+    <li {% if active == 'company' %} class="active" {% endif %}>
+        <a href="{{ path('condominium_suppliers_list', {'condominium' : condominium}) }}">
+            {{ 'link.company'|trans }}
+        </a>
+    </li>
+    <li {% if active == 'individual' %} class="active" {% endif %}>
+        <a href="{{ path('condominium_suppliers_individual_list', {'condominium' : condominium}) }}">
+            {{ 'link.individual'|trans }}
+        </a>
+    </li>
+</ul>

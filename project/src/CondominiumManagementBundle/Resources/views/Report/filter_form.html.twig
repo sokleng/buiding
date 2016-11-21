@@ -1,0 +1,43 @@
+{{ form_start(form) }}
+    <div class="form-inline">
+        <div class="form-group">
+            <label>{{ 'condo.report.show.by'|trans }}</label>
+            {{ form_widget(
+                form.showby,
+                {
+                    'attr' : {
+                        'class' : 'form-control',
+                        'onchange' : 'ReportShowbyFilter.filter_showby()'
+                    }
+                }
+            )}}
+        </div>
+        <div class="form-group">
+            <label>{{ 'condo.report.from'|trans }}</label>
+            {{ form_widget(
+                form.from,
+                {
+                    'attr': {
+                        'class': 'form-control date-picker'
+                    }
+                }
+            )}}
+        </div>
+        <div class="form-group">
+            <label>{{ 'condo.report.to'|trans }}</label>
+            {{ form_widget(
+                form.to,
+                {
+                    'attr': {
+                        'class': 'form-control date-picker'
+                    }
+                }
+            )}}
+        </div>
+        <div class="form-group">
+            <button type="submit" class="btn btn-default btn-block">
+                {{ 'btn.search'|trans }}
+            </button>
+        </div>
+    </div>
+{{ form_end(form) }}

@@ -1,0 +1,187 @@
+{% extends 'CondominiumManagementBundle::content_page_layout.html.twig' %}
+{% set title = condominium.name ~ ' - ' ~ 'condo.expense.title.invoice'|trans ~ ' - ' ~ 'condo.invoice.show'|trans ~ ' - #' ~ expendInvoice.id %}
+
+{% block content %}
+    <div class="row">
+        <div class="col-lg-12">
+            {% include 'CondominiumManagementBundle:ExpendCategory:tabs_head.html.twig'
+                with {'active' : 'expend_invoice', 'condominium': condominium.id}
+            %}
+            <div class="tab-content">
+                <div class="tab-pane fade in active">
+                    <br />
+                    {% set currencySign = ''%}
+                    {% if expendInvoice.currency is not null %}
+                        {% set currencySign = expendInvoice.currency.sign %}
+                    {% endif %}
+                    <div class="panel panel-default">
+                        <div class="panel-body">
+                            <table class="table">
+                                <tbody>
+                                    <tr>
+                                        <td>{{ 'show.item.th.id'|trans }}</td>
+                                        <td class="text-muted">{{ expendInvoice.id }}</td>
+                                    </tr>
+                                    <tr>
+                                        <td>{{ 'condo.th.invoice.title'|trans }}</td>
+                                        <td class="text-muted">{{ expendInvoice.title }}</td>
+                                    </tr>
+                                    {% if expendInvoice.ExpendCategory %}
+                                        <tr>
+                                            <td>{{ 'condo.th.invoice.expense.category'|trans }}</td>
+                                            <td class="text-muted">
+                                                    {{ expendInvoice.ExpendCategory.name }}
+                                            </td>
+                                        </tr>
+                                    {% endif %}
+                                    {% if expendInvoice.issue %}
+                                        <tr>
+                                            <td>{{ 'condo.th.invoice.issue'|trans }}</td>
+                                            <td class="text-muted">
+                                                    <a
+                                                        href="{{
+                                                            path(
+                                                                'condominium_issues_show',
+                                                                {
+                                                                    'issue':expendInvoice.issue.id(),
+                                                                    'condominium': condominium.id
+                                                                }
+                                                            )
+                                                        }}"
+                                                    >
+                                                        {{ expendInvoice.issue.description() }}
+                                                    </a>
+                                            </td>
+                                        </tr>
+                                    {% endif %}
+                                    <tr>
+                                        <td>
+                                            {{ 'condo.th.invoice.sub.total'|trans }}
+                                        </td>
+                                        <td class="text-muted">
+                                            {{ expendInvoice.subTotal|number_format(2, '.', ',')}}
+                                            {{ currencySign }}
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>{{ 'condo.th.invoice.vat'|trans }}</td>
+                                        <td class="text-muted">{{ expendInvoice.vat }} %</td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            {{ 'condo.th.invoice.grand.total'|trans }}
+                                        </td>
+                                        <td class="text-muted">
+                                            {{ expendInvoice.grandTotal|number_format(2, '.', ',')}}
+                                            {{ currencySign }}
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>{{ 'condo.th.invoice.creation.date'|trans }}</td>
+                                        <td class="text-muted">{{ expendInvoice.creationDate | date }}</td>
+                                    </tr>
+                                    <tr>
+                                        <td>{{ 'condo.th.invoice.description'|trans }}</td>
+                                        <td class="text-muted">{{ expendInvoice.description }}</td>
+                                    </tr>
+                                    <tr>
+                                        <td>{{ 'condo.label.invoice.status'|trans }}</td>
+                                        <td
+                                            class="
+                                                {% if expendInvoice.isPaid() %}
+                                                    text-danger
+                                                {% else %}
+                                                    text-muted
+                                                {% endif %}
+                                            "
+                                        >
+                                            {{ expendInvoice.status|InvoiceStatus|trans }}
+                                        </td>
+                                    </tr>
+                                    {% if expendInvoice.isPaid() %}
+                                        <tr>
+                                            <td>
+                                                {{ 'condo.label.invoice.payment.date'|trans }}
+                                            </td>
+                                            <td class="text-muted">
+                                                {{ expendInvoice.paymentDate|date }}
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                {{ 'condo.label.invoice.mark.as.paid.by'|trans }}
+                                            </td>
+                                            <td class="text-muted">
+                                                {{ expendInvoice.markAsPaidBy.name }}
+                                            </td>
+                                        </tr>
+                                    {% endif %}
+                                </tbody>
+                            </table>
+                            <div class="form-group">
+                                {% if expendInvoice.isUnPaid() or is_granted('ROLE_ADMIN') %}
+                                    <a
+                                        href="{{
+                                            path(
+                                                'condominium_expend_invoice_edit',
+                                                {
+                                                    'id':expendInvoice.id,
+                                                    'condominium': condominium.id
+                                                }
+                                            )
+                                        }}"
+                                        class="btn btn-primary"
+                                    >
+                                        {{ 'link.action.edit'|trans }}
+                                    </a>
+                                    <a
+                                        href="{{
+                                            path(
+                                                'condominium_expend_invoice_delete',
+                                                {
+                                                    'id':expendInvoice.id,
+                                                    'condominium': condominium.id
+                                                }
+                                            )
+                                        }}"
+                                        class="btn btn-danger"
+                                    >
+                                        {{ 'action.delete'|trans }}
+                                    </a>
+                                {% endif %}
+                                <a
+                                    href="{{
+                                        path(
+                                            'condominium_expend_download_invoice',
+                                            {
+                                                'expendInvoice':expendInvoice.id,
+                                                'condominium': condominium.id
+                                            }
+                                        )
+                                    }}"
+                                    class="btn btn-warning"
+
+                                >
+                                    {{ 'action.download.pdf'|trans }}
+                                </a>
+                                <a
+                                    href="{{
+                                        path(
+                                            'condominium_expend_invoice_list',
+                                            {
+                                                'condominium': condominium.id
+                                            }
+                                        )
+                                    }}"
+                                    class="btn btn-default"
+                                >
+                                    {{ 'link.back'|trans }}
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

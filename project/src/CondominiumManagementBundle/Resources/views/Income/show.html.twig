@@ -1,0 +1,180 @@
+{% extends 'CondominiumManagementBundle::content_page_layout.html.twig' %}
+{% set title = condominium.name ~ ' - ' ~ 'link.income'|trans ~ ' - ' ~ 'condo.income.invoice.show'|trans ~ ' - #' ~ income.id %}
+
+{% block content %}
+    <div class="row">
+        <div class="col-lg-12">
+            {% include 'CondominiumManagementBundle:Income:tabs_head.html.twig'
+                with {'active' : 'income', 'condominium': condominium.id} %}
+            <div class="tab-content">
+                <div class="tab-pane fade in active">
+                    <br />
+                    {% set currencySign = ''%}
+                    {% if income.currency is not null %}
+                        {% set currencySign = income.currency.sign %}
+                    {% endif %}
+                    <div class="panel panel-default">
+                        <div class="panel-body">
+                            <table class="table">
+                                <tr>
+                                    <td>{{ 'show.item.th.id'|trans }}</td>
+                                    <td class="text-muted">{{ income.id }}</td>
+                                </tr>
+                                <tr>
+                                    <td>{{ 'condo.th.invoice.title'|trans }}</td>
+                                    <td class="text-muted">{{ income.title }}</td>
+                                </tr>
+                                {% if income.IncomeCategory is not null %}
+                                    <tr>
+                                        <td>{{ 'condo.th.income.invoice.category.name'|trans }}</td>
+                                        <td class="text-muted">{{ income.IncomeCategory.name }}</td>
+                                    </tr>
+                                {% endif %}
+                                {% if income.client is not null %}
+                                    <tr>
+                                        <td>{{ 'condo.income.client'|trans }}</td>
+                                        <td class="text-muted">{{ income.client.user.name }}</td>
+                                    </tr>
+                                {% endif %}
+                                <tr>
+                                    <td>{{ 'condo.th.invoice.sub.total'|trans }}</td>
+                                    <td class="text-muted">
+                                        {{ income.subTotal|number_format(2, '.', ',') }}
+                                        {{ currencySign }}
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>{{ 'condo.th.invoice.vat'|trans }}</td>
+                                    <td class="text-muted">
+                                        {{ income.vat }}
+                                        %
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>{{ 'condo.th.invoice.grand.total'|trans }}</td>
+                                    <td class="text-muted">
+                                        {{ income.grandTotal|number_format(2, '.', ',') }}
+                                        {{ currencySign }}
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>{{ 'condo.th.invoice.creation.date'|trans }}</td>
+                                    <td class="text-muted">
+                                        {{ income.creationDate|date }}
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        {{ 'condo.label.income.invoice.description'|trans }}
+                                    </td>
+                                    <td class="text-muted">
+                                        {{ income.description }}
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>{{ 'condo.label.invoice.status'|trans }}</td>
+                                    <td
+                                        class="
+                                            {% if income.isPaid() %}
+                                                text-danger
+                                            {% else %}
+                                                text-muted
+                                            {% endif %}
+                                        "
+                                    >
+                                        {{ income.status|InvoiceStatus|trans }}
+                                    </td>
+                                </tr>
+                                {% if income.isPaid() %}
+                                    <tr>
+                                        <td>
+                                            {{ 'condo.label.invoice.payment.date'|trans }}
+                                        </td>
+                                        <td class="text-muted">
+                                            {{ income.paymentDate|date }}
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            {{ 'condo.label.invoice.mark.as.paid.by'|trans }}
+                                        </td>
+                                        <td class="text-muted">
+                                            {{ income.markAsPaidBy.name }}
+                                        </td>
+                                    </tr>
+                                {% endif %}
+                            </table>
+                            <div class="form-group">
+                                {% if income.isUnPaid() or is_granted('ROLE_ADMIN') %}
+                                    <a
+                                        {% if income.client is not null %}
+                                            href="{{
+                                                path(
+                                                    'condominium_client_invoice_edit',
+                                                    {
+                                                        'condominium': condominium.id,
+                                                        'clientUnit': income.client.id,
+                                                        'invoice': income.id
+                                                    }
+                                                )
+                                            }}"
+                                        {% else %}
+                                            href="{{
+                                                path(
+                                                    'condominium_income_edit',
+                                                    {
+                                                        'condominium': condominium.id,
+                                                        'income': income.id
+                                                    }
+                                                )
+                                            }}"
+                                        {% endif %}
+                                        class="btn btn-primary"
+                                    >
+                                        {{ 'action.edit'|trans }}
+                                    </a>
+                                    <a
+                                        href="{{ path(
+                                            'condominium_income_delete',
+                                            {
+                                                'condominium': condominium.id,
+                                                'income': income.id
+                                            }
+                                        ) }}"
+                                        class="btn btn-danger"
+                                    >
+                                        {{ 'action.delete'|trans }}
+                                    </a>
+                                {% endif %}
+                                <a
+                                    href="{{
+                                        path(
+                                            'condominium_income_download_invoice',
+                                            {
+                                                'condominium': condominium.id,
+                                                'income': income.id
+                                            }
+                                        )
+                                    }}"
+                                    class="btn btn-warning"
+
+                                >
+                                    {{ 'action.download.pdf'|trans }}
+                                </a>
+                                <a
+                                    href="{{ path(
+                                        'condominium_income_list',
+                                        {'condominium': condominium.id}
+                                    ) }}"
+                                    class="btn btn-default"
+                                >
+                                    {{ 'link.back'|trans }}
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

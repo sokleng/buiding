@@ -1,0 +1,224 @@
+{% extends 'RealtyCompanyBundle::content_page_layout.html.twig' %}
+{% set title = 'contact.title.edit'|trans ~ ': ' ~ company.name %}
+
+{% block content %}
+    {{ form_start(edit_form) }}
+        <div class="form-group">
+            <div class="row">
+                <label class="col-xs-2 control-label">
+                    {{ 'contact.label.name'|trans }}
+                </label>
+                <div class="col-xs-4">
+                    {{form_widget(
+                        edit_form.name,
+                        {
+                            'attr': {
+                                'class': 'form-control'
+                            }
+                        }
+                    )}}
+                </div>
+            </div>
+        </div>
+          <div class="form-group">
+            <div class="row">
+                <label class="col-xs-2 control-label">
+                    {{ 'contact.label.gender'|trans }}
+                </label>
+                <div class="col-xs-4">
+                    {{form_widget(
+                        edit_form.gender,
+                        {
+                            'attr': {
+                                'class': 'form-control'
+                            }
+                        }
+                    )}}
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="row">
+                <label class="col-xs-2 control-label">
+                    {{ 'contact.label.phone.number'|trans }}
+                </label>
+                <div class="col-xs-4">
+                    {{form_widget(
+                        edit_form.phoneNumber,
+                        {
+                            'attr': {
+                                'class': 'form-control'
+                            }
+                        }
+                    )}}
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="row">
+                <label class="col-xs-2 control-label">
+                    {{ 'contact.label.address'|trans }}
+                </label>
+                <div class="col-xs-4">
+                    {{form_widget(
+                        edit_form.address,
+                        {
+                            'attr': {
+                                'class': 'form-control'
+                            }
+                        }
+                    )}}
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="row">
+                <label class="col-xs-2 control-label">
+                    {{ 'contact.label.email'|trans }}
+                </label>
+                <div class="col-xs-4">
+                    {{form_widget(
+                        edit_form.email,
+                        {
+                            'attr': {
+                                'class': 'form-control'
+                            }
+                        }
+                    )}}
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="row">
+                <label class="col-xs-2 control-label">
+                    {{ 'contact.label.nationality'|trans }}
+                </label>
+                <div class="col-xs-4">
+                    {{form_widget(
+                        edit_form.nationality,
+                        {
+                            'attr': {
+                                'class': 'form-control'
+                            }
+                        }
+                    )}}
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="row">
+                <label class="col-xs-2 control-label">
+                    {{ 'contact.label.id.number'|trans }}
+                </label>
+                <div class="col-xs-4">
+                    {{form_widget(
+                        edit_form.idNumber,
+                        {
+                            'attr': {
+                                'class': 'form-control'
+                            }
+                        }
+                    )}}
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="row">
+                <label class="col-xs-2 control-label">
+                    {{ 'contact.label.comment'|trans }}
+                </label>
+                <div class="col-xs-4">
+                    {{form_widget(
+                        edit_form.comment,
+                        {
+                            'attr': {
+                                'class': 'form-control'
+                            }
+                        }
+                    )}}
+                </div>
+            </div>
+        </div>
+         <div class="form-group">
+            <div class="row">
+                <label class="col-xs-2 control-label">
+                    {{ 'contact.label.description'|trans }}
+                </label>
+                <div class="col-xs-4">
+                    {{form_widget(
+                        edit_form.description,
+                        {
+                            'attr': {
+                                'class': 'form-control',
+                                'rows': 5
+                            }
+                        }
+                    )}}
+                </div>
+            </div>
+        </div>
+         <div class="form-group">
+            <div class="row">
+                <label class="col-xs-2 control-label">
+                    {{ 'contact.label.databaseFiles'|trans }}
+                </label>
+                <div class="col-xs-4">
+                    {{form_widget(
+                        edit_form.databaseFiles,
+                        {
+                            'attr': {
+                                'class': 'form-control'
+                            }
+                        }
+                    )}}
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="row">
+                <div class="col-xs-offset-2 col-xs-10">
+                    <input
+                        type="submit"
+                        value="{{ 'btn.save'|trans }}"
+                        class="btn btn-success"
+                    >
+                    <a
+                        href="{{ path(
+                            'company_contacts_list',
+                            {'company': company.id}
+                        ) }}"
+                        class="btn btn-default"
+                    >
+                        {{ 'link.back'|trans }}
+                    </a>
+                </div>
+            </div>
+        </div>
+    {{ form_end(edit_form) }}
+    <form method="post"
+        action="{{ path('company_contacts_delete', {'company': company.id, 'contact': contact.id}) }}"
+    >
+        <div class="form-group">
+            <div class="row">
+                <div class="col-xs-offset-2 col-xs-10">
+                    <input type="hidden"
+                        name="_method"
+                        value="DELETE"
+                    >
+                    <input type="submit"
+                        class="btn btn-danger"
+                        value="{{ 'btn.delete'|trans }}"
+                    >
+                </div>
+            </div>
+        </div>
+    </form>
+{% endblock %}
+
+{% block additional_resources %}
+    {% include 'CondoBundle:partials:select2_resource.html.twig' with
+        {
+            'selector': '#contact_gender'
+        }
+    %}
+{% endblock %}

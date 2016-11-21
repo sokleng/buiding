@@ -1,0 +1,236 @@
+.dataTable_wrapper {
+    overflow-x: auto;
+    .row {
+        margin-right: 0;
+    }
+
+    form {
+        display: inline;
+    }
+}
+
+img.img-list-item {
+    max-height: 120px;
+}
+
+.panel {
+    .panel-body {
+        min-height: 120px;
+    }
+}
+
+a.btn-spaced {
+    margin-left: 5px;
+}
+
+button.btn-spaced {
+    margin-left: 5px;
+}
+
+input.btn-spaced {
+    margin-left: 5px;
+}
+
+span.label-spaced {
+    margin-left: 10px;
+}
+
+.pagination {
+    form {
+        display: inline-flex;
+        margin-left: 5px;
+        >input {
+            margin-right: 5px;
+        }
+        >button {
+            margin-left: 5px;
+        }
+    }
+
+    #page {
+        margin-top: 5px;
+        padding-right: 10px;
+    }
+}
+
+.form-error-field {
+    >ul {
+        >li {
+            color: #ff3333;
+            list-style-type: none;
+        }
+    }
+}
+
+.btn-block-wrapper {
+    float: left;
+    padding-right: 5px;
+}
+
+.quality-star {
+    margin-top: 7px;
+    padding-right: 10px;
+}
+
+#page-jump-button {
+      padding: 6px 24px 6px 13px;
+}
+
+.nopadding-left {
+    padding-left: 0;
+}
+
+.required-field {
+    color: red;
+}
+
+.navsidebar-fixed-left.navbar-collapse {
+    width: 20%;
+    background: #f8f8f8;
+    height: 100% !important;
+    position: absolute;
+    .sidebar {
+        .nav {
+            li {
+                a {
+                    display: inline-block;
+                    width: 100%;
+                    span {
+                        display: inline-block;
+                    }
+                }
+            }
+        }
+        .nav-second-level {
+            li {
+                a {
+                    display: inline-block;
+                    width: 100%;
+                    span {
+                        display: inline-block;
+                    }
+                }
+            }
+        }
+    }
+}
+
+.navsidebar-fixed-left.navsidebar-collapsed {
+    width: 8%;
+    .sidebar-nav {
+        .nav {
+            li {
+                a {
+                    display: block;
+                    text-align: center;
+                    span {
+                        display: block;
+                    }
+                    span.fa.arrow {
+                        display: none;
+                    }
+                }
+            }
+        }
+    }
+    .sidebar-nav .nav-second-level li {
+        width: 100%;
+        a {
+            padding: 10px;
+            text-align: center;
+            display: inline-block;
+            font-size: 12px;
+            width: 100%;
+            span {
+                display: block;
+                font-size: small;
+            }
+        }
+    }
+}
+
+.main-content-area {
+    float: right;
+    width: 80%;
+    background-color: #fff;
+}
+
+.main-content-area.content-expanded {
+    width: 92%;
+}
+
+#page-wrapper {
+    margin: 0 0 0 0;
+    position: unset;
+    padding: 0;
+}
+
+.sidebar {
+    z-index: 1;
+    position: unset;
+    width: unset;
+    margin: 0;
+    top: 0;
+    border-left: none;
+}
+
+.trigger-btn {
+    width: 100%;
+    display: inline-block;
+    margin-top: 20px;
+    padding: 0 5%;
+    box-sizing: border-box;
+    font-size: 11px;
+    .collapse-icon {
+        .glyphicon {
+            border: 1px solid;
+            border-radius: 100%;
+            text-align: center;
+            padding: 5px;
+            vertical-align: baseline;
+            margin-right: 5px;
+        }
+    }
+}
+
+.navbar-collapse {
+    padding-right: 0;
+    padding-left: 0;
+}
+
+@media(max-width: 767px) {
+
+    .page-header {
+        border-bottom: none;
+    }
+
+    .main-content-area,
+    .main-content-area.content-expanded {
+        width: 100%;
+        box-sizing: border-box;
+    }
+
+    .navsidebar-fixed-left.navbar-collapse {
+        width: 100%;
+        .sidebar {
+            z-index: 1;
+            position: absolute;
+            margin: 0;
+            top: 0;
+            border-left: none;
+            width: 100%;
+            .nav-second-level {
+                li {
+                    a {
+                        text-align: left;
+                        padding-left: 37px;
+                        span {
+                            display: inline-block;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+

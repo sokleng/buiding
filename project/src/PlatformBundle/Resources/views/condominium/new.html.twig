@@ -1,0 +1,9 @@
+{% extends 'PlatformBundle::content_page_layout.html.twig' %}
+{% set title = 'buildings.title.new'|trans %}
+
+{% block content %}
+    {{ form_start(form) }}
+        {% include 'PlatformBundle:Partial:comdominium_form.html.twig' %}
+    {{ form_end(form) }}
+{% endblock %}
+

@@ -1,0 +1,66 @@
+{% extends 'CondominiumManagementBundle::content_page_layout.html.twig' %}
+{% set title = condominium.name ~ ' - ' ~ 'client.title.edit'|trans ~ ' - ' ~ user.name %}
+
+{% block content %}
+    {% for flashMessage in app.session.flashbag.get('error') %}
+        <div class="alert alert-danger" role="alert">
+            {{ flashMessage }}
+        </div>
+    {% endfor %}
+    <div class="form-group">
+        <div class="row">
+            <div class="col-md-2">
+                <label class="control-label">
+                    {{ 'condo.client.label.existing.clients'|trans }}
+                </label>
+            </div>
+            <div class="col-md-4">
+                <form
+                    method="post"
+                    action="{{
+                        path(
+                            'condominium_client_search',
+                            {'condominium': condominium.id}
+                        )
+                    }}"
+                >
+                    <div class="input-group">
+                        <input
+                            type="email"
+                            name="search_client_email"
+                            placeholder="{{ 'condo.placeholder.email'|trans }}"
+                            class="form-control"
+                        >
+                        <span class="input-group-btn">
+                            <button
+                                class="btn btn-default"
+                                type="submit"
+                            >
+                                {{ 'btn.search'|trans }}
+                            </button>
+                        </span>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <hr/>
+
+    {% set currencySign = ''%}
+    {% if clientUnit.currency is not null %}
+        {% set currencySign = clientUnit.currency.sign %}
+    {% endif %}
+
+    {%
+        include 'CondominiumManagementBundle:Partial:client_form.html.twig'
+        with {'currencySign': currencySign }
+    %}
+{% endblock %}
+{% block additional_resources %}
+    {% javascripts
+        "@CondominiumManagementBundle/Resources/public/js/countrySelect.min.js"
+        "@CondominiumManagementBundle/Resources/public/js/nationality.js"
+    %}
+        <script type="application/javascript" src="{{ asset_url }}"></script>
+    {% endjavascripts %}
+{% endblock %}

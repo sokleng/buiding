@@ -1,0 +1,46 @@
+placeholder.search: Rechercher...
+progress.bar.label.complete: រួចរាល់
+pagination.label.page: ទំព័រ
+pagination.btn.jump: លោត
+navigation.label.toggle.navigation: ប្តូរការរុករក
+action.edit: កែសម្រួល
+action.delete: លុប
+action.show: បង្ហាញ
+
+btn.delete: លុប
+btn.create: បង្កើត
+btn.save: រក្សាទុក
+btn.cancel: បោះបង់
+btn.edit: កែសម្រួល
+btn.publish: ផ្សព្វផ្សាយចាសាធារណៈ
+
+title.webridge.backend.template: WeBridge Backend Template
+
+link.action.edit: កែសម្រួល
+link.back: ត្រឡប់ក្រោយ
+link.see.all.alerts: មើលការជូនដំណឹងទាំងអស់
+link.new.comment: អត្ថាធិប្បាយថ្មី
+link.new.followers: អ្នកដើរតាមថ្មី
+link.message.sent: សារដែលបានផ្ញើ
+link.task.completed: កិច្ចការដែលបានបញ្ចប់
+link.read.all.messages: អានសារទាំងអស់
+link.see.all.tasks: មើលកិច្ចការទាំងអស់
+link.settings: ការកំណត់
+link.logout: ចាកចេញ
+link.clients: អតិថិជន
+link.buildings: អគារ
+link.services: សេវាកម្ម
+link.projects: គម្រោង
+link.platforms: វេទិកា
+link.developers: អ្នកអភិវឌ្ឍ
+link.realty.companies: ក្រុមហ៊ុនអចលនទ្រព្យ
+
+flash.create.success: ធាតុ "%name%" ត្រូវបានបង្កើតដោយជោគជ័យ។
+flash.edit.success: ធាតុ "%name%" ត្រូវបានកែសម្រួលដោយជោគជ័យ។
+flash.delete.success: ធាតុ "%name%" ត្រូវបានលុបចោលដោយជោគជ័យ។
+flash.create.error: មានបញ្ហាកើតឡើងនៅពេលបង្កើតធាតុ "%name%"។
+flash.edit.error: មានបញ្ហាកើតឡើងនៅពេលកែសម្រួលធាតុ "%name%"។
+flash.delete.error: មានបញ្ហាកើតឡើងនៅពេលលុបធាតុ "%name%"។
+
+label.pagination.page: ទំព័រ
+label.pagination.jump: ផ្លោះ

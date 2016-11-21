@@ -1,0 +1,83 @@
+{% extends 'CondominiumManagementBundle::content_page_layout.html.twig' %}
+{% set title = condominium.name ~ ' - ' ~ 'feedback.title.feedback'|trans %}
+
+{% block content %}
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    {% include 'CondoBundle:partials:buttons_export_resource.html.twig'
+                        with {'selector' : 'table', 'function_name': title}
+                    %}
+                </div>
+                <div class="panel-body">
+                    <div class="dataTable_wrapper">
+                        <table class="table table-striped table-bordered table-hover">
+                            <thead>
+                            <tr>
+                                <th class="th-small-50">{{'feedback.th.id'|trans}}</th>
+                                <th class="th-small-170">{{'feedback.th.date'|trans}}</th>
+                                <th class="th-large">{{'feedback.th.feedback'|trans}}</th>
+                                <th class="th-small-200">{{'feedback.th.rate'|trans}}</th>
+                                <th class="th-small-170" data-field="hide-export">{{'feedback.th.action'|trans}}</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+
+                            {% for feedback in feedbacks %}
+                                <tr>
+                                    <td>{{ feedback.id }}</td>
+                                    <td>{{ feedback.creationDate | time_diff }}</td>
+                                    <td>
+                                        {%
+                                            include 'CondominiumManagementBundle:Partial:sub_string.html.twig'
+                                            with {'string' : feedback.message, 'limit' : 250}
+                                        %}
+                                    </td>
+                                    <td class="text-center">
+                                        {{ feedback.rate|rating }}
+                                        <span class="hide">
+                                            {{ feedback.rate }}
+                                        </span>
+                                    </td>
+                                    <td>
+                                        {% if feedback.isRead() %}
+                                            <label class="label label-default">
+                                                {{ 'feedback.read'|trans }}
+                                            </label>
+                                        {% else %}
+                                          <form method="post"
+                                                action="{{ path('condominium_feedback_read', {'feedback': feedback.id, 'condominium': condominium.id}) }}"
+                                          >
+                                              <button type="submit"
+                                                      class="btn btn-success btn-sm"
+                                              >
+                                                  {{ 'btn.mark.as.read'|trans }}
+                                              </button>
+                                          </form>
+                                        {% endif %}
+                                        <a
+                                            href="{{ path('condominium_feedback_show', {'condominium' : condominium.id, 'feedback' : feedback.id}) }}"
+                                            class="btn btn-primary btn-sm"
+                                        >
+                                            {{ 'action.show'|trans }}
+                                        </a>
+                                    </td>
+                                </tr>
+                            {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+                    <!-- /.table-responsive -->
+                    {{ knp_pagination_render(feedbacks) }}
+                </div>
+                <!-- /.panel-body -->
+            </div>
+        </div>
+    </div>
+{% endblock %}
+{% block additional_resources %}
+    {% include 'CondoBundle:partials:table_export_resource.html.twig' with
+        {'selector': '#add-unit-type'}
+    %}
+{% endblock %}

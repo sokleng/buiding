@@ -1,0 +1,148 @@
+{% extends 'ProjectRealtyBundle::content_page_layout.html.twig' %}
+{% set title = project.name ~ ' - New Unit Type' %}
+
+{% block content %}
+    <div class="panel panel-body">
+        {{ form_start(form) }}
+            <div class="form-group">
+            <div class="row">
+                <label class="col-xs-2 control-label">
+                    {{ 'project.setting.unit.type.label.code'|trans }}
+                </label>
+                <div class="col-xs-4">
+                    {{form_widget(
+                        form.code,
+                        {
+                            'attr': {
+                                'class': 'form-control'
+                            }
+                        }
+                    )}}
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="row">
+                <label class="col-xs-2 control-label">
+                    {{ 'project.setting.unit.type.label.size'|trans }}
+                </label>
+                <div class="col-xs-4">
+                    {{form_widget(
+                        form.size,
+                        {
+                            'attr': {
+                                'class': 'form-control'
+                            }
+                        }
+                    )}}
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="row">
+                <label class="col-xs-2 control-label">
+                    {{ 'project.setting.unit.type.label.commonAreaSize'|trans }}
+                </label>
+                <div class="col-xs-4">
+                    {{form_widget(
+                        form.commonAreaSize,
+                        {
+                            'attr': {
+                                'class': 'form-control'
+                            }
+                        }
+                    )}}
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="row">
+                <label class="col-xs-2 control-label">
+                    {{ 'project.setting.unit.type.label.roomCount'|trans }}
+                </label>
+                <div class="col-xs-4">
+                    {{form_widget(
+                        form.roomCount,
+                        {
+                            'attr': {
+                                'class': 'form-control'
+                            }
+                        }
+                    )}}
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="row">
+                <label class="col-xs-2 control-label">
+                    {{ 'project.setting.unit.type.label.bedroomCount'|trans }}
+                </label>
+                <div class="col-xs-4">
+                    {{form_widget(
+                        form.bedroomCount,
+                        {
+                            'attr': {
+                                'class': 'form-control'
+                            }
+                        }
+                    )}}
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="row">
+                <label class="col-xs-2 control-label">
+                    {{ 'project.setting.unit.type.label.bathroomCount'|trans }}
+                </label>
+                <div class="col-xs-4">
+                    {{form_widget(
+                        form.bathroomCount,
+                        {
+                            'attr': {
+                                'class': 'form-control'
+                            }
+                        }
+                    )}}
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="row">
+                <label class="col-xs-2 control-label">
+                    {{ 'project.setting.unit.type.label.description'|trans }}
+                </label>
+                <div class="col-xs-4">
+                    {{form_widget(
+                        form.description,
+                        {
+                            'attr': {
+                                'class': 'form-control'
+                            }
+                        }
+                    )}}
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="row">
+                <div class="col-xs-offset-2 col-xs-10">
+                    <input
+                        type="submit"
+                        value="{{ 'btn.create'|trans }}"
+                        class="btn btn-success"
+                    >
+                    <a
+                        href="{{ path(
+                            'project_unitType_list',
+                            {'project': project.id}
+                        ) }}"
+                        class="btn btn-default"
+                    >
+                        {{ 'link.back'|trans }}
+                    </a>
+                </div>
+            </div>
+        </div>
+        {{ form_end(form) }}
+    </div>
+{% endblock %}

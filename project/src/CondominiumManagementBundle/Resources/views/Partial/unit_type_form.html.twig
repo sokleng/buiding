@@ -1,0 +1,176 @@
+{{ form_start(form) }}
+    <div class="form-group">
+        <div class="row">
+            <label class="col-xs-3 control-label">
+                {{ 'condo.unit.type.label.code'|trans }}
+                <span class="required-field">*</span>
+            </label>
+            <div class="col-xs-4">
+                {{form_widget(
+                    form.code,
+                    {
+                        'attr': {
+                            'class': 'form-control'
+                        }
+                    }
+                )}}
+            </div>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <div class="row">
+            <label class="col-xs-3 control-label">
+                {{ 'condo.unit.type.label.size'|trans }}
+                <span class="required-field">*</span>
+            </label>
+
+            <div class="col-xs-4">
+                {{form_widget(
+                    form.size,
+                    {
+                        'attr': {
+                            'class': 'form-control'
+                        }
+                    }
+                )}}
+                <div class="text-danger">
+                    {% if  form_errors(form.size) %}
+                        <span>{{ 'the.value.should.be.number'|trans }}</span>
+                    {% endif %}
+                </div>
+            </div>
+            <label class="control-label">m<sup>2</sup></label>
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="row">
+            <label class="col-xs-3 control-label">
+                {{ 'condo.unit.type.label.commonAreaSize'|trans }}
+                <span class="required-field">*</span>
+            </label>
+            <div class="col-xs-4">
+                {{form_widget(
+                    form.commonAreaSize,
+                    {
+                        'attr': {
+                            'class': 'form-control'
+                        }
+                    }
+                )}}
+                <div class="text-danger">
+                    {% if  form_errors(form.commonAreaSize) %}
+                        <span>{{ 'the.value.should.be.number'|trans }}</span>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="row">
+            <label class="col-xs-3 control-label">
+                {{ 'condo.unit.type.label.roomCount'|trans }}
+                <span class="required-field">*</span>
+            </label>
+            <div class="col-xs-4">
+                {{form_widget(
+                    form.roomCount,
+                    {
+                        'attr': {
+                            'class': 'form-control'
+                        }
+                    }
+                )}}
+                <div class="text-danger">
+                    {% if  form_errors(form.roomCount) %}
+                        <span>{{ 'the.value.should.be.number'|trans }}</span>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="row">
+            <label class="col-xs-3 control-label">
+                {{ 'condo.unit.type.label.bedroomCount'|trans }}
+                <span class="required-field">*</span>
+            </label>
+            <div class="col-xs-4">
+                {{form_widget(
+                    form.bedroomCount,
+                    {
+                        'attr': {
+                            'class': 'form-control'
+                        }
+                    }
+                )}}
+                <div class="text-danger">
+                    {% if  form_errors(form.bedroomCount) %}
+                        <span>{{ 'the.value.should.be.number'|trans }}</span>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="row">
+            <label class="col-xs-3 control-label">
+                {{ 'condo.unit.type.label.bathroomCount'|trans }}
+                <span class="required-field">*</span>
+            </label>
+            <div class="col-xs-4">
+                {{form_widget(
+                    form.bathroomCount,
+                    {
+                        'attr': {
+                            'class': 'form-control'
+                        }
+                    }
+                )}}
+                <div class="text-danger">
+                    {% if  form_errors(form.bathroomCount) %}
+                        <span>{{ 'the.value.should.be.number'|trans }}</span>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="row">
+            <label class="col-xs-3 control-label">
+                {{ 'condo.unit.type.label.description'|trans }}
+                <span class="required-field">*</span>
+            </label>
+            <div class="col-xs-4">
+                {{form_widget(
+                    form.description,
+                    {
+                        'attr': {
+                            'class': 'form-control'
+                        }
+                    }
+                )}}
+            </div>
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="row">
+            <div class="col-xs-offset-3 col-xs-10">
+                <input
+                    type="submit"
+                    value="{{ 'btn.save'|trans }}"
+                    class="btn btn-success"
+                >
+                <a
+                    href="{{ path(
+                        'condominium_unit_type_list',
+                        {'condominium': condominium.id}
+                    ) }}"
+                    class="btn btn-default"
+                >
+                    {{ 'link.back'|trans }}
+                </a>
+            </div>
+        </div>
+    </div>
+{{ form_end(form) }}

@@ -1,0 +1,43 @@
+{{ form_start(form) }}
+{% include 'CondominiumManagementBundle:ExpendCategory:tabs_head.html.twig'
+    with {'active' : 'expend_category', 'condominium': condominium.id} %}
+<br/>
+<div class="form-group">
+    <div class="row">
+        <label class="col-md-2 control-label">
+            {{ 'condo.label.expense.name'|trans }}
+            <span class="required-field">*</span>
+        </label>
+        <div class="col-md-3">
+            {{form_widget(
+                form.name,
+                {
+                    'attr': {
+                        'class': 'form-control'
+                    }
+                }
+            )}}
+        </div>
+    </div>
+</div>
+<div class="form-group">
+    <div class="row">
+        <div class="col-xs-offset-2 col-xs-10">
+            <input
+                type="submit"
+                value="{{ 'btn.save'|trans }}"
+                class="btn btn-success"
+            >
+            <a
+                href="{{ path(
+                    'condominium_expend_category_list',
+                    {'condominium': condominium.id}
+                ) }}"
+                class="btn btn-default"
+            >
+                {{ 'link.back'|trans }}
+            </a>
+        </div>
+    </div>
+</div>
+{{ form_end(form) }}

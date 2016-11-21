@@ -1,0 +1,75 @@
+{% extends 'PlatformBundle::content_page_layout.html.twig' %}
+{% set title = 'developers.title.edit'|trans ~ ": " ~ developer.name %}
+
+{% block content %}
+    <div class="panel panel-body">
+    {{ form_start(edit_form) }}
+        <div class="form-group">
+            <div class="row">
+                <label class="col-xs-2 control-label">
+                    {{ 'developers.label.name'|trans }}
+                </label>
+                <div class="col-xs-4">
+                    {{form_widget(
+                        edit_form.name,
+                        {
+                            'attr': {
+                                'class': 'form-control'
+                            }
+                        }
+                    )}}
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="row">
+                <label class="col-xs-2 control-label">
+                    {{ 'developers.label.description'|trans }}
+                </label>
+                <div class="col-xs-4">
+                    {{form_widget(
+                        edit_form.description,
+                        {
+                            'attr': {
+                                'class': 'form-control'
+                            }
+                        }
+                    )}}
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="row">
+                <div class="col-xs-offset-2 col-xs-10">
+                    <input
+                        type="submit"
+                        value="{{ 'btn.save'|trans }}"
+                        class="btn btn-success"
+                    >
+                    <a
+                        href="{{
+                            path('platform_developer_list')
+                        }}"
+                        class="btn btn-default"
+                    >
+                        {{ 'link.back'|trans }}
+                    </a>
+                </div>
+            </div>
+        </div>
+    {{ form_end(edit_form) }}
+
+    {{ form_start(delete_form) }}
+        <div class="form-group">
+            <div class="row">
+                <div class="col-xs-offset-2 col-xs-10">
+                    <input
+                        type="submit"
+                        value="{{ 'btn.delete'|trans }}"
+                        class="btn btn-danger pull-left"
+                    >
+                </div>
+            </div>
+        </div>
+    {{ form_end(delete_form) }}
+{% endblock %}

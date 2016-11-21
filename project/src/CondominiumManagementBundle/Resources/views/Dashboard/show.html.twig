@@ -1,0 +1,24 @@
+{% extends 'CondominiumManagementBundle::content_page_layout.html.twig' %}
+
+{% block content %}
+    <div class="row">
+        <div class="col-md-12 col-sm-12 col-xs-12 col-lg-12">
+            <div id="report"></div>
+            <div id="chart_income_expense_profit"></div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block javascripts %}
+    {% javascripts
+        "@CondominiumManagementBundle/Resources/public/js/highcharts.js"
+        "@CondominiumManagementBundle/Resources/public/js/exporting.js"
+    %}
+        <script src="{{ asset_url }}"></script>
+    {% endjavascripts %}
+
+    <script type="text/javascript">
+        {{ chart(chartReport) }}
+        {{ chart(chartReportIncomeExpenseProfit) }}
+    </script>
+{% endblock %}

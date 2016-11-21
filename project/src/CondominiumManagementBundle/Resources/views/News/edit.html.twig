@@ -1,0 +1,7 @@
+{% extends 'CondominiumManagementBundle::content_page_layout.html.twig' %}
+{% set title = 'condo.news.edit.title'|trans ~ ': ' ~ news.title %}
+
+{% block content %}
+    {% include 'CondominiumManagementBundle:Partial:news_form.html.twig' %}
+{% endblock %}
+

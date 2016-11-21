@@ -1,0 +1,95 @@
+{% extends 'RealtyCompanyBundle::content_page_layout.html.twig' %}
+{% set title = company.name ~ ' - ' ~ contact.name %}
+
+{% block content %}
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="panel panel-default">
+                <table class="table table-striped">
+                    <tbody>
+                        <tr>
+                            <th>{{ 'contact.th.id'|trans }}</th>
+                            <td>{{ contact.id }}</td>
+                        </tr>
+                        <tr>
+                            <th>{{ 'contact.th.name'|trans }}</th>
+                            <td>{{ contact.name }}</td>
+                        </tr><tr>
+                            <th>{{ 'contact.th.gender'|trans }}</th>
+                            <td>
+                                {% if contact.isMale() %}
+                                    {{ 'contact.label.gender.male'|trans }}
+                                {% endif %}
+                                {% if contact.isFemale() %}
+                                    {{ 'contact.label.gender.female'|trans }}
+                                {% endif %}
+                                {% if contact.isNA() %}
+                                    {{ 'contact.label.gender.na'|trans }}
+                                {% endif %}
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>{{ 'contact.th.phone.number'|trans }}</th>
+                            <td>{{ contact.phoneNumber }}</td>
+                        </tr>
+                        <tr>
+                            <th>{{ 'contact.th.email'|trans }}</th>
+                            <td>{{ contact.email }}</td>
+                        </tr>
+                        <tr>
+                            <th>{{ 'contact.th.nationality'|trans }}</th>
+                            <td>{{ contact.nationality }}</td>
+                        </tr>
+                        <tr>
+                            <th>{{ 'contact.th.comment'|trans }}</th>
+                            <td>{{ contact.comment}}</td>
+                        </tr>
+                        <tr>
+                            <th>{{ 'contact.th.creation.date'|trans }}</th>
+                            <td>{{ contact.creationDate | date }}</td>
+                        </tr>
+                        <tr>
+                            <td colspan="2">
+                                <div class="form-group">
+                                    <div class="col-xs-10">
+                                        <form method="post"
+                                            action="{{ path('company_contacts_delete',
+                                            {'contact': contact.id, 'company': company.id}) }}"
+                                        >
+                                            <a
+                                                href="{{ path(
+                                                    'company_contacts_edit',
+                                                    {'contact': contact.id, 'company': company.id}
+                                                ) }}"
+                                                class="btn btn-primary btn-sm"
+                                            >
+                                                {{ 'link.action.edit'|trans }}
+                                            </a>
+                                            <a
+                                                href="{{ path(
+                                                    'company_contacts_list',
+                                                    {'company': company.id}
+                                                ) }}"
+                                                class="btn btn-default btn-sm"
+                                            >
+                                                {{ 'link.back'|trans }}
+                                            </a>
+                                            <input type="hidden"
+                                                name="_method"
+                                                value="DELETE"
+                                            >
+                                            <input type="submit"
+                                                class="btn btn-danger btn-sm"
+                                                value="{{ 'btn.delete'|trans }}"
+                                            >
+                                        </form>
+                                    </div>
+                                </div>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+{% endblock %}

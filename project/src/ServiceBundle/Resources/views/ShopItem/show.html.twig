@@ -1,0 +1,87 @@
+{% extends 'ServiceBundle::content_page_layout.html.twig' %}
+{% set title = 'show.item.title.show'|trans ~ ': ' ~ shopItem.name %}
+
+{% block content %}
+    <div class="panel panel-body">
+        <table class="table table-striped">
+            <tbody>
+                <tr>
+                    <th>{{ 'show.item.th.id'|trans }}</th>
+                    <td>{{ shopItem.id }}</td>
+                </tr>
+                <tr>
+                    <th>{{ 'show.item.th.name'|trans }}</th>
+                    <td>{{ shopItem.name }}</td>
+                </tr>
+                <tr>
+                    <th>{{ 'show.item.th.unit.price'|trans }}</th>
+                    <td>{{ shopItem.price|number_format(2, '.', ',') }}</td>
+                </tr>
+                <tr>
+                    <th>{{ 'show.item.th.description'|trans }}</th>
+                    <td>{{ shopItem.description }}</td>
+                </tr>
+                <tr>
+                    <th>{{ 'show.item.th.creation.date'|trans }}</th>
+                    <td>{{ shopItem.creationDate | date }}</td>
+                </tr>
+                <tr>
+                    <th>{{ 'show.item.th.enabled'|trans }}</th>
+                    <td>{% if shopItem.enabled %}Yes{% else %}No{% endif %}</td>
+                </tr>
+                <tr>
+                    <td colspan="2">
+                        <div class="form-group">
+                            <div class="row">
+                                <div class="col-xs-10">
+                                    <a
+                                        href="{{ path(
+                                            'service_products_edit',
+                                            { 'id': shopItem.id, 'service': service.id }
+                                        ) }}"
+                                        class="btn btn-primary"
+                                    >
+                                        {{ 'link.action.edit'|trans }}
+                                    </a>
+                                    <a
+                                        href="{{
+                                            path('service_products_list',
+                                            { 'service': service.id })
+                                        }}"
+                                        class="btn btn-default"
+                                    >
+                                        {{ 'link.back'|trans }}
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <form method="post"
+                            action="{{ path(
+                                'service_products_delete',
+                                {
+                                    'id': shopItem.id,
+                                    'service': service.id
+                                }
+                            )}}"
+                        >
+                           <div class="form-group">
+                                <div class="row">
+                                    <div class="col-xs-10">
+                                        <input type="hidden"
+                                            name="_method"
+                                            value="DELETE"
+                                        >
+                                        <input type="submit"
+                                            class="btn btn-danger"
+                                            value="{{ 'btn.delete'|trans }}"
+                                        >
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+{% endblock %}

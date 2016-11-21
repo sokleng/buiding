@@ -1,0 +1,101 @@
+condominium.th.id: ID
+condominium.th.name: Name
+condominium.th.address: Address
+condominium.th.creation.date: Creation Date
+condominium.th.actions: Actions
+building.label.served.buildings: Served Buildings
+building.label.available.buildings: Available Buildings
+
+project.payment.label.contact: Contact
+project.payment.label.unit: Unit
+project.payment.label.paymentMethod: Payment Method
+project.payment.label.receiver: Receiver
+project.payment.label.description: Description
+project.setting.unit.type.label.code: Code
+project.setting.unit.type.label.size: Size
+project.setting.unit.type.label.commonAreaSize: Common Area Size
+project.setting.unit.type.label.roomCount: Room Count
+project.setting.unit.type.label.bedroomCount: Bedroom Count
+project.setting.unit.type.label.bathroomCount: Bathroom Count
+project.setting.unit.type.label.description: Description
+
+opening_time.availability.title.new: New Availability
+opening_time.unavailability.title.new: New Special Closing Time
+opening_time.title: Opening Time
+
+opening_time.title.panel.special.closing.time: Special Closing Time
+opening_time.title.panel.normal.opening.time: Normal Opening Time
+opening_time.btn.add.new.closing.time: Add new closing time
+opening_time.btn.add.new.availability: Add new availability
+opening_time.th.from: From
+opening_time.th.to: To
+opening_time.th.enable: Enabled
+opening_time.th.creation.date: Creation Date
+opening_time.th.actions: Actions
+opening_time.th.day: Day
+opening_time.th.time: Time
+opening_time.td.yes: Yes
+opening_time.td.no: No
+opening_time.label.start.date: Start Date
+opening_time.label.start.time: Start Time
+opening_time.label.end.date: End Date
+opening_time.label.end.time: End Time
+opening_time.label.enabled: Enabled
+opening_time.label.opening.time: Opening Time
+opening_time.label.closing.time: Closing Time
+opening_time.label.day.of.the.week.start: Day Of The Week Start
+opening_time.label.day.of.the.week.end: Day Of The Week End
+
+order.title: Orders
+order.th.reference: Reference
+order.th.name: Name
+order.th.unit.price: Unit Price
+order.th.quantity: Quantity
+order.th.sub.total: Sub Total
+order.th.grand.total: Grand Total
+order.message.no.order: You do not have any order yet!
+order.status.new: New
+order.status.all: All
+service.order.label.show.by: Show By
+
+btn.make.as.delivered: Make as Delivered
+btn.remove: Remove
+btn.disable: Disable
+btn.enable: Enable
+
+link.order: Order
+link.opening.time: Opening Time
+link.product: Product
+link.buildings: Buildings
+
+show.item.title: Products
+show.item.title.show: Product
+show.item.title.new: New Product
+show.item.title.edit: Edit Product
+show.item.status.yes: Yes
+show.item.status.no: No
+
+show.item.label.reference: Reference
+show.item.label.name: Name
+show.item.label.description: Description
+show.item.label.unit.price: Unit Price
+show.item.label.picture: Picture
+show.item.label.enabled: Enabled
+
+show.item.th.id: ID
+show.item.th.picture: Picture
+show.item.th.reference: Reference
+show.item.th.name: Name
+show.item.th.unit.price: Unit Price
+show.item.th.description: Description
+show.item.th.creation.date: Creation Date
+show.item.th.enabled: Enabled
+show.item.th.actions: Actions
+show.item.action.create: Create a new Product
+show.item.td.yes: Yes
+show.item.td.no: No
+
+service.label.closed: Closed
+service.label.open: Open
+service.label.dashboard: Dashboard
+service.title: Service

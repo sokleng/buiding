@@ -1,0 +1,70 @@
+{% extends 'ProjectRealtyBundle::content_page_layout.html.twig' %}
+{% set title =  project.name ~ ' - Settings - Public Listing' %}
+
+{% block content %}
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="panel panel-default">
+                {% if project.projectListing == null %}
+                    <div class="panel-heading">
+                        <a href="{{ path('project_public_listing_new', {'project': project.id}) }}"
+                           class="btn btn-success"
+                        >
+                            {{ 'public.listing.link.add.new.public.listing'|trans }}
+                        </a>
+                    </div>
+                {% endif %}
+                <!-- /.panel-heading -->
+                {% if project.projectListing != null %}
+                    <div class="panel-body">
+                        <div class="dataTable_wrapper">
+                            <table class="table table-striped table-bordered table-hover">
+                                <thead>
+                                <tr>
+                                    <th>{{ 'public.listing.th.construction.date'|trans }}</th>
+                                    <th>{{ 'public.listing.th.completetion.date'|trans }}</th>
+                                    <th>{{ 'public.listing.th.latitute'|trans }}</th>
+                                    <th>{{ 'public.listing.th.longtitute'|trans }}</th>
+                                    <th>{{ 'public.listing.th.total.unit'|trans }}</th>
+                                    <th>{{ 'public.listing.th.published'|trans }}</th>
+                                    <th>{{ 'public.listing.th.actions'|trans }}</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>{{ project.projectListing.constructionDate | date }}</td>
+                                        <td>{{ project.projectListing.completionDate | date }}</td>
+                                        <td>{{ project.projectListing.latitude }}</td>
+                                        <td>{{ project.projectListing.longitude }}</td>
+                                        <td>{{ project.projectListing.totalUnit }}</td>
+                                        <td>{{ project.projectListing.isPublished ? 'Yes' : 'No' }}</td>
+                                        <td>
+                                            <a
+                                                href="{{
+                                                    path(
+                                                        'project_public_listing_edit',
+                                                            {
+                                                                'project': project.id,
+                                                                'publicListing': project.projectListing.id
+                                                            }
+                                                        )
+                                                }}"
+                                               class="btn btn-sm btn-primary"
+                                            >
+                                                {{ 'action.edit'|trans }}
+                                            </a>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <!-- /.table-responsive -->
+                    </div>
+                    <!-- /.panel-body -->
+                {% endif %}
+            </div>
+            <!-- /.panel -->
+        </div>
+        <!-- /.col-lg-12 -->
+    </div>
+{% endblock %}

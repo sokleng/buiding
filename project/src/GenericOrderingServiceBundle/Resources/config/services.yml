@@ -1,0 +1,6 @@
+services:
+    app.twig_extension.order_status:
+        class: GenericOrderingServiceBundle\Twig\Extension\OrderStatus
+        public: false
+        tags:
+            - { name: twig.extension }

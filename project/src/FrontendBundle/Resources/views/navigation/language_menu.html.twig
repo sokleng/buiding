@@ -1,0 +1,51 @@
+{% set params = app.request.get('_route_params') %}
+{% if app.request.locale is not empty %}
+    {% set countryCode = app.request.locale | split('-') | last | lower %}
+{% else %}
+    {% set countryCode = 'gb' %}
+{% endif %}
+
+<span class="dropdown">
+    <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+        {% if countryCode == 'kh' %}
+            ខ្មែរ
+        {% elseif countryCode == 'cn' %}
+            中文
+        {% else %}
+            English
+        {% endif %}
+        <i class="fa fa-caret-down"></i>
+    </a>
+    <ul class="dropdown-menu dropdown-menu-right">
+        <li>
+            <a href="{{
+                path(
+                    app.request.attributes.get('_route'),
+                    params | merge({'_locale': 'km-KH'})
+                )
+            }}">
+                ខ្មែរ
+            </a>
+        </li>
+        <li>
+            <a href="{{
+                path(
+                    app.request.attributes.get('_route'),
+                    params | merge({'_locale': 'en-US'})
+                )
+            }}">
+                English
+            </a>
+        </li>
+        <li>
+            <a href="{{
+                path(
+                    app.request.attributes.get('_route'),
+                    params | merge({'_locale': 'zh-CN'})
+                )
+            }}">
+                中文
+            </a>
+        </li>
+    </ul>
+</span>

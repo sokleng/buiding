@@ -1,0 +1,94 @@
+@import 'variables';
+
+.dataTables_wrapper {
+    min-height: 320px;
+}
+
+.badge {
+    background-color: $bg-danger;
+}
+
+span.my-tooltips {
+    &:hover {
+        text-decoration: none;
+        background: $bg-primary;
+        z-index: 6;
+    }
+
+    span {
+        width: 300px;
+        visibility: hidden;
+        position: absolute;
+        margin: 20px 0 0 0;
+        padding: 10px;
+        border-radius: 5px;
+        border: solid 1px $border-color-primary;
+        z-index: 1;
+    }
+
+    &:hover span {
+        visibility: visible;
+        background: $bg-primary;
+    }
+}
+
+.condominium-client {
+
+    .panel-heading {
+        display: inline-block;
+        width: 100%;
+    }
+
+    .form-inline {
+        .form-control {
+            width: 100%;
+            font-size: 12px;
+        }
+    }
+
+    .custom-input {
+        padding-right: 0;
+        padding-left: 15px;
+    }
+
+    .nopadding {
+        padding-left: 0;
+        padding-right: 0;
+    }
+
+    .create-new-client {
+        padding-left: 0;
+        margin-top: 25px;
+        margin-right: 40px;
+    }
+
+    .btn-export {
+        margin-top: 25px;
+        margin-left: -40px;
+    }
+
+    .btn {
+        font-size: 12px;
+    }
+
+    @media(max-width: 992px) {
+        .form-group {
+            padding: 10px 0;
+        }
+        .custom-input {
+            padding-left: 0px;
+        }
+        .create-new-client {
+            margin-top: 0;
+        }
+        .btn-export {
+            margin-left: 0;
+            margin-top: 0px;
+            float: left !important;
+        }
+    }
+}
+
+.width-medium {
+    width: 250px;
+}

@@ -1,0 +1,38 @@
+{% if unit.type is not null %}
+    <span
+        class="my-tooltips"
+    >
+        {{ unit.type.code }}
+        <span>
+            {{
+                'condo.unit.type.label.code'|trans ~
+                ': ' ~ unit.type.code
+            }}<br/>
+            {{
+                'condo.unit.type.label.commonAreaSize'|trans ~
+                ': ' ~ unit.type.commonAreaSize
+            }}<br/>
+            {{
+                'condo.unit.type.label.size'|trans ~
+                ': ' ~ unit.type.size
+            }}
+            m<sup>2</sup>
+            <br/>
+            {{
+                'condo.unit.type.label.roomCount'|trans ~
+                ': ' ~ unit.type.roomCount
+            }}<br/>
+            {{
+                'condo.unit.type.label.bedroomCount'|trans ~
+                ': ' ~ unit.type.bedroomCount
+            }}<br/>
+            {{  'condo.unit.type.label.bathroomCount'|trans ~
+                ': ' ~ unit.type.bathroomCount
+            }}<br/>
+            {{
+                'condo.unit.type.label.description'|trans ~
+                ': ' ~ unit.type.description
+            }}
+        </span>
+    </span>
+{% endif %}

@@ -1,0 +1,14 @@
+{% extends 'PlatformBundle::content_page_layout.html.twig' %}
+{% set title = 'realty_projects.title.new'|trans %}
+
+{% block content %}
+    {%  include 'PlatformBundle:project:form.html.twig' %}
+{% endblock %}
+
+{% block additional_resources %}
+    {% include 'CondoBundle:partials:select2_resource.html.twig' with
+        {
+            'selector': '#condominium_project_developer, #condominium_project_district'
+        }
+    %}
+{% endblock %}

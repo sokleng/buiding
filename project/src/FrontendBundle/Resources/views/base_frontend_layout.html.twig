@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>{% block title %}{% endblock %}</title>
+    {% stylesheets filter='cssrewrite'
+        "@bootstrap_min_css"
+        "@font_awesome_css"
+    %}
+        <link rel="stylesheet" type="text/css" href="{{ asset_url }}"/>
+    {% endstylesheets %}
+    {% stylesheets filter='scssphp'
+        "@FrontendBundle/Resources/public/scss/header.scss"
+        "@FrontendBundle/Resources/public/scss/pagination.scss"
+        "@FrontendBundle/Resources/public/scss/footer.scss"
+    %}
+        <link rel="stylesheet" href="{{ asset_url }}"/>
+    {% endstylesheets %}
+    {% block local_stylesheets %}{% endblock %}
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+</head>
+<body>
+
+{% block base_content %}
+
+{% endblock %}
+
+{% javascripts
+    "@jquery"
+    "@bootstrap_min_js"
+%}
+    <script src="{{ asset_url }}"></script>
+{% endjavascripts %}
+
+{% block local_javascripts %}{% endblock %}
+
+{% block additional_resources %}{% endblock %}
+</body>
+</html>

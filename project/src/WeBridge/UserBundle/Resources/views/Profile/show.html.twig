@@ -1,0 +1,6 @@
+{% extends 'WeBridgeUserBundle::content_page_layout.html.twig' %}
+{% set title =  'profile.label.user.profile'|trans  %}
+
+{% block content %}
+{% include "FOSUserBundle:Profile:show_content.html.twig" %}
+{% endblock content %}

@@ -1,0 +1,95 @@
+{% extends 'PlatformBundle::content_page_layout.html.twig' %}
+{% set title = country.name ~ " " ~ "city.title.cities"|trans %}
+
+{% block content %}
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <a
+                        class="btn btn-success"
+                        href="javascript:{}"
+                        onclick="document.getElementById('cityForm').submit(); return false;"
+                    >
+                        {{ 'Add City'|trans }}
+                    </a>
+                </div>
+                <!-- /.panel-heading -->
+                <div class="panel-body">
+                    <div class="dataTable_wrapper">
+                        <table class="table table-striped table-bordered table-hover">
+                            <thead>
+                            <tr>
+                                <td colspan="3">
+                                    <form method="post"
+                                          id="cityForm"
+                                          action="{{ path(
+                                            'admin_areas_city_new',
+                                            {'country': country.id}
+                                          ) }}"
+                                    >
+                                        <input type="text"
+                                               name="name"
+                                               title="{{ 'city.title.add.new.city.name'|trans }}"
+                                               class="col-xs-12"
+                                        >
+                                        <input type="submit"
+                                               value="{{ 'city.link.add.city'|trans }}"
+                                               class="col-xs-3 btn btn-success hidden"
+                                        >
+                                    </form>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th class="col-xs-9">{{ 'city.th.name'|trans }}</th>
+                                <th class="col-xs-3">{{ 'city.th.actions'|trans }}</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            {% for city in cities %}
+                                {% if loop.index % 2 == 0 %}
+                                    {% set rowClass = "even" %}
+                                {% else %}
+                                    {% set rowClass = "odd" %}
+                                {% endif %}
+                                <tr onclick="
+                                    document.location = '{{ path(
+                                        'admin_area_district',
+                                        {'country': country.id, 'city': city.id}
+                                    ) }}';
+                                ">
+                                    <td>{{ city.name }}</td>
+                                    <td>
+                                        <form method="post"
+                                              action="{{ path(
+                                                  'admin_areas_city_delete',
+                                                  {
+                                                      'country': country.id,
+                                                      'city': city.id
+                                                  }
+                                              ) }}"
+                                        >
+                                            <input type="hidden"
+                                                   name="_method"
+                                                   value="DELETE"
+                                            >
+                                            <input type="submit"
+                                                   class="btn btn-sm btn-danger"
+                                                   value="{{ 'action.delete'|trans }}"
+                                            >
+                                        </form>
+                                    </td>
+                                </tr>
+                            {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+                    <!-- /.table-responsive -->
+                </div>
+                <!-- /.panel-body -->
+            </div>
+            <!-- /.panel -->
+        </div>
+        <!-- /.col-lg-12 -->
+    </div>
+{% endblock %}

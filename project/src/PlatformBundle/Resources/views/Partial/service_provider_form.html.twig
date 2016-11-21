@@ -1,0 +1,131 @@
+<div class="form-group">
+    <div class="row">
+        <label class="col-md-2 control-label">
+            {{ 'service_providers.label.company.name'|trans }}
+        </label>
+        <div class="col-md-4">
+            {{form_widget(
+                form.companyName,
+                {
+                    'attr': {
+                        'class': 'form-control'
+                    }
+                }
+            )}}
+        </div>
+    </div>
+</div>
+<div class="form-group">
+    <div class="row">
+        <label class="col-md-2 control-label">
+            {{ 'service_providers.label.contact.number'|trans }}
+        </label>
+        <div class="col-md-4">
+            {{form_widget(
+                form.contactNumber,
+                {
+                    'attr': {
+                        'class': 'form-control'
+                    }
+                }
+            )}}
+        </div>
+    </div>
+</div>
+<div class="form-group">
+    <div class="row">
+        <label class="col-md-2 control-label">
+            {{ 'service_providers.label.description'|trans }}
+        </label>
+        <div class="col-md-4">
+            {{form_widget(
+                form.description,
+                {
+                    'attr': {
+                        'class': 'form-control',
+                        'rows' : 10
+                    }
+                }
+            )}}
+        </div>
+    </div>
+</div>
+<div class="form-group">
+    <div class="row">
+        <label class="col-xs-2 control-label">
+            {{ 'service_providers.label.currency'|trans }}
+        </label>
+        <div class="col-xs-4">
+            {{form_widget(
+                form.currency,
+                {
+                    'attr': {
+                        'class': 'form-control'
+                    }
+                }
+            )}}
+        </div>
+    </div>
+</div>
+<div class="form-group">
+    <div class="row">
+        <label class="col-xs-2 control-label">
+            {{ 'service_providers.label.vat'|trans }}
+        </label>
+        <div class="col-xs-4">
+            {{form_widget(
+                form.isVat,
+                {
+                    'attr': {
+                        'onchange': 'Vat.show_rate_and_vat_tin()',
+                        'rows': 5
+                    }
+                }
+            )}}
+        </div>
+    </div>
+</div>
+<div class="form-group">
+    <div class="row" id='rate'>
+        <label class="col-xs-2 control-label">
+            {{ 'service_providers.label.rate'|trans }}
+        </label>
+        <div class="col-xs-4">
+            {{form_widget(
+                form.rate,
+                {
+                    'attr': {
+                        'class': 'form-control',
+                        'rows': 5,
+                    }
+                }
+            )}}
+        </div>
+    </div>
+</div>
+<div class="form-group">
+    <div class="row" id='vatTin'>
+        <label class="col-xs-2 control-label">
+            {{ 'buildings.label.vat.tin'|trans }}
+        </label>
+        <div class="col-xs-4">
+            {{form_widget(
+                form.vatTin,
+                {
+                    'attr': {
+                        'class': 'form-control',
+                        'rows': 5
+                    }
+                }
+            )}}
+        </div>
+    </div>
+</div>
+
+{% block additional_resources %}
+    {% javascripts
+        "@PlatformBundle/Resources/public/js/vat.js"
+    %}
+        <script src="{{ asset_url }}"></script>
+    {% endjavascripts %}
+{% endblock %}

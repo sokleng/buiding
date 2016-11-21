@@ -1,0 +1,9 @@
+project/app/cache
+project/app/logs
+project/web/js
+project/web/css
+project/web/flags/
+project/web/fonts/
+
+.vagrant
+*.phar

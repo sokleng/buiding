@@ -1,0 +1,120 @@
+{% extends 'ProjectRealtyBundle::content_page_layout.html.twig' %}
+{% set title =  'project.name'|trans ~ ' - Units' %}
+
+{% block content %}
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="panel panel-default">
+                <!-- /.panel-heading -->
+                <div class="panel-body">
+                    <div class="dataTable_wrapper">
+                        <table class="table table-striped table-bordered table-hover"
+                               id="units-table"
+                        >
+                            <thead>
+                            <tr>
+                                <th>{{ 'project.unit.floor' | trans }}</th>
+                                <th>{{ 'project.unit.room.number' | trans }}</th>
+                                <th>{{ 'project.unit.type' | trans }}</th>
+                                <th>{{ 'project.unit.price' | trans }} ($)</th>
+                                <th>{{ 'project.unit.status' | trans }}</th>
+                                <th>{{ 'project.unit.action' | trans }}</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            {% for unit in units %}
+                                <tr>
+                                    <td>{{ unit.floor }}</td>
+                                    <td>{{ unit.roomNumber }}</td>
+                                    <td>{{ unit.type.code }}</td>
+                                    <td>${{ unit.price }}</td>
+                                    <td>{{ unit.status is not null ? unit.status.name }}</td>
+                                    <td>
+                                        <a
+                                            href="{{ path('project_units_show',
+                                                {
+                                                    'id' : unit.id,
+                                                    'project' : project.id
+                                                })
+                                            }}"
+                                            class="btn btn-sm btn-primary"
+                                        >
+                                            {{ 'action.show'|trans }}
+                                        </a>
+                                        <a
+                                            href="{{ path('project_unit_edit',
+                                                {
+                                                    'project': project.id,
+                                                    'unit': unit.id
+                                                })
+                                            }}"
+                                            class="btn btn-sm btn-primary"
+                                        >
+                                            {{ 'action.edit'| trans }}
+                                        </a>
+                                    </td>
+                                </tr>
+                            {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+                    <!-- /.table-responsive -->
+                </div>
+                <!-- /.panel-body -->
+                <div class="panel-footer">
+                    <form method="post"
+                          action="{{ path('project_units_add', {'project': project.id}) }}"
+                    >
+                        <span>{{ 'unit.label.add.unit' | trans }}</span>
+                        <input type="text"
+                               placeholder="{{ 'unit.placeholder.room.number'|trans }}"
+                               name="add_room_number"
+                        >
+                        <span>{{ 'unit.label.of.type' | trans }}</span>
+                        <select title="Unit Type"
+                                id="add_unit_type"
+                                name="add_unit_type"
+                        >
+                            {% for unitType in project.unitTypes %}
+                                <option value="{{ unitType.id }}">
+                                    {{ unitType.code }}
+                                </option>
+                            {% endfor %}
+                        </select>
+                        <span>{{ 'unit.label.on.floor' | trans }}</span>
+                        <input type="number"
+                               title="Unit Floor"
+                               name="add_unit_floor"
+                               placeholder="{{ 'unit.placeholder.unit.floor'|trans }}"
+                        >
+                        <span>{{ 'unit.label.with.price' | trans }}</span>
+                        <input type="number"
+                               title="Unit Price"
+                               name="add_unit_price"
+                               placeholder="{{ 'unit.placeholder.unit.price'|trans }}"
+                        >
+                        <span>$</span>
+                        <input type="submit"
+                               class="btn btn-success"
+                               value="{{ 'btn.submit'|trans }}"
+                        >
+                    </form>
+                </div>
+            </div>
+            <!-- /.panel -->
+        </div>
+        <!-- /.col-lg-12 -->
+    </div>
+
+
+{% endblock %}
+
+{% block additional_resources %}
+    {{ parent() }}
+    {% include 'CondoBundle:partials:datatable_resource.html.twig' with
+        {'selector': '#units-table'}
+    %}
+    {% include 'CondoBundle:partials:select2_resource.html.twig' with
+        {'selector': '#add_unit_type'}
+    %}
+{% endblock %}

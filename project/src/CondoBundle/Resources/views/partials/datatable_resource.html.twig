@@ -1,0 +1,28 @@
+{% set responsive = responsive is defined ? responsive : 'true' %}
+{% set fixedHeader = fixedHeader is defined ? fixedHeader : 'true' %}
+
+
+{% if selector is defined and selector is not null %}
+    {% stylesheets filter='cssrewrite'
+        "@datatable_css"
+    %}
+        <link rel="stylesheet" type="text/css" href="{{ asset_url }}"/>
+    {% endstylesheets %}
+
+
+    {% javascripts
+        "@datatable_js"
+    %}
+        <script type="application/javascript" src="{{ asset_url }}"></script>
+    {% endjavascripts %}
+
+    {# Initialize Data table On Page Ready #}
+    <script type="application/javascript">
+        $(document).ready(function() {
+            $('{{ selector }}').DataTable({
+                responsive: {{ responsive }},
+                fixedHeader: {{ fixedHeader }}
+            });
+        });
+    </script>
+{% endif %}

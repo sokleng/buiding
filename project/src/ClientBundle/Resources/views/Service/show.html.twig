@@ -1,0 +1,207 @@
+{% extends 'ClientBundle::content_page_layout.html.twig' %}
+{% set title = service.title %}
+
+{% block content %}
+    <div class="row">
+        <div class="col-lg-8">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h2>
+                        {{ 'service.title.panel.products'|trans }}
+                        {% if service.isOpen %}
+                            <span class="label label-success pull-right">
+                                {{ 'service.title.panel.open'|trans }}
+                            </span>
+                        {% else %}
+                            <span class="label label-danger pull-right">
+                                {{ 'service.title.panel.closed'|trans }}
+                            </span>
+                        {% endif %}
+                    </h2>
+                </div>
+                <div class="panel-body">
+                    {% set currencySign = "" %}
+                    {% if service.serviceProvider.currency is not null %}
+                        {% set currencySign = service.serviceProvider.currency.sign %}
+                    {% endif %}
+                    {% for product in service.enabledShopItems | sort('name') %}
+                        <div class="col-lg-4 col-md-6">
+                            <div class="panel panel-default">
+                                <div class="panel-heading">
+                                    {{ product.name }}
+                                    <span class="label label-default pull-right"
+                                    >
+                                        {{ currencySign }}
+                                        {{ product.price|number_format(2, '.', ',') }}
+                                    </span>
+                                    <div class="clearfix"></div>
+                                </div>
+                                <div class="panel-body">
+                                    {% if product.picture is not null %}
+                                        <div class="col-xs-6">
+                                        {% include 'CondoBundle:partials:image_resource.html.twig'
+                                            with {'resource': product.picture}
+                                        %}
+                                        </div>
+                                        <span class="col-xs-6">
+                                    {% else %}
+                                        <span class="col-xs-12">
+                                    {% endif %}
+                                        {{ product.description }}
+                                    </span>
+                                </div>
+                                <div class="panel-footer">
+                                    <form method="post"
+                                          action="{{ path(
+                                          'client_service_addcartitem',
+                                          {
+                                              'service': service.id,
+                                              'shopItem': product.id,
+                                              'unit': unit.id
+                                          }
+                                          ) }}"
+                                    >
+                                        <input type="submit"
+                                               class="btn btn-default pull-right"
+                                               value="{{ 'service.btn.add'|trans }}"
+                                                {%  if service.isOpen != true %}
+                                                    disabled="disabled"
+                                                {% endif %}
+                                        >
+                                    </form>
+                                    <div class="clearfix"></div>
+                                </div>
+                            </div>
+                        </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-4">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h2>
+                        <i class="fa fa-shopping-cart"></i>
+                        {{ 'service.title.panel.your.selection'|trans }}
+                    </h2>
+                </div>
+                <div class="panel-body">
+                    <div class="table-responsive">
+                        <table class="table">
+                            <thead>
+                            <tr>
+                                <th>{{ 'service.th.item'|trans }}</th>
+                                <th>{{ 'service.th.unit.price'|trans }}</th>
+                                <th></th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            {% set orderTotal = 0 %}
+                            {% for cartItem in shoppingCart.cartItems %}
+                                {% set currencySign = "" %}
+                                {% if cartItem.currency is not null %}
+                                    {% set currencySign = cartItem.currency.sign %}
+                                {% endif %}
+                                {% set rowTotal = cartItem.shopItem.price * cartItem.quantity %}
+                                {% set orderTotal = orderTotal + rowTotal %}
+                                <tr>
+                                    <td>{{ cartItem.shopItem.name }}</td>
+                                    <td>
+                                        {{ cartItem.quantity }}
+                                        x
+                                        {{ currencySign }}
+                                        {{ cartItem.shopItem.price|number_format(2, '.', ',') }}
+                                    </td>
+                                    <td>
+                                        <form method="post"
+                                              action="{{ path(
+                                              'client_service_cart_remove',
+                                              {
+                                                  'cartItem': cartItem.id,
+                                                  'service': service.id,
+                                                  'unit': unit.id
+                                              }
+                                              ) }}"
+                                        >
+                                            <input type="hidden"
+                                                   name="_method"
+                                                   value="DELETE"
+                                            >
+                                            <button type="submit"
+                                                    class="btn btn-default btn-circle"
+                                            >
+                                                <i class="fa fa-times"></i>
+                                            </button>
+                                        </form>
+                                    </td>
+                                </tr>
+                            {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <div class="panel-footer">
+                    <table class="table table-striped table-hover table-bordered">
+                        <tbody>
+                            <tr>
+                                <th colspan="3">
+                                    <span class="pull-left">
+                                        {{ 'service.label.sub.total'|trans }}
+                                    </span>
+                                </th>
+                                <th>{{ currencySign }} {{ orderTotal|number_format(2, '.', ',') }}</th>
+                            </tr>
+                            {% if service.serviceProvider.isVat %}
+                                <tr>
+                                    <th colspan="3">
+                                        <span class="pull-left">
+                                            {{ 'service.label.vat'|trans }}
+                                            ({{ service.serviceProvider.rate }}%)
+                                        </span>
+                                    </th>
+                                    <th>
+                                        {{ currencySign }}
+                                        {{ (orderTotal / 100 * service.serviceProvider.rate)|number_format(2, '.', ',') }}
+                                    </th>
+                                </tr>
+                                <tr>
+                                    <th colspan="3">
+                                        <span class="pull-left">
+                                            {{ 'service.label.grand.total'|trans }}
+                                        </span>
+                                    </th>
+                                    <th>
+                                        {{ currencySign }}
+                                        {{ ((orderTotal * service.serviceProvider.rate / 100) + orderTotal)|number_format(2, '.', ',') }}
+                                    </th>
+                                </tr>
+                            {% endif %}
+                            <tr>
+                                <td colspan="4">
+                                    {% if shoppingCart.cartItems.isEmpty %}
+                                        <a href="#" class="pull-right btn btn-success disabled">
+                                            {{ 'service.btn.checkout'|trans }}
+                                        </a>
+                                        {% else %}
+                                        <a href="{{ path(
+                                        'client_service_checkout',
+                                        {
+                                            'unit': unit.id,
+                                            'service': service.id,
+                                            'shoppingCart': shoppingCart.id
+                                        }
+                                        ) }}"
+                                           class="pull-right btn btn-success"
+                                        >
+                                            {{ 'service.btn.checkout'|trans }}
+                                        </a>
+                                    {% endif %}
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

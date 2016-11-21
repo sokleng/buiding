@@ -1,0 +1,92 @@
+project.unit.label.id: លេខសម្គាល់
+project.unit.label.floor: ជាន់
+project.unit.label.roomNumber: លេខ​បន្ទប់
+project.unit.label.price: តម្លៃ
+project.unit.label.type: ប្រភេទ
+project.unit.label.status: ស្ថានភាព
+project.setting.unit.status.label.name: ឈ្មោះ
+project.setting.unit.status.label.closedStatus: តើស្ថានភាពដែលបានបិទ
+project.setting.unit.status.label.enabled: អនុញ្ញាតឱ្យ
+project.setting.unit.status.label.name: ឈ្មោះ
+project.setting.unit.status.label.closedStatus: តើ ស្ថានភាព ដែលបានបិទ
+project.setting.unit.status.label.enabled: បានបើក
+project.setting.unit.type.label.code: លេខកូដ
+project.setting.unit.type.label.size: ទំហំ
+project.setting.unit.type.label.commonAreaSize:  ទំហំជាធម្មតា
+project.setting.unit.type.label.roomCount:  ចំនួន​បន្ទប់
+project.setting.unit.type.label.bedroomCount: ចំនួន​បន្ទប់គេង
+project.setting.unit.type.label.bathroomCount: ចំនួន​បន្ទប់ទឹក
+project.setting.unit.type.label.description: បរិយាយ
+project.payment.label.receiver: អ្នក​ទទួល
+project.payment.label.paymentMethod : វិធី​សា​ស្រ្ត​ទូទាត់
+project.payment.label.description: បរិយាយ
+project.payment.label.contact: ទំនក់ទំនង
+project.payment.label.unit: អង្គភាព
+project.payment.label.amount: ចំនួនទឹកប្រាក់
+project.payment.label.status: ស្ថានភាព
+project.payment.label.received: បាន​ទទួល
+project.unit.room.number: លេខបន្ទប់
+project.unit.type: ប្រភេទ
+project.unit.floor: ជាន់
+project.unit.price: តំលៃ
+project.unit.button.edit: កែសម្រួល
+project.unit.status: ស្ថានភាព
+project.unit.action: សកម្មភាព
+project.name: ស្ថានភាព អង្គភាព ថ្មី
+
+link.units: អង្គភាព
+link.payments: ការ​បង់ប្រាក់
+link.setting: ការកំណត់
+link.unit.types: ប្រភេទ
+link.unit.status: ស្ថានភាព
+link.public.listing: ការចុះបញ្ជី
+
+unit.label.add.unit: បន្ថែមអង្គភាព
+unit.label.of.type: នៃប្រភេទ
+unit.label.on.floor: នៅលើជាន់
+unit.label.with.price: ជាមួយនឹងតម្លៃនៃ A
+unit.placeholder.room.number: លេខ​បន្ទប់
+unit.placeholder.unit.floor: ជាន់ទីអង្គភាព
+unit.placeholder.unit.price: តម្លៃអង្គភាព
+
+payment.link.new.payment: បន្ថែមការ​បង់ប្រាក់
+payment.th.date: កាលបរិច្ឆេទ
+payment.th.contact: ទំនក់ទំនង
+payment.th.unit: អង្គភាព
+payment.th.payment.method: វិធី​សា​ស្រ្ត​ទូទាត់
+payment.th.receiver: អ្នក​ទទួល
+payment.th.amount: ចំនួនទឹកប្រាក់
+payment.th.payment.date: កាលបរិច្ឆេទការ​បង់ប្រាក់
+payment.th.received: បាន​ទទួល
+payment.th.description: បរិយាយ
+payment.th.status: ស្ថានភាព
+payment.th.actions: សកម្មភាព
+
+unit.status.link.new.unit.status: បន្ថែមស្ថានភាពអង្គភាពថ្មី
+unit.status.th.status: ស្ថានភាព
+unit.status.th.is.a.closed.status:  តើស្ថានភាពដែលបានបិទ
+unit.status.th.enabled: អនុញ្ញាតឱ្យ
+unit.status.th.creation.date: កាលបរិច្ឆេទបង្កើត
+unit.status.th.actions: សកម្មភាព
+
+unit.type.link.add.new.unit.type: បន្ថែមប្រភេទអង្គភាពថ្មី
+unit.type.th.code: លេខកូដ
+unit.type.th.unit.size: ទំហំអង្គភាព
+unit.type.th.common.area.size: ទំហំជាធម្មតា
+unit.type.th.total.area.size: ទំហំសរុប
+unit.type.th.room: បន្ទប់
+unit.type.th.bedroom: បន្ទប់គេង
+unit.type.th.bathroom: បន្ទប់ទឹក
+unit.type.th.actions: សកម្មភាព
+
+public.listing.label.construction.date: សំណង់កាលបរិច្ឆេទ
+public.listing.label.completetion.date: ការបញ្ចប់កាលបរិច្ឆេទ
+public.listing.label.latitute: រយៈទទឹង
+public.listing.label.longtitute: រយៈបណ្ដោយ
+public.listing.label.image: រូបភាព
+public.listing.label.total.unit: អង្គភាពសរុប
+public.listing.label.description: បរិយាយ
+public.listing.label.type: ប្រភេទ
+public.listing.label.published: ផ្សព្វផ្សាយចាសាធារណៈ
+
+btn.submit: បញ្ជូន

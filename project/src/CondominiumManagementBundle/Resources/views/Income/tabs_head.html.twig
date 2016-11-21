@@ -1,0 +1,12 @@
+<ul class="nav nav-tabs">
+    <li {% if active == 'income' %} class="active" {% endif %}>
+        <a href="{{ path('condominium_income_list', {'condominium' : condominium}) }}">
+            {{ 'link.income'|trans }}
+        </a>
+    </li>
+    <li {% if active == 'income_category' %} class="active" {% endif %}>
+        <a href="{{ path('condominium_income_category_list', {'condominium' : condominium}) }}">
+            {{ 'link.category'|trans }}
+        </a>
+    </li>
+</ul>

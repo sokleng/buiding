@@ -1,0 +1,5 @@
+services:
+    app.resident_controller:
+        class: CondominiumManagementBundle\Controller\ResidentController
+        calls:
+            - [setContainer, ["@service_container"]]

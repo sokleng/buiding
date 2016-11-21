@@ -1,0 +1,27 @@
+{% extends 'PlatformBundle::content_page_layout.html.twig' %}
+{% set title = 'service_providers.title.new'|trans %}
+
+{% block content %}
+    {{ form_start(form) }}
+        {% include 'PlatformBundle:Partial:service_provider_form.html.twig' %}
+        <div class="form-group">
+            <div class="row">
+                <div class="col-md-offset-2 col-md-4">
+                    <input
+                        type="submit"
+                        value="{{ 'btn.create'|trans }}"
+                        class="btn btn-success"
+                    />
+                    <a
+                        href="{{
+                            path('platform_serviceProvider_list')
+                        }}"
+                        class="btn btn-default"
+                    >
+                        {{ 'link.back'|trans }}
+                    </a>
+                </div>
+            </div>
+        </div>
+    {{ form_end(form) }}
+{% endblock %}

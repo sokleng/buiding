@@ -1,0 +1,16 @@
+project.unit.label.id: ID
+project.unit.label.floor: 楼
+project.unit.label.roomNumber: 房间号
+project.unit.label.price: 价钱
+project.unit.label.type: 类型
+project.unit.label.status: 状态
+project.setting.unit.status.label.name: Name
+project.setting.unit.status.label.closedStatus: Is A Closed Status
+project.setting.unit.status.label.enabled: Enabled
+project.unit.room.number: Room Number
+project.unit.type: Type
+project.unit.floor: Floor
+project.unit.price: Price
+project.unit.button.edit: Edit
+project.unit.status: Status
+project.unit.action: Actions

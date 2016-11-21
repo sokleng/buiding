@@ -1,0 +1,158 @@
+{% extends 'CondominiumManagementBundle::content_page_layout.html.twig' %}
+{% set title = condominium.name ~
+    ' - ' ~ 'condo.label.invoice.invoice.show'|trans ~ ' - #' ~ invoice.id
+%}
+
+{% block content %}
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="tab-content">
+                <div class="tab-pane fade in active">
+                    <br />
+                    {% set currencySign = ''%}
+                    {% if invoice.currency is not null %}
+                        {% set currencySign = invoice.currency.sign %}
+                    {% endif %}
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <table class="table">
+                                <tr>
+                                    <td>{{ 'condo.label.invoice.id'|trans }}</td>
+                                    <td class="text-muted small">{{ invoice.id }}</td>
+                                </tr>
+                                <tr>
+                                    <td>{{ 'condo.label.invoice.title'|trans }}</td>
+                                    <td class="text-muted small">{{ invoice.title }}</td>
+                                </tr>
+                                {% if invoice.IncomeCategory is not null %}
+                                    <tr>
+                                        <td>{{ 'condo.label.invoice.category.name'|trans }}</td>
+                                        <td class="text-muted small">{{ invoice.IncomeCategory.name }}</td>
+                                    </tr>
+                                {% endif %}
+                                {% if invoice.client is not null %}
+                                    <tr>
+                                        <td>{{ 'condo.label.invoice.client.name'|trans }}</td>
+                                        <td class="text-muted small">{{ invoice.client.user.name }}</td>
+                                    </tr>
+                                {% endif %}
+                                <tr>
+                                    <td>{{ 'condo.label.invoice.sub.total'|trans }}</td>
+                                    <td class="text-muted small">
+                                        {{ invoice.subTotal|number_format(2, '.', ',') }}
+                                        {{ currencySign }}
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>{{ 'condo.label.invoice.vat'|trans }}</td>
+                                    <td class="text-muted small">
+                                        {{ invoice.vat }}
+                                        %
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>{{ 'condo.label.invoice.grand.total'|trans }}</td>
+                                    <td class="text-muted small">
+                                        {{ invoice.grandTotal|number_format(2, '.', ',') }}
+                                        {{ currencySign }}
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>{{ 'condo.label.invoice.creation.date'|trans }}</td>
+                                    <td class="text-muted small">
+                                        {{ invoice.creationDate|date }}
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        {{ 'condo.label.invoice.description'|trans }}
+                                    </td>
+                                    <td class="text-muted small">
+                                        {{ invoice.description }}
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>{{ 'condo.label.invoice.status'|trans }}</td>
+                                    <td
+                                        class="
+                                            small
+                                            {% if invoice.isPaid() %}
+                                                text-danger
+                                            {% else %}
+                                                text-muted
+                                            {% endif %}
+                                        "
+                                    >
+                                        {{ invoice.status|InvoiceStatus|trans }}
+                                    </td>
+                                </tr>
+                                {% if invoice.isPaid() %}
+                                    <tr>
+                                        <td>
+                                            {{ 'condo.label.invoice.payment.date'|trans }}
+                                        </td>
+                                        <td class="text-muted small">
+                                            {{ invoice.paymentDate|date }}
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            {{ 'condo.label.invoice.mark.as.paid.by'|trans }}
+                                        </td>
+                                        <td class="text-muted small">
+                                            {{ invoice.markAsPaidBy.name }}
+                                        </td>
+                                    </tr>
+                                {% endif %}
+                            </table>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <a
+                            href="{{
+                                path(
+                                    'condominium_client_invoice_edit',
+                                    {
+                                        'condominium': condominium.id,
+                                        'clientUnit': invoice.client.id,
+                                        'invoice': invoice.id
+                                    }
+                                )
+                            }}"
+                            class="btn btn-primary"
+                        >
+                            {{ 'action.edit'|trans }}
+                        </a>
+                        <a
+                            href="{{
+                                path(
+                                  'condominium_client_invoice_delete',
+                                  {
+                                      'condominium': condominium.id,
+                                      'clientUnit': clientUnit.id,
+                                      'invoice': invoice.id
+                                  }
+                                )
+                            }}"
+                            class="btn btn-danger"
+                        >
+                            {{ 'btn.delete'|trans }}
+                        </a>
+                        <a
+                            href="{{ path(
+                                'condominium_client_invoices',
+                                {
+                                    'condominium': condominium.id,
+                                    'clientUnit': clientUnit.id
+                                }
+                            ) }}"
+                            class="btn btn-default"
+                        >
+                            {{ 'link.back'|trans }}
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

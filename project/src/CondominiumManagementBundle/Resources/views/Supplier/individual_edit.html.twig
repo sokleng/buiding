@@ -1,0 +1,20 @@
+{% extends 'CondominiumManagementBundle::content_page_layout.html.twig' %}
+{% set title = condominium.name ~ ' - ' ~ 'link.suppliers'|trans ~ ' - ' ~ 'condo.suppliers.individual.edit'|trans ~ ' - #' ~ individualSupplier.id %}
+
+{% block content %}
+    <div class="row">
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+            {%
+                include 'CondominiumManagementBundle:Supplier:tabs_head.html.twig'
+                with {'active' : 'individual', 'condominium': condominium.id}
+            %}
+            <div class="tab-content">
+                <div class="tab-pane fade in active">
+                    <div class="margin-top-20">
+                        {% include 'CondominiumManagementBundle:Supplier:individual_form.html.twig' %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

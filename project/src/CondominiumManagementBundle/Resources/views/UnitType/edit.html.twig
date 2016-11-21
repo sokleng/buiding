@@ -1,0 +1,7 @@
+{% extends 'CondominiumManagementBundle::content_page_layout.html.twig' %}
+{% set title = condominium.name ~ " - " ~ 'edit.unit.type'|trans ~ " : " ~ unitType.code %}
+
+{% block content %}
+   {% include 'CondominiumManagementBundle:Partial:unit_type_form.html.twig' %}
+{% endblock %}
+

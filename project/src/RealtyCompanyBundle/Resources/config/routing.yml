@@ -1,0 +1,19 @@
+realtyCompany_home:
+    resource: "@RealtyCompanyBundle/Controller/HomeController.php"
+    type: annotation
+
+company_home:
+    resource: "@RealtyCompanyBundle/Controller/CompanyController.php"
+    type: annotation
+
+company_contact:
+    resource: "@RealtyCompanyBundle/Controller/ContactController.php"
+    type: annotation
+
+realty:
+    resource: "@RealtyCompanyBundle/Controller/RealtyCompanyController.php"
+    type: annotation
+
+payment:
+    resource: "@RealtyCompanyBundle/Controller/PaymentController.php"
+    type: annotation

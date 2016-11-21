@@ -1,0 +1,12 @@
+<ul class="nav nav-tabs">
+    <li {% if active == 'expend_invoice' %} class="active" {% endif %}>
+        <a href="{{ path('condominium_expend_invoice_list', {'condominium' : condominium}) }}">
+            {{ 'link.expense'|trans }}
+        </a>
+    </li>
+    <li {% if active == 'expend_category' %} class="active" {% endif %}>
+        <a href="{{ path('condominium_expend_category_list', {'condominium' : condominium}) }}">
+            {{ 'link.category'|trans }}
+        </a>
+    </li>
+</ul>

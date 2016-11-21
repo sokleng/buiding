@@ -1,0 +1,25 @@
+<div class="navbar navbar-default navbar-fixed-top">
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse"
+                data-target=".navbar-collapse">
+            <span class="sr-only">{{ 'navigation.label.toggle.navigation'|trans }}</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+        </button>
+        {% include 'CondoBundle:partials:header_expend_collapse_menu.html.twig' %}
+        <a class="navbar-brand" href="{{ path('condo_homepage') }}">
+            {{ 'title.webridge.backend.template'|trans }}
+        </a>
+    </div>
+
+    <ul class="nav navbar-top-links navbar-right">
+
+        {% include ':navigation:language_menu.html.twig' %}
+
+        {% include ':navigation:spaces_menu.html.twig' %}
+
+        {% include ':navigation:user_menu.html.twig' %}
+
+    </ul>
+</div>

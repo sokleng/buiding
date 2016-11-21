@@ -1,0 +1,17 @@
+menu.home: home
+menu.contact_us: contact us
+unit.unit_number : unit
+unit.unit_type : type
+unit.filter.one_room: one room
+unit.filter.two_rooms: two rooms
+unit.filter.three_rooms: three rooms
+unit.filter.four_rooms: four rooms
+unit.filter.all: all
+unit.th.type: type
+unit.th.bathroom: bathroom
+unit.th.bedroom: bedroom
+unit.th.net_area: net area
+project.construction_date : construction date
+project.public.listing.type.label.type.all: ALL
+project.public.listing.type.label.type.for.rant: FOR RANT
+project.public.listing.type.label.type.for.sale: FOR SALE

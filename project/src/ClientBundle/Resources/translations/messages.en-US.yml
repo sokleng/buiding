@@ -1,0 +1,109 @@
+client.unit.dropdown.unit.add: Add a new unit
+client.order.history: Orders history
+client.news: News
+client.feedback: Feedback
+client.service: Services
+client.issue: Issues
+client.read.more: Read More
+
+client.checkout.label.total: Total
+
+home.title: Home
+home.title.list: Find Your Building
+home.title.new: Your Unit at
+
+checkout.title: Checkout
+checkout.title.panel.your.order: Your Order
+checkout.title.panel.delivery.details: Delivery Details
+checkout.title.panel.additional.comments: Additional Comments
+checkout.th.item: Item
+checkout.th.unit.price: Uni Price
+checkout.label.total: Total
+checkout.label.sub.total: Sub Total
+checkout.label.building: Building
+checkout.label.address: Address
+checkout.label.room.number: Room Number
+checkout.label.contact.name: Contact Name
+checkout.label.contact.number: Contact Number
+checkout.label.condominium: Condominium
+checkout.btn.submit.order: Submit Order
+
+feedback.title: Feedback
+feedback.placeholder.describe.your.feedback: Describe your feedback...
+
+news.title: News
+
+service.title.panel.products: Products
+service.title.panel.closed: Closed
+service.title.panel.open: Open
+service.title.panel.your.selection: Your Selection
+service.th.item: Item
+service.th.unit.price: Unit Price
+service.btn.checkout: Checkout
+service.btn.add: Add
+service.label.total: Total
+service.label.sub.total: Sub Total
+title.service.for: Service for
+service.closed: Closed
+service.open: Open
+service.label.vat: VAT
+service.label.grand.total: Grand Total
+
+title.order.history: Order History
+title.order: Order
+order.th.building: Building
+order.th.unit: Unit
+order.th.service: Service
+order.th.order.time: Order Time
+order.th.unit.price: Unit Price
+order.th.vat: VAT
+order.th.quantity: Quantity
+order.th.amount: Amount
+order.th.grand.total: Grand Total
+order.th.status: Status
+order.th.action: Action
+order.td.sub.total: Sub Total
+order.td.vat: VAT
+order.td.grand.total: Grand Total
+order.th.name: Name
+
+client.order.detail.condominium: Building
+client.order.detail.address: Address
+client.order.detail.building: Building
+client.order.detail.contact.name: Contact Name
+client.order.detail.contact.phone.number: Contact Phone Number
+client.order.detail.building: Building
+client.order.detail.address: Address
+client.order.detail.additional.comments: Additional Comments
+
+unit.message.issue.thanks: Thanks you for your last issues report on
+unit.message.thanks: Thank you for your last feedback on
+unit.message.sorry: We really sorry to hear that you have bad experience with us, we will let you know once the problem resolved.
+unit.message.feedback: Give us feedback and help us improve
+unit.message.issues: Have an issue? Let us know what is happening.
+unit.issue.closed: Issue Closed
+unit.issue.in.progress: Issue In Progress
+unit.issue.opened: Issue Opened
+unit.issues: Issues
+unit.services: Services
+unit.feedback: Feedback
+unit.closed: Closed
+unit.open: Open
+title.at: at
+
+client_issue.th.id: ID
+client_issue.th.date: Date
+client_issue.th.description: Description
+client_issue.th.status: Status
+client_issue.th.action: Action
+client_issue.label.create.new.issue: Create a New Issue
+client_issue.label.status: Status
+client_issue.label.comment: Comment
+client_issue.label.photos.and.videos: Photos / Videos
+client_issue.label.this.issue.was.cancelled: This issue was cancelled
+btn.cancel.issue: Cancel Issue
+
+btn.send: Send
+btn.cancel: Cancel
+
+action.see.detail: See Detail

@@ -1,0 +1,49 @@
+link.projects: Projects
+link.managers: Managers
+link.project: Project
+link.manager: Manager
+link.invoices: Invoices
+projects.th.id: ID
+projects.th.name: Name
+projects.th.contact.name: Contact Name
+projects.th.contact.number: Contact Number
+projects.th.creation.date: Creation Date
+projects.th.actions: Actions
+projects.action.create: Create a new Project
+projects.title: Projects
+developer.label.name: name
+developer.title.edit: Edit Developer
+developer.label.description: Description
+developer.projects.new.title.new:  New Developer Project
+developer_project.label.name: Name
+developer_project.label.address: Address
+developer_project.label.floor.count: Floor Count
+developer_project.label.contact.name: Contact Name
+developer_project.label.contact.number: Contact Number
+developer_project.label.description: Description
+developer_project.label.developer: Developer
+developer_project.label.district: District
+
+developer.projects.show.title: Developer Project
+developer_project.th.id: ID
+developer_project.th.developer: Developer
+developer_project.th.name: Name
+developer_project.th.contact.name: Contact Name
+developer_project.th.contact.number: Contact Number
+developer_project.th.description: Description
+developer_project.th.creation.date: Creation Date
+
+developer_projects.title.edit: Edit Developer Project
+developer.payment.label.contact: Contact
+developer.payment.label.amount: Amount
+developer.payment.label.received: Received
+developer.payment.label.receiver: Receiver
+developer.payment.label.paymentMethod : Payment Method
+developer.payment.label.description: Description
+developer.payment.label.status: Status
+developer.payment.label.developer: Developer
+developer.payment.label.id: ID
+developer.payment.title.invoices: Invoices
+developer.action.create: Create New Payment
+developer.action.status.cancel: Cancel Payment
+developer.action.status.paid: Mark As Paid

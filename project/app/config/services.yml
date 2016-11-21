@@ -1,0 +1,10 @@
+imports:
+    - { resource: "@GenericOrderingServiceBundle/Resources/config/services.yml" }
+    - { resource: "@CondoBundle/Resources/config/services.yml" }
+    - { resource: "@CondominiumManagementBundle/Resources/config/services.yml" }
+
+services:
+    twig.extension.date:
+        class: Twig_Extensions_Extension_Date
+        tags:
+            - { name: twig.extension }

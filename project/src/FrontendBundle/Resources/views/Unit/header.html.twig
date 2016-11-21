@@ -1,0 +1,99 @@
+<section id="unit-header">
+    <div class="navbar header">
+        <div class="col-md-3 logo">
+            <img src="http://placehold.it/350x120">
+        </div>
+        <div class="col-md-9 top-menu">
+            <nav class="navbar navbar-default">
+                {% include 'FrontendBundle:navigation:language_menu.html.twig' %}
+                {% include 'FrontendBundle:navigation:menu.html.twig' %}
+            </nav>
+        </div>
+    </div>
+    <div
+        class="unit-info"
+        style="background: url(
+            {{
+                path('condo_resource', {'fileId': condoProject.databaseFile.id})
+            }}
+        );"
+    >
+        <div class="unit-content">
+            <div class="col-md-12">
+                <div class="col-md-6">
+                    <div class="col-md-10">
+                        <div class="content-left">
+                            <h1 class="condo-name">
+                                {{condoProject.project.name}}
+                            </h1>
+                            <div class="construction-date">
+                                <span class="text-uppercase">
+                                    {{ 'project.construction_date'|trans }}
+                                </span>
+                                {{condoProject.constructionDate | date("M-d-Y")}}
+                            </div>
+                            <div>
+                                <p>
+                                    {{condoProject.description}}
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="col-md-offset-2 col-md-10">
+                        <div class="content-right-top">
+                            <div class="unit-type-container">
+                                <div class="col-xs-12 col-sm-6 col-md-6 unit-count">
+                                    <h2 class="text-uppercase">
+                                        <strong>{{ 'unit.unit_number'|trans }}</strong>
+                                        <span class="num">{{condoProject.totalUnit }}</span>
+                                    </h2>
+
+                                </div>
+                                <div class="col-xs-12 col-sm-6 col-md-6 unit-type">
+                                    <h2 class="text-uppercase">
+                                        <strong>{{ 'unit.unit_type'|trans }}</strong>
+                                        <small><span class="type">Building</span></small>
+                                    </h2>
+                                </div>
+                            </div>
+                            <div class="col-xs-12 col-sm-12 col-md-12 ">
+                                <div class="unit-content address">
+                                    <span class="col-xs-2 col-sm-2 col-md-2">
+                                        <i class="fa fa-map-marker" aria-hidden="true"></i>
+                                    </span>
+                                    <span class="col-xs-10 col-sm-10 col-md-10">
+                                        <p>{{condoProject.project.address}}</p>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="content-right-bottom">
+                            <div class="col-xs-12 col-sm-12 col-md-12 unit-service">
+                                <div class="unit-content more-info">
+                                    <span class="col-xs-2 col-sm-2 col-md-2">
+                                        <i class="fa fa-university" aria-hidden="true"></i>
+                                    </span>
+                                    <span class="col-xs-10 col-sm-10 col-md-10">
+                                        <p></p>
+                                    </span>
+                                </div>
+                            </div>
+                            <div class="col-xs-12 col-sm-12 col-md-12 unit-service">
+                                <div class="unit-content more-info">
+                                    <span class="col-xs-2 col-sm-2 col-md-2">
+                                        <i class="fa fa-shield" aria-hidden="true"></i>
+                                    </span>
+                                    <span class="col-xs-10 col-sm-10 col-md-10">
+                                        <p></p>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

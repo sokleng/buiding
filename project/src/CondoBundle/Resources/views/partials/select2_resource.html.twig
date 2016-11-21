@@ -1,0 +1,20 @@
+{% if selector is defined and selector is not null %}
+    {% stylesheets filter='cssrewrite'
+        "@PinanoSelect2Bundle/Resources/public/css/select2.min.css"
+    %}
+        <link rel="stylesheet" type="text/css" href="{{ asset_url }}"/>
+    {% endstylesheets %}
+
+    {% javascripts
+        "@PinanoSelect2Bundle/Resources/public/js/select2.min.js"
+    %}
+        <script type="application/javascript" src="{{ asset_url }}"></script>
+    {% endjavascripts %}
+
+    {# Initialize Data table On Page Ready #}
+    <script type="application/javascript">
+        $(document).ready(function() {
+            $('{{ selector }}').select2();
+        });
+    </script>
+{% endif %}

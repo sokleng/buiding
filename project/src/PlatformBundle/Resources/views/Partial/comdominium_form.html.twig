@@ -1,0 +1,152 @@
+<div class="form-group">
+    <div class="row">
+        <label class="col-xs-2 control-label">
+            {{ 'buildings.label.name'|trans }}
+            <span class="required-field">*</span>
+        </label>
+        <div class="col-xs-4">
+            {{form_widget(
+                form.name,
+                {
+                    'attr': {
+                        'class': 'form-control'
+                    }
+                }
+            )}}
+        </div>
+    </div>
+</div>
+<div class="form-group">
+    <div class="row">
+        <label class="col-xs-2 control-label">
+            {{ 'buildings.label.district'|trans }}
+        </label>
+        <div class="col-xs-4">
+            {{form_widget(
+                form.district,
+                {
+                    'attr': {
+                        'class': 'form-control'
+                    }
+                }
+            )}}
+        </div>
+    </div>
+</div>
+<div class="form-group">
+    <div class="row">
+        <label class="col-xs-2 control-label">
+            {{ 'buildings.label.address'|trans }}
+            <span class="required-field">*</span>
+        </label>
+        <div class="col-xs-4">
+            {{form_widget(
+                form.address,
+                {
+                    'attr': {
+                        'class': 'form-control',
+                        'rows': 5
+                    }
+                }
+            )}}
+        </div>
+    </div>
+</div>
+<div class="form-group {% if condominium.id is not null %} hide {% endif %}">
+    <div class="row">
+        <label class="col-xs-2 control-label">
+            {{ 'buildings.label.currency'|trans }}
+        </label>
+        <div class="col-xs-4">
+            {{form_widget(
+                form.currency,
+                {
+                    'attr': {
+                        'class': 'form-control'
+                    }
+                }
+            )}}
+        </div>
+    </div>
+</div>
+<div class="form-group">
+    <div class="row">
+        <label class="col-xs-2 control-label">
+            {{ 'buildings.label.vat'|trans }}
+        </label>
+        <div class="col-xs-4">
+            {{form_widget(
+                form.isVat,
+                {
+                    'attr': {
+                        'onchange': 'Vat.show_rate_and_vat_tin()',
+                        'rows': 5
+                    }
+                }
+            )}}
+        </div>
+    </div>
+</div>
+<div class="form-group">
+    <div class="row" id='rate'>
+        <label class="col-xs-2 control-label">
+            {{ 'buildings.label.rate'|trans }}
+        </label>
+        <div class="col-xs-4">
+            {{form_widget(
+                form.rate,
+                {
+                    'attr': {
+                        'class': 'form-control',
+                        'rows': 5,
+                    }
+                }
+            )}}
+        </div>
+    </div>
+</div>
+<div class="form-group">
+    <div class="row" id='vatTin'>
+        <label class="col-xs-2 control-label">
+            {{ 'buildings.label.vat.tin'|trans }}
+        </label>
+        <div class="col-xs-4">
+            {{form_widget(
+                form.vatTin,
+                {
+                    'attr': {
+                        'class': 'form-control',
+                        'rows': 5
+                    }
+                }
+            )}}
+        </div>
+    </div>
+</div>
+<div class="form-group">
+    <div class="row">
+        <div class="col-xs-offset-2 col-xs-10">
+            <input
+                type="submit"
+                value="{{ 'btn.save'|trans }}"
+                class="btn btn-success"
+            />
+            <a
+                href="{{
+                    path('platform_condominium_list')
+                }}"
+                class="btn btn-default"
+            >
+                {{ 'link.back'|trans }}
+            </a>
+        </div>
+    </div>
+</div>
+
+{% block additional_resources %}
+    {% javascripts
+        "@PlatformBundle/Resources/public/js/vat.js"
+    %}
+        <script src="{{ asset_url }}"></script>
+    {% endjavascripts %}
+{% endblock %}

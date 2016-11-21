@@ -1,0 +1,90 @@
+{% extends 'RealtyCompanyBundle::content_page_layout.html.twig' %}
+{% set title = company.name ~ ' - ' ~ 'realty_company.label.new.invoices.to.developer'|trans %}
+
+{% block content %}
+    <div class="col-sm-6">
+        {{ form_start(form, {'attr': {'class' : 'form-horizontal'}}) }}
+            <div class="form-group">
+                <label class="col-sm-3 control-label">
+                    {{ 'developer.payment.label.contact'|trans }}
+                </label>
+                <div class="col-sm-6">
+                    {{ form_widget(form.contact, {'attr': {'class' : 'form-control'}}) }}
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="col-sm-3 control-label">
+                    {{ 'developer.payment.label.paymentMethod'|trans }}
+                </label>
+                <div class="col-sm-6">
+                    {{ form_widget(form.paymentMethod, {'attr': {'class' : 'form-control'}}) }}
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-3 control-label">
+                    {{ 'developer.payment.label.receiver'|trans }}
+                </label>
+                <div class="col-sm-6">
+                    {{ form_widget(form.receiver, {'attr': {'class' : 'form-control'}}) }}
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-3 control-label">
+                    {{ 'developer.payment.label.amount'|trans }}
+                </label>
+                <div class="col-sm-6">
+                    {{ form_widget(form.amount, {'attr': {'class' : 'form-control'}}) }}
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-3 control-label">
+                    {{ 'developer.payment.label.status'|trans }}
+                </label>
+                <div class="col-sm-6">
+                    {{ form_widget(form.status, {'attr': {'class' : 'form-control'}}) }}
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-3 control-label">
+                    {{ 'developer.payment.label.description'|trans }}
+                </label>
+                <div class="col-sm-6">
+                    {{ form_widget(form.description, {'attr': {'class' : 'form-control'}}) }}
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-3 control-label">
+                    {{ 'developer.payment.label.developer'|trans }}
+                </label>
+                <div class="col-sm-6">
+                    {{ form_widget(form.developer, {'attr': {'class' : 'form-control'}}) }}
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-xs-offset-3 col-xs-10">
+                    <div class="checkbox">
+                        <label>
+                            {{form_widget(form.received)}}
+                            {{ 'developer.payment.label.received'|trans }}
+                        </label>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-sm-3">
+                </div>
+                <input type="submit" class="btn btn-success" value="{{'btn.create'|trans}}"/>
+                <a
+                    href="{{ path(
+                        'payments_list',
+                        {'company': company.id}
+                    ) }}"
+                    class="btn btn-default"
+                >
+                    {{ 'link.back'|trans }}
+                </a>
+            </div>
+        {{ form_end(form) }}
+    </div>
+{% endblock %}

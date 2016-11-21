@@ -1,0 +1,36 @@
+{% extends "ClientBundle::content_page_layout.html.twig" %}
+
+{% set title = 'title.service.for'|trans ~ ' ' ~ unit.condominium.name %}
+
+{% block content %}
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="panel panel-default">
+                <div class="panel-body">
+                    {% for service in services %}
+                        <a href="{{ path(
+                            'client_service_show',
+                            {'service': service.id, 'unit': unit.id}
+                        ) }}">
+                            <div class="col-lg-3 col-md-4">
+                                <div class="panel panel-default">
+                                    <div class="panel-heading">
+                                        {% if service.isOpen %}
+                                            <span class="label label-success">{{ 'service.open'|trans }}</span>
+                                        {% else %}
+                                            <span class="label label-danger">{{ 'service.closed'|trans }}</span>
+                                        {% endif %}
+                                        {{ service.title }}
+                                    </div>
+                                    <div class="panel-body">
+                                        {{ service.description }}
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

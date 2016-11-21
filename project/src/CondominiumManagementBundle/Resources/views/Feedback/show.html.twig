@@ -1,0 +1,57 @@
+{% extends 'CondominiumManagementBundle::content_page_layout.html.twig' %}
+    {% set title = condominium.name ~ ' - ' ~ 'feedback.title.feedback'|trans ~' - #' ~ feedback.id %}
+
+{% block content %}
+    <div class="row">
+        <div class="col-xs-12">
+            <div class="panel panel-default">
+                <div class="panel-heading lead">
+                    <span>
+                        {{ 'feedback.title.feedback'|trans }} #{{ feedback.id }}
+                    </span>
+                    -
+                    <small>
+                        {{ feedback.creationDate | date }}
+                    </small>
+                </div>
+                <div class="panel-body">
+                    <p>{{ feedback.message }}<p>
+                </div>
+                <div class="panel-footer">
+                    <div class="row">
+                        <div class="col-xs-6 col-sm-2 col-md-1">
+                            <a href="{{ path('condominium_feedback_list', {'condominium' : condominium.id}) }}" class="btn btn-default btn-block"
+                            >
+                                {{ 'link.back'|trans }}
+                            </a>
+                        </div>
+                        <div class="col-xs-6 col-sm-4 col-md-2">
+                            {% if feedback.isRead() %}
+                                <label class="label label-default">
+                                    {{ 'feedback.read'|trans }}
+                                </label>
+                            {% else %}
+                              <form method="post"
+                                    action="{{ path('condominium_feedback_read', {'feedback': feedback.id, 'condominium': condominium.id}) }}"
+                              >
+                                  <button type="submit"
+                                          class="btn btn-success btn-block"
+                                  >
+                                      {{ 'btn.mark.as.read'|trans }}
+                                  </button>
+                              </form>
+                            {% endif %}
+                        </div>
+                        <div class="col-xs-12 col-sm-6 col-md-9">
+                            <div class="pull-right">
+                                {{ feedback.rate|rating }}
+                            </div>
+                        </div>
+                    </div>
+                    <div class="clearfix"></div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+{% endblock %}

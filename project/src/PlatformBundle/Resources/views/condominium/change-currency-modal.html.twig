@@ -1,0 +1,59 @@
+<div
+    id="modal-action"
+    class="modal fade"
+    tabindex="-1"
+    role="dialog"
+    aria-labelledby="mySmallModalLabel"
+>
+    <div class="modal-dialog" role="document">
+        {{ form_start(form) }}
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button
+                        type="button"
+                        class="close"
+                        data-dismiss="modal"
+                        aria-label="Close"
+                    >
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                    <h4 class="modal-title">{{ 'platform.choose.currency'|trans }}</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="alert alert-warning">
+                        <h4>
+                            <strong>{{ 'platform.warning'|trans }}! </strong>
+                            {{ 'platform.warning.change.the.currency.will.effect.to.the.system'|trans }}
+                        </h4>
+                        <p>1. {{ 'platform.warning.we.update.price.of.unit.in.condominium'|trans }}</p>
+                    </div>
+                    <div class="form-group">
+                        {{form_widget(
+                            form.currency,
+                            {
+                                'attr': {
+                                    'class': 'form-control'
+                                }
+                            }
+                        )}}
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button
+                        type="button"
+                        class="btn btn-danger btn-sm"
+                        data-dismiss="modal"
+                    >
+                        {{ 'btn.cancel'|trans }}
+                    </button>
+                    <button
+                        type="submit"
+                        class="btn btn-primary btn-sm pull-right"
+                    >
+                        {{ 'btn.save'|trans }}
+                    </button>
+              </div>
+            </div>
+        {{ form_end(form) }}
+    </div>
+</div>

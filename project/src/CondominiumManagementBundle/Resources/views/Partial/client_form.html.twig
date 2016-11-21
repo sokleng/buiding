@@ -1,0 +1,526 @@
+{% set attr = { 'id': 'client-form' } %}
+{% if user is defined %}
+    {% set attr = {
+            'id': 'client-form',
+            'class': 'client-form-edit'
+        }
+    %}
+{% endif %}
+
+{{ form_start(
+    form,
+    {
+        'attr': attr
+    }
+)}}
+<div class="row">
+    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+        <fieldset>
+            <legend class="text-primary">
+                {{ 'condo.client.information'|trans }}
+            </legend>
+            <div class="form-group">
+                <div class="row">
+                    <label class="col-md-4 control-label">
+                        {{ 'condo.client.label.name'|trans }}
+                        <span class="required-field">*</span>
+                    </label>
+                    <div class="col-md-4">
+                        {{form_errors(form.user.name)}}
+                        {{form_widget(
+                            form.user.name,
+                            {
+                                'attr': {
+                                    'class': 'form-control'
+                                }
+                            }
+                        )}}
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="row">
+                    <label class="col-md-4 control-label">
+                        {{ 'condo.client.label.email'|trans }}
+                        <span class="required-field">*</span>
+                    </label>
+                    <div class="col-md-4">
+                        {{form_errors(form.user.email)}}
+                        {% set attr = {'class': 'form-control'} %}
+                        {% if user is defined %}
+                            {% set attr = {
+                                    'class': 'form-control',
+                                    'disabled': 'disabled'
+                                }
+                            %}
+                        {% endif %}
+                        {{form_widget(
+                            form.user.email,
+                            {
+                                'attr': attr
+                            }
+                        )}}
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="row">
+                    <label class="col-md-4 control-label">
+                        {{ 'condo.client.label.phone'|trans }}
+                        <span class="required-field">*</span>
+                    </label>
+                    <div class="col-md-4">
+                        {{form_errors(form.clientUnit.phoneNumber)}}
+                        {{form_widget(
+                            form.clientUnit.phoneNumber,
+                            {
+                                'attr': {
+                                    'class': 'form-control'
+                                }
+                            }
+                        )}}
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="row">
+                    <label class="col-md-4 control-label">
+                        {{ 'condo.client.label.password'|trans }}
+                        <span class="required-field">*</span>
+                    </label>
+                    <div class="col-md-4">
+                        {{form_errors(form.user.plain_password.first)}}
+                        {% set attr = {'class': 'form-control password-field'} %}
+                        {% if user is defined %}
+                            {% set attr = {
+                                    'class': 'form-control',
+                                    'disabled': 'disabled'
+                                }
+                            %}
+                        {% endif %}
+                        {{form_widget(
+                            form.user.plain_password.first,
+                            {
+                                'attr': attr
+                            }
+                        )}}
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="row">
+                    <label class="col-md-4 control-label">
+                        {{ 'condo.client.label.repeat.password'|trans }}
+                        <span class="required-field">*</span>
+                    </label>
+                    <div class="col-md-4">
+                        {{form_errors(form.user.plain_password.second)}}
+                        {{form_widget(
+                            form.user.plain_password.second,
+                            {
+                                'attr': attr
+                            }
+                        )}}
+                    </div>
+                </div>
+            </div>
+            {{ form_errors(form.user.plain_password) }}
+            <div class="form-group">
+                <div class="row">
+                    <label class="col-md-4 control-label">
+                        {{ 'condo.client.label.id.card'|trans }}
+                        <span class="required-field">*</span>
+                    </label>
+                    <div class="col-md-4">
+                        {{form_errors(form.clientUnit.idCard)}}
+                        {{form_widget(
+                            form.clientUnit.idCard,
+                            {
+                                'attr': {
+                                    'class': 'form-control'
+                                }
+                            }
+                        )}}
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="row">
+                    <label class="col-md-4 control-label">
+                        {{ 'condo.client.label.nationality'|trans }}
+                    </label>
+                    <div class="col-md-4">
+                        {{form_widget(
+                            form.clientUnit.nationality,
+                            {
+                                'attr': {
+                                    'class': 'form-control nationality country-select-input'
+                                }
+                            }
+                        )}}
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="row">
+                    <label class="col-md-4 control-label">
+                        {{ 'condo.client.label.gender'|trans }}
+                    </label>
+                    <div class="col-md-4">
+                        {{form_widget(
+                            form.clientUnit.gender,
+                            {
+                                'attr': {
+                                    'class': 'form-control'
+                                }
+                            }
+                        )}}
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="row">
+                    <label class="col-md-4 control-label">
+                        {{ 'condo.client.label.address'|trans }}
+                    </label>
+                    <div class="col-md-4">
+                        {{form_widget(
+                            form.clientUnit.address,
+                            {
+                                'attr': {
+                                    'class': 'form-control'
+                                }
+                            }
+                        )}}
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="row">
+                    <label class="col-md-4 control-label">
+                        {{ 'condo.client.label.id.card.picture'|trans }}
+                    </label>
+                    <div class="col-md-4">
+                        {{form_widget(form.clientUnit.idCardPicture)}}
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="row">
+                    <label class="col-md-4 control-label">
+                        {{ 'condo.client.label.profile.picture'|trans }}
+                    </label>
+                    <div class="col-md-4">
+                        {{form_widget(form.clientUnit.picture)}}
+                    </div>
+                </div>
+            </div>
+        </fieldset>
+        <fieldset>
+            <legend class="text-primary">
+                {{ 'condo.client.rental.information'|trans }}
+            </legend>
+            <div class="form-group">
+                <div class="row">
+                    <label class="col-md-4 control-label">
+                        {{ 'condo.client.unit.label.unit'|trans }}
+                        <span class="required-field">*</span>
+                    </label>
+                    <div class="col-md-4">
+                        {{form_errors(form.clientUnit.unit)}}
+                        {% set route =  path(
+                                'condominium_unit_get',
+                                {
+                                    'condominium': condominium.id
+                                }
+                            )
+                        %}
+                        {{form_widget(
+                            form.clientUnit.unit,
+                            {
+                                'attr': {
+                                    'class': 'form-control',
+                                    'onchange': 'ClientUnit.find_unit_is_locked()',
+                                    'data-route': route
+                                }
+                            }
+                        )}}
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="row">
+                    <label class="col-md-4 control-label">
+                        {{ 'condo.client.unit.label.start.date'|trans }}
+                        <span class="required-field">*</span>
+                    </label>
+                    <div class="col-md-4">
+                        {{form_errors(form.clientUnit.startDate)}}
+                        {% set attr = {
+                                'class': 'form-control datepicker change-datepicker',
+                                'onchange': 'ClientUnit.change_datepicker()'
+                            }
+                        %}
+                        {% if clientUnit is defined and clientUnit.startDate is not null %}
+                            {% set attr = {
+                                    'class': 'form-control datepicker change-datepicker',
+                                    'onchange': 'ClientUnit.change_datepicker()',
+                                    'value': clientUnit.startDate|date('d-m-Y H:m')
+                                }
+                            %}
+                        {% endif %}
+                        {{form_widget(
+                            form.clientUnit.startDate,
+                            {
+                                'attr': attr
+                            }
+                        )}}
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="row">
+                    <label class="col-md-4 control-label">
+                        {{ 'condo.client.unit.label.end.date'|trans }}
+                        <span class="required-field">*</span>
+                    </label>
+                    <div class="col-md-4">
+                        {{form_errors(form.clientUnit.endDate)}}
+                        {% if clientUnit is defined and clientUnit.endDate is not null %}
+                            {% set attr = {
+                                    'class': 'form-control datepicker change-datepicker',
+                                    'onchange': 'ClientUnit.change_datepicker()',
+                                    'value': clientUnit.endDate|date('d-m-Y H:m')
+                                }
+                            %}
+                        {% endif %}
+                        {{form_widget(
+                            form.clientUnit.endDate,
+                            {
+                                'attr': attr
+                            }
+                        )}}
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="row">
+                    <label class="col-md-4 control-label">
+                        {{ 'condo.client.unit.label.amount'|trans }}
+                        <span class="required-field">*</span>
+                    </label>
+                    <div class="col-md-4">
+                        {{form_errors(form.clientUnit.amount)}}
+                        {{form_widget(
+                            form.clientUnit.amount,
+                            {
+                                'attr': {
+                                    'class': 'form-control'
+                                }
+                            }
+                        )}}
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="row">
+                    <label class="col-md-4 control-label">
+                        {{ 'condo.client.unit.label.unit.price'|trans }}
+                        ({{ currencySign }})
+                        <span class="required-field">*</span>
+                    </label>
+                    <div class="col-md-4">
+                        {{form_errors(form.clientUnit.unitPrice)}}
+                        {{form_widget(
+                            form.clientUnit.unitPrice,
+                            {
+                                'attr': {
+                                    'class': 'form-control',
+                                    'onkeyup': 'ClientUnit.load_total_price()'
+                                }
+                            }
+                        )}}
+
+                    </div>
+
+                    <div class="col-md-4">
+                        <div class="row">
+                            <div class="col-md-1">
+                                <span class="back-slash">/</span>
+                            </div>
+                            <div class="col-md-4">
+                                {{form_errors(form.clientUnit.paymentMethod)}}
+                                {{form_widget(
+                                    form.clientUnit.paymentMethod,
+                                    {
+                                        'attr': {
+                                            'class': 'form-control',
+                                            'onchange': 'ClientUnit.load_total_price()'
+                                        }
+                                    }
+                                )}}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group" id="is-run-schedule-auto">
+                <div class="row">
+                    <label class="col-md-4 control-label">
+                        {{ 'condo.client.unit.label.run.schedule.and.send'|trans }}
+                    </label>
+                    <div class="col-md-4">
+                        {{form_widget(
+                            form.clientUnit.isRunScheduleAuto,
+                            {
+                                'attr': {
+                                    'onchange': 'ClientUnit.is_run_schedule_auto()'
+                                }
+                            }
+                        )}}
+                    </div>
+                </div>
+            </div>
+            <div class="form-group" id="day">
+                <div class="row">
+                    <label class="col-md-4 control-label">
+                        {{ 'condo.client.unit.label.day'|trans }}
+                        <span class="required-field">*</span>
+                    </label>
+                    <div class="col-md-4">
+                        <select name="day" class="form-control">
+                            {% for day in range(1, 31) %}
+                                {% set showDay = day %}
+                                {% if day < 10 %}
+                                    {% set showDay = '0' ~ day %}
+                                {% endif %}
+                                <option
+                                    value="{{ showDay }}"
+                                    {% if clientUnit is defined and clientUnit.day == day %}
+                                        selected="selected"
+                                    {% endif %}
+                                >
+                                    {{ showDay }}
+                                </option>
+                            {% endfor %}
+                        </select>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group" id="hour">
+                <div class="row">
+                    <label class="col-md-4 control-label">
+                        {{ 'condo.client.unit.label.hour'|trans }}
+                        <span class="required-field">*</span>
+                    </label>
+                    <div class="col-md-4">
+                        <select name="hour" class="form-control">
+                            {% for hour in range(1, 23) %}
+                                {% set showHour = hour %}
+                                {% if hour < 10 %}
+                                    {% set showHour = '0' ~ hour %}
+                                {% endif %}
+                                <option
+                                    value="{{ showHour }}"
+                                    {% if clientUnit is defined and clientUnit.hour == hour %}
+                                        selected="selected"
+                                    {% endif %}
+                                >
+                                    {{ showHour }}
+                                </option>
+                            {% endfor %}
+                        </select>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group" id="is-check-generate-invoice">
+                <div class="row">
+                    <label class="col-md-4 control-label">
+                        {{ 'condo.client.unit.label.generated.invoice'|trans }}
+                    </label>
+                    <div class="col-md-4">
+                        {{form_widget(
+                            form.clientUnit.generatedInvoice,
+                            {
+                                'attr': {
+                                    'onchange': 'ClientUnit.is_check_generate_invoice()'
+                                }
+                            }
+                        )}}
+                    </div>
+                </div>
+            </div>
+            <div class="form-group" id="is-send-invoice">
+                <div class="row">
+                    <label class="col-md-4 control-label">
+                        {{ 'condo.client.unit.label.is.send.invoice'|trans }}
+                    </label>
+                    <div class="col-md-4">
+                        {{form_widget(
+                            form.clientUnit.isSendInvoice
+                        )}}
+                    </div>
+                </div>
+            </div>
+            {% if condominium.isVat %}
+                <div class="form-group">
+                    <div class="row">
+                        <label class="col-md-4 control-label">
+                            {{ 'condo.client.unit.label.vat'|trans }} (%)
+                        </label>
+                        <div class="col-md-4">
+                            <div class="alert alert-warning" role="alert">
+                                <span id="vat">
+                                    {{condominium.rate}}
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            {% endif %}
+            <div class="form-group" id="show-total-price">
+                <div class="row">
+                    <label class="col-md-4 control-label">
+                        {{ 'condo.client.unit.amount.grand.total'|trans }}
+                        ({{ currencySign }})
+                    </label>
+                    <div class="col-md-4">
+                        <div class="alert alert-success" role="alert">
+                            <span id='total-price'></span>{{ currencySign }}
+                            /
+                            <span id='number-of-day'></span>
+                            <span id="label-day">{{ 'condo.client.unit.label.day'|trans }}</span><span id="plural"></span>
+                            <span id="label-month">
+                                {{ 'condo.client.unit.label.month'|trans }}
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </fieldset>
+        <div class="col-lg-12">
+            <div class="form-group">
+                <div class="row">
+                    <div class="col-md-offset-4 col-md-5">
+                        <input
+                            type="submit"
+                            value="{{ 'btn.save'|trans }}"
+                            class="btn btn-success"
+                        >
+                        <a
+                            href="{{ path(
+                                'condominium_residents_list',
+                                {'condominium': condominium.id}
+                            ) }}"
+                            class="btn btn-default"
+                        >
+                            {{ 'link.back'|trans }}
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <input type="hidden" id="rental-price" name="rentalPrice">
+        </div>
+    </div>
+</div>
+{{ form_end(form) }}

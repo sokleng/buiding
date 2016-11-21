@@ -1,0 +1,7 @@
+{% extends 'ProjectRealtyBundle::content_page_layout.html.twig' %}
+{% set title = project.name ~ ' - New Public Listing' %}
+
+{% block content %}
+    {% include 'ProjectRealtyBundle:PublicListing:public_listing_form.html.twig' %}
+{% endblock %}
+

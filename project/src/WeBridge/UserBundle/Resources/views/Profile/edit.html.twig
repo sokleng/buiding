@@ -1,0 +1,57 @@
+{{ form_start(
+    edit_form,
+        {
+            'attr': {
+                'class' : 'form-horizontal',
+                'onsubmit' :'EditProfile.get_email_value_set_to_username(
+                    document.getElementById("user_form_email"),
+                    document.getElementById("user_form_username")
+                )'
+            }
+        }
+)}}
+    <div class="panel panel-default">
+        <div class="panel-heading">{{ 'profile.label.change.name'|trans }}</div>
+        <div class="panel-body">
+            {{ form_widget(edit_form.username) }}
+            <div class="form-group">
+                <div class="row">
+                    <label class="col-sm-3 control-label">
+                        {{ 'profile.label.name'|trans }}
+                    </label>
+                    <div class="col-sm-6">
+                        {{ form_widget(edit_form.name, {'attr': {'class' : 'form-control'}}) }}
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="row">
+                    <label class="col-sm-3 control-label">
+                        {{ 'profile.label.email'|trans }}
+                    </label>
+                    <div class="col-sm-6">
+                        {{ form_widget(edit_form.email, {'attr': {'class' : 'form-control'}}) }}
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="row">
+                    <label class="col-sm-3 control-label">
+                        {{ 'profile.label.phone.number'|trans }}
+                    </label>
+                    <div class="col-sm-6">
+                        {{ form_widget(edit_form.phoneNumber, {'attr': {'class' : 'form-control'}}) }}
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="row">
+                    <div class="col-md-offset-3 col-md-3">
+                        <input type="submit" class="btn btn-success" value="{{'btn.save'|trans }}">
+                    </div>
+                </div>
+            </div>
+
+         </div>
+    </div>
+{{form_end(edit_form) }}

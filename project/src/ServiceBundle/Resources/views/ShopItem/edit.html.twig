@@ -1,0 +1,149 @@
+{% extends 'ServiceBundle::content_page_layout.html.twig' %}
+{% set title = 'show.item.title.edit'|trans ~ ': ' ~ shopItem.name %}
+
+{% block content %}
+<div class="panel panel-body">
+    {{ form_start(edit_form) }}
+        <div class="form-group">
+            <div class="row">
+                <label class="col-xs-2 control-label">
+                    {{ 'show.item.label.reference'|trans }}
+                </label>
+                <div class="col-xs-4">
+                    {{form_widget(
+                        edit_form.reference,
+                        {
+                            'attr': {
+                                'class': 'form-control'
+                            }
+                        }
+                    )}}
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="row">
+                <label class="col-xs-2 control-label">
+                    {{ 'show.item.label.name'|trans }}
+                </label>
+                <div class="col-xs-4">
+                    {{form_widget(
+                        edit_form.name,
+                        {
+                            'attr': {
+                                'class': 'form-control'
+                            }
+                        }
+                    )}}
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="row">
+                <label class="col-xs-2 control-label">
+                    {{ 'show.item.label.unit.price'|trans }}
+                </label>
+                <div class="col-xs-4">
+                    {{form_widget(
+                        edit_form.price,
+                        {
+                            'attr': {
+                                'class': 'form-control'
+                            }
+                        }
+                    )}}
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="row">
+                <label class="col-xs-2 control-label">
+                    {{ 'show.item.label.description'|trans }}
+                </label>
+                <div class="col-xs-4">
+                    {{form_widget(
+                        edit_form.description,
+                        {
+                            'attr': {
+                                'class': 'form-control'
+                            }
+                        }
+                    )}}
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="row">
+                <label class="col-xs-2 control-label">
+                    {{ 'show.item.label.picture'|trans }}
+                </label>
+                <div class="col-xs-4">
+                    {{form_widget(
+                        edit_form.picture,
+                        {
+                            'attr': {
+                                'class': 'form-control'
+                            }
+                        }
+                    )}}
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-xs-offset-2 col-xs-10">
+                <div class="checkbox">
+                    <label>
+                        {{form_widget(edit_form.enabled)}}
+                        {{ 'show.item.label.enabled'|trans }}
+                    </label>
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="row">
+                <div class="col-xs-offset-2 col-xs-10">
+                    <input
+                        type="submit"
+                        value="{{ 'btn.save'|trans }}"
+                        class="btn btn-success"
+                    >
+                    <a
+                        href="{{
+                            path('service_products_list',
+                            { 'service': service.id })
+                        }}"
+                        class="btn btn-default"
+                    >
+                        {{ 'link.back'|trans }}
+                    </a>
+                </div>
+            </div>
+        </div>
+    {{ form_end(edit_form) }}
+    <form method="post"
+        action="{{ path(
+            'service_products_delete',
+            {
+                'id': shopItem.id,
+                'service': service.id
+            }
+        )}}"
+    >
+        <div class="form-group">
+            <div class="row">
+                <div class="col-xs-offset-2 col-xs-10">
+                    <input type="hidden"
+                        name="_method"
+                        value="DELETE"
+                    >
+                    <input type="submit"
+                        class="btn btn-danger"
+                        value="{{ 'btn.delete'|trans }}"
+                    >
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
+{% endblock %}

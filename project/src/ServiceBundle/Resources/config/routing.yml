@@ -1,0 +1,19 @@
+service_dashboard:
+    resource: "@ServiceBundle/Controller/DashboardController.php"
+    type:     annotation
+
+service_products:
+    resource: "@ServiceBundle/Controller/ShopItemController.php"
+    type:     annotation
+
+service_opening_time:
+    resource: "@ServiceBundle/Controller/OpeningTimeController.php"
+    type:     annotation
+
+service_condominium:
+    resource: "@ServiceBundle/Controller/CondominiumController.php"
+    type:     annotation
+
+service_orders:
+    resource: "@ServiceBundle/Controller/OrderController.php"
+    type:     annotation

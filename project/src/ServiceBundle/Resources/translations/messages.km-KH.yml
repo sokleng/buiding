@@ -1,0 +1,76 @@
+condominium.th.id: លេខសម្គាល់
+condominium.th.name: ឈ្មោះ
+condominium.th.address: អាសយដ្ឋាន
+condominium.th.creation.date: កាលបរិច្ឆេទ​បង្កើត
+condominium.th.actions: សកម្មភាព
+building.label.served.buildings: ខុន​ដូបម្រើ​ការ
+building.label.available.buildings: ខុនដូដែលអាចប្រើបាន
+
+service.title: សេវាកម្ម
+service.label.openingTime: ម៉ោងបើក
+service.label.closingTime: ម៉ោង​បិទ
+service.label.dayOfTheWeekStart: ថ្ងៃនៃសប្តាហ៍ចាប់ផ្តើម
+service.label.dayOfTheWeekEnd: ថ្ងៃនៃសប្តាហ៍បញ្ចប់
+service.label.enabled: បើក
+service.label.create: បង្កើត
+service.label.back: ត្រលប់ក្រោយ
+service.message.no.order: You do not have any order yet!
+service.label.reference: ឯកសារយោង
+service.label.name: ឈ្មោះ
+service.label.description: បរិយាយ
+service.label.price: តម្លៃ
+service.label.picture: រូបភាព
+service.label.enabled: បានបើក
+service.label.create: បង្កើត
+service.label.backToTheList: ត្រឡប់ទៅ បញ្ជី
+service.label.closed: បិទ
+service.label.open: បើក
+
+order.message.no.order: អ្នកមិនមានការ​បញ្ជា​ទិញណាមួយនៅឡើយទេ!
+
+link.order: ការបញ្ជាទិញ
+link.opening.time: ម៉ោងបើក
+link.product: ផលិតផល
+btn.disable: មិន​អនុញ្ញាត
+btn.enable: អនុញ្ញាតឱ្យ
+btn.add: បន្ថែម
+btn.remove: យកចេញ
+
+opening_time.unavailability.title.new: ម៉ោងបិទពិសេសថ្មី
+opening_time.label.start.date: ថ្ងៃ​ចាប់​ផ្តើ​ម
+opening_time.label.start.time: ចាប់ផ្តើមម៉ោង
+opening_time.label.end.date: កាលបរិច្ឆេទបញ្ចប់
+opening_time.label.end.time: ពេលវេលាបញ្ចប់
+opening_time.label.enabled: អនុញ្ញាតឱ្យ
+opening_time.title.panel.special.closing.time: ម៉ោងបិទពិសេស
+opening_time.btn.add.new.closing.time: បន្ថែមពេលវេលាបិទថ្មី
+opening_time.th.from: ចាប់ពី
+opening_time.th.actions: សកម្មភាព
+opening_time.th.to: ទៅ
+opening_time.th.enable: បានបើក
+opening_time.th.creation.date: កាលបរិច្ឆេទ​បង្កើត
+opening_time.btn.add.new.availability: បន្ថែមអាចរកបានថ្មី
+opening_time.th.day: ថ្ងៃ
+opening_time.th.time: ពេលវេលា
+opening_time.label.opening.time: ម៉ោងបើក
+opening_time.label.closing.time: ម៉ោង​បិទ
+opening_time.label.day.of.the.week.start: ថ្ងៃនៃសប្តាហ៍ចាប់ផ្តើម
+opening_time.label.day.of.the.week.end: ថ្ងៃនៃសប្តាហ៍បញ្ចប់
+
+shop_item.action.create: បង្កើតផលិតផលថ្មី
+shop_item.th.description: បរិយាយ
+shop_item.title.edit: កែសម្រួលផលិតផល
+shop_item.th.id: លេខសម្គាល់
+shop_item.th.picture: រូបភាព
+shop_item.th.reference: ឯកសារយោង
+shop_item.th.name: ឈ្មោះ
+shop_item.th.price:  តម្លៃ
+shop_item.th.creation.date: កាលបរិច្ឆេទ​បង្កើត
+shop_item.th.enabled: បានបើក
+shop_item.th.actions: សកម្មភាព
+shop_item.label.reference: ឯកសារយោង
+shop_item.label.name: ឈ្មោះ
+shop_item.label.description: បរិយាយ
+shop_item.label.price: តម្លៃ
+shop_item.label.picture: រូបភាព
+shop_item.label.enabled: បានបើក

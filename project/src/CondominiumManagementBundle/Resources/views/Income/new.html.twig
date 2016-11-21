@@ -1,0 +1,27 @@
+{% extends 'CondominiumManagementBundle::content_page_layout.html.twig' %}
+{% set title = condominium.name ~ ' - ' ~ 'link.income'|trans ~ ' - ' ~ 'condo.income.invoice.new'|trans %}
+
+{% block content %}
+    <div class="row">
+        <div class="col-lg-12">
+            {% include 'CondominiumManagementBundle:Income:tabs_head.html.twig'
+                with {'active' : 'income', 'condominium': condominium.id} %}
+            <div class="tab-content">
+                <div class="tab-pane fade in active">
+                    <div class="margin-top-20">
+
+                        {% set currencySign = ''%}
+                        {% if condominium.currency is not null %}
+                            {% set currencySign = condominium.currency.sign %}
+                        {% endif %}
+
+                        {%
+                            include 'CondominiumManagementBundle:Partial:income_form.html.twig'
+                            with {'currencySign': currencySign }
+                        %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

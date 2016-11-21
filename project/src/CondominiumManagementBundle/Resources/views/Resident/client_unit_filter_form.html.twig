@@ -1,0 +1,58 @@
+{{ form_start(
+    form,
+    {
+        'attr': {
+            'id': 'client-unit-filter-form'
+        }
+    }
+) }}    <div class="form-inline">
+        <div class="col-xs-12 col-sm-12 col-md-3 form-group custom-input">
+            <label>{{ 'condo.client.show.by'|trans }}</label>
+            {{ form_widget(
+                form.showBy,
+                {
+                    'attr' : {
+                        'class': 'form-control',
+                        'onchange': 'FilterClient.filter_client()'
+                    }
+                }
+            )}}
+        </div>
+        <div class="col-xs-12 col-sm-12 col-md-4 form-group custom-input">
+            <label>{{ 'condo.client.start.date'|trans }}</label>
+            {{ form_widget(
+                form.startDate,
+                {
+                    'attr': {
+                        'class': 'form-control datepicker',
+                        'onchange': 'FilterClient.datepicker_change()'
+                    }
+                }
+            )}}
+        </div>
+        <div class="col-xs-12 col-sm-12 col-md-4 form-group">
+            <label>{{ 'condo.client.end.date'|trans }}</label>
+            {% set attr = {
+                    'class': 'form-control datepicker',
+                    'value': 'now'|date('d-m-Y H:m')
+                }
+            %}
+            {% if form.vars.value.endDate is defined and
+                form.vars.value.endDate is not null %}
+                {% set attr = {
+                        'class': 'form-control datepicker',
+                        'onchange': 'FilterClient.datepicker_change()',
+                        'value': form.vars.value.endDate
+                    }
+                %}
+            {% endif %}
+
+            {{ form_widget(
+                form.endDate,
+                {
+                    'attr': attr
+                }
+            )}}
+        </div>
+    </div>
+{{ form_end(form) }}

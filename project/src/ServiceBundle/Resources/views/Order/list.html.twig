@@ -1,0 +1,180 @@
+{% extends 'ServiceBundle::content_page_layout.html.twig' %}
+{% set title = service.title ~ ' - ' ~ 'order.title'|trans %}
+
+{% block content %}
+    <div class="col-lg-12">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <div class="input-group col-xs-12 col-md-3">
+                    <span class="input-group-addon">
+                        <i class="fa fa-eye"></i>
+                        {{ 'service.order.label.show.by'|trans}}
+                    </span>
+                    <select
+                        id="filter-status"
+                        onchange="FilterStatus.filter_status()"
+                        class="form-control"
+                    >
+                        <option
+                            value="1"
+                            {% if status == 1 %}
+                                selected="selected"
+                            {% endif %}
+                        >
+                            {{ 'order.status.new'|trans }}
+                        </option>
+                        <option
+                            value="all"
+                            {% if status == 'all' %}
+                                selected="selected"
+                            {% endif %}
+                        >
+                            {{ 'order.status.all'|trans }}
+                        </option>
+                    </select>
+                </div>
+            </div>
+            <div class="panel-body">
+                {% if orders is empty %}
+                    {{'order.message.no.order' | trans}}
+                {% else %}
+                    {% for order in orders %}
+                        {% set currencySign = "" %}
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <div class="panel panel-default">
+                                    <div class="panel-heading">
+                                        #{{ order.id }} -
+                                        {{ order.status | orderStatus }} -
+                                        {{ order.creationDate | date }}
+                                        {% if order.status == 1 %}
+                                            <form method="post"
+                                                  class="pull-right"
+                                                  action="{{ path(
+                                                  'service_orders_status_completed',
+                                                  {
+                                                      'service': service.id,
+                                                      'order': order.id
+                                                  }
+                                                  ) }}"
+                                            >
+                                                <input type="hidden"
+                                                       name="_method"
+                                                       value="PATCH"
+                                                >
+                                                <button class="btn btn-success"
+                                                >
+                                                    {{ 'btn.make.as.delivered'|trans }}
+                                                </button>
+                                            </form>
+                                        {% endif %}
+                                        <div class="clearfix"></div>
+                                    </div>
+                                    <div class="panel-body">
+                                        <div class="col-md-6">
+                                            <p>Unit: {{ order.unit.roomNumber }}</p>
+                                            <p>Contact Name: {{ order.client.name }}</p>
+                                            <p>Contact Phone Number: {{ order.client.phoneNumber }}</p>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <p>Condominium: {{ order.unit.condominium.name }}</p>
+                                            <p>Address: {{ order.unit.condominium.address }}</p>
+                                        </div>
+                                        {% if order.comments is not empty %}
+                                        <div class="col-xs-12">
+                                            <p>Additional Comments: {{ order.comments }}</p>
+                                        </div>
+                                        {% endif %}
+                                        <div class="col-xs-12">
+                                            <div class="dataTable_wrapper">
+                                                <table class="table table-striped table-bordered table-hover">
+                                                    <thead>
+                                                    <tr>
+                                                        <th>{{ 'order.th.reference'|trans }}</th>
+                                                        <th>{{ 'order.th.name'|trans }}</th>
+                                                        <th>{{ 'order.th.unit.price'|trans }}</th>
+                                                        <th>{{ 'order.th.quantity'|trans }}</th>
+                                                        <th>{{ 'order.th.amount'|trans }}</th>
+                                                    </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                    {% set vat = 0 %}
+                                                    {% for item in order.shoppingCart.cartItems %}
+                                                        {% if item.currency is not null %}
+                                                            {% set currencySign = item.currency.sign %}
+                                                        {% endif %}
+                                                        {% set vat = item.vat %}
+                                                        <tr>
+                                                            <td>{{ item.shopItem.reference }}</td>
+                                                            <td>{{ item.shopItem.name }}</td>
+                                                            <td>
+                                                                {{ currencySign }}
+                                                                {{ item.subTotal|number_format(2, '.', ',') }}
+                                                            </td>
+                                                            <td>{{ item.quantity }}</td>
+                                                            <td>
+                                                                {{ currencySign }}
+                                                                {{ (item.subTotal * item.quantity)|number_format(2, '.', ',') }}
+                                                            </td>
+                                                        </tr>
+                                                    {% endfor %}
+                                                    <tr>
+                                                        <td colspan="4">
+                                                            <b class="pull-right">{{ 'order.td.sub.total'|trans }}</b>
+                                                        </td>
+
+                                                        <td>
+                                                            <b>
+                                                                {{ currencySign }}
+                                                                {{ order.getTotal|number_format(2, '.', ',') }}
+                                                            </b>
+                                                        </td>
+                                                    </tr>
+                                                    {% if vat != 0 %}
+                                                        <tr>
+                                                            <td colspan="4">
+                                                                <b class="pull-right">{{ 'order.td.vat'|trans }} ({{ vat }}%)</b>
+                                                            </td>
+
+                                                            <td>
+                                                                <b>
+                                                                    {{ currencySign }}
+                                                                    {{ (order.getTotal * vat / 100)|number_format(2, '.', ',') }}
+                                                                </b>
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td colspan="4">
+                                                                <b class="pull-right">{{ 'order.th.grand.total'|trans }}</b>
+                                                            </td>
+
+                                                            <td>
+                                                                <b>
+                                                                    {{ currencySign }}
+                                                                    {{ order.grandTotal|number_format(2, '.', ',') }}
+                                                                </b>
+                                                            </td>
+                                                        </tr>
+                                                    {% endif %}
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    {% endfor %}
+                {% endif %}
+                {{ knp_pagination_render(orders) }}
+            </div>
+        </div>
+    </div>
+{% endblock %}
+{% block javascripts %}
+    {% javascripts
+        "@CondoBundle/Resources/public/js/filter-status.js"
+    %}
+        <script type="application/javascript" src="{{ asset_url }}"></script>
+    {% endjavascripts %}
+{% endblock %}

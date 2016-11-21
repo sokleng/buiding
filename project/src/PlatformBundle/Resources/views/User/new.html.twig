@@ -1,0 +1,13 @@
+{% extends 'PlatformBundle::content_page_layout.html.twig' %}
+{% set title = 'user.new.title'|trans %}
+
+{% block content %}
+    {% include 'PlatformBundle:Partial:user_form.html.twig' %}
+{% endblock %}
+{% block javascripts %}
+    {% javascripts
+        "@PlatformBundle/Resources/public/js/space-modules.js"
+    %}
+        <script type="application/javascript" src="{{ asset_url }}"></script>
+    {% endjavascripts %}
+{% endblock %}

@@ -1,0 +1,40 @@
+link.contact: Contact
+link.manager: Manager
+link.invoices.to.developer: Invoices To Developer
+realty_company.label.name: Name
+realty_company.label.contact.number: Contact Number
+realty_company.label.description: Description
+realty_company.title.edit: Edit Realty Company
+realty_company.placeholder.username: Username
+realty_company.label.invoices.to.developer: Invoices To Developer
+realty_company.label.new.invoices.to.developer: New Invoices To Developer
+realty_company.label.edit.invoices.to.developer: Edit Invoices To Developer
+realty_company.label.show.invoices.to.developer: Show  Invoices To Developer
+realty_company.link.create.new.invoices.to.developer: Create New Invoices To Developer
+
+contact.title: Contacts
+contact.title.new: New Contact
+contact.title.edit: Edit Contact
+contact.th.id: ID
+contact.th.name: Name
+contact.th.gender: Gender
+contact.th.phone.number: Phone Number
+contact.th.email: Email
+contact.th.nationality: Nationality
+contact.th.creation.date: Creation Date
+contact.th.comment: Comment
+contact.th.actions: Actions
+contact.label.name: Name
+contact.label.gender: Gender
+contact.label.phone.number: Phone Number
+contact.label.address: Address
+contact.label.email: Email
+contact.label.nationality: Nationality
+contact.label.id.number: ID Number
+contact.label.comment: Comment
+contact.action.create: Add a new Contact
+contact.label.gender.male: Male
+contact.label.gender.female: Female
+contact.label.gender.na: N/A
+contact.label.description: Description
+contact.label.databaseFiles: Image

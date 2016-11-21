@@ -1,0 +1,85 @@
+{% extends 'CondominiumManagementBundle::content_page_layout.html.twig' %}
+{% set title = condominium.name ~ ' - ' ~ 'link.setting'|trans  ~ ' - ' ~ 'link.exchange'|trans %}
+
+{% block content %}
+    <div class="row">
+        <div class="col-lg-12">
+            <form
+                method="POST"
+                action="{{ path('condominium_setting_exchange', {'condominium': condominium.id}) }}"
+                class="form"
+                role="form"
+            >
+                <div class="row">
+                    <div class="col-md-4">
+                        {% for currency in currencies %}
+                            {% set value = "" %}
+                            {% if condominium.exchangeSetting is not null %}
+                                {% for key, rate in condominium.exchangeSetting.value %}
+                                    {% if key == currency.id %}
+                                        {% set value = rate %}
+                                    {% endif %}
+                                {% endfor %}
+                            {% endif %}
+
+                            {% if currency.getCurrency == "USD" %}
+                                <input
+                                    type="hidden"
+                                    name="currency[]"
+                                    value="{{ currency.id }}"
+                                >
+                                <input
+                                    type="hidden"
+                                    class="form-control text-right"
+                                    name="exchange[]"
+                                    value="1"
+                                >
+                            {% else %}
+                                <div class="form-group">
+                                    <div class="row">
+                                        <div class="col-md-5">
+                                            <label class="control-label">
+                                                {{ currency.getCurrency }}
+                                                ({{ currency.getSign }})
+                                                <span class="required-field">*</span>
+                                            </label>
+                                        </div>
+                                        <div class="col-md-7">
+                                            <div class="input-group">
+                                                <input
+                                                    type="hidden"
+                                                    name="currency[]"
+                                                    value="{{ currency.id }}"
+                                                >
+                                                <input
+                                                    type="text"
+                                                    class="form-control text-right"
+                                                    name="exchange[]"
+                                                    value="{{ value }}"
+                                                >
+                                                <div class="input-group-addon"> = 1$</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            {% endif %}
+                        {% endfor %}
+
+                        <div class="form-group">
+                            <div class="row">
+                                <div class="col-md-offset-5 col-md-7">
+                                    <button
+                                        type="submit"
+                                        class="btn btn-success"
+                                    >
+                                        {{ 'btn.save'|trans }}
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+{% endblock %}

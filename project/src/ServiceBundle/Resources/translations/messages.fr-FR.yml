@@ -1,0 +1,36 @@
+condominium.th.id: Id
+condominium.th.name: Name
+condominium.th.address: Address
+condominium.th.creation.date: Creation Date
+condominium.th.actions: Actions
+building.label.served.buildings: Served Buildings
+building.label.available.buildings: Available Condominiums
+service.title: Service
+service.label.openingTime: Le temps d'ouverture
+service.label.closingTime: Temps de fermeture
+service.label.dayOfTheWeekStart: Jour du début de la semaine
+service.label.dayOfTheWeekEnd: Jour de T et week-end
+service.label.enabled: Permis
+service.label.create: Créer
+service.label.back: Dos
+service.message.no.order: You don't have any order yet!
+service.label.reference: Reference
+service.label.name: Name
+service.label.description: Description
+service.label.price: Price
+service.label.picture: Picture
+service.label.enabled: Enabled
+service.label.create: Create
+service.label.backToTheList: Back To The List
+project.payment.label.contact: Contact
+project.payment.label.unit: Unit
+project.payment.label.paymentMethod: Payment Method
+project.payment.label.receiver: Receiver
+project.payment.label.description: Description
+project.setting.unit.type.label.code: Code
+project.setting.unit.type.label.size: Size
+project.setting.unit.type.label.commonAreaSize: Common Area Size
+project.setting.unit.type.label.roomCount: Room Count
+project.setting.unit.type.label.bedroomCount: Bedroom Count
+project.setting.unit.type.label.bathroomCount: Bathroom Count
+project.setting.unit.type.label.description: Description

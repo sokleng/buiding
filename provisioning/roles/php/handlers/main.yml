@@ -1,0 +1,3 @@
+---
+- name: restart PHP70-FPM
+  command: service php7.0-fpm restart

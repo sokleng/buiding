@@ -1,0 +1,109 @@
+project.unit.label.id: ID
+project.unit.label.floor: floor
+project.unit.label.roomNumber: Room Number
+project.unit.label.price: Price
+project.unit.label.type: Type
+project.unit.label.status: Status
+project.setting.unit.status.label.name: Name
+project.setting.unit.status.label.closedStatus: Is A Closed Status
+project.setting.unit.status.label.enabled: Enabled
+project.unitType.label.code:  Code
+project.unitType.label.size: Size
+project.unitType.label.commonAreaSize: Common Area Size
+project.unitType.label.roomCount: Room Count
+project.unitType.label.bedroomCount: Bed Room Count
+project.unitType.label.bathroomCount: Bath Room Count
+project.unitType.label.description: Description
+project.payment.label.receiver: Receiver
+project.payment.label.paymentMethod : Payment Method
+project.payment.label.description: Description
+project.unit.room.number: Room Number
+project.unit.type: Type
+project.unit.floor: Floor
+project.unit.price: Price
+project.unit.button.edit: Edit
+project.unit.status: Status
+project.unit.action: Actions
+project.name: New Unit Status
+project.payment.label.unit: Unit
+new.payment: New Payment
+project.th.unit: Unit
+project.th.payment.method: Payment Method
+project.th.receiver: Receiver
+project.payment.label.amount: Amount
+payment.th.date: Date
+payment.th.contact: Contact
+payment.th.payment.method: Payment Method
+payment.th.receiver: Receiver
+payment.th.actions: Actions
+payment.th.amount: Amount
+payment.th.description: Description
+payment.th.unit: Unit
+payment.th.received: Received
+payment.th.payment.date: Payment Date
+payment.th.company: Company
+project.payment.label.received: Received
+payment.received.yes: Yes
+payment.received.no: No
+
+unit.label.add.unit: Add Unit
+unit.label.of.type: of Type
+unit.label.on.floor: On Floor
+unit.label.with.price: With A Price of
+unit.project.name: Unit
+
+project.payment.label.status: Status
+payment.status.draft: Draft
+payment.status.invoiced: Invoiced
+payment.status.paid: Paid
+payment.status.cancelled: Cancelled
+payment.th.status: Status
+payment.link.new.payment: Add A New Payment
+
+link.units: Unit
+link.payments: Payments
+link.setting: Setting
+link.unit.status: Unit Status
+link.unit.types: Unit Types
+link.public.listing : Public Listing
+
+unit.status.link.new.unit.status: Add A New Unit Status
+unit.status.th.status: Status
+unit.status.th.is.a.closed.status: Is A Closed Status
+unit.status.th.enabled: Enabled
+unit.status.th.creation.date: Creation Date
+unit.status.th.actions: Actions
+
+unit.type.link.add.new.unit.type: Add A New Unit Type
+unit.type.th.code: Code
+unit.type.th.unit.size: Unit Size
+unit.type.th.common.area.size: Common Area Size
+unit.type.th.total.area.size: Total Area Size
+unit.type.th.room: Room
+unit.type.th.bedroom: Bedroom
+unit.type.th.bathroom: Bathroom
+unit.type.th.actions: Actions
+unit.placeholder.room.number: Room Number
+unit.placeholder.unit.floor: Unit Floor
+unit.placeholder.unit.price: Unit Price
+
+public.listing.link.add.new.public.listing: Add A New Public Listing
+public.listing.th.construction.date: Construction Date
+public.listing.th.completetion.date: Completetion Date
+public.listing.th.latitute: Latitute
+public.listing.th.longtitute: Longtitute
+public.listing.th.total.unit: Total Unit
+public.listing.th.description: Description
+public.listing.th.published: Published
+public.listing.th.actions: Actions
+public.listing.label.construction.date: Construction Date
+public.listing.label.completetion.date: Completetion Date
+public.listing.label.latitute: Latitute
+public.listing.label.longtitute: Longtitute
+public.listing.label.image: Image
+public.listing.label.total.unit: Total Unit
+public.listing.label.description: Description
+public.listing.label.published: Published
+public.listing.label.type: Type
+
+btn.submit: Submit

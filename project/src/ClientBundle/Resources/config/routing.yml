@@ -1,0 +1,31 @@
+client_home:
+    resource: "@ClientBundle/Controller/HomeController.php"
+    type: annotation
+
+client_unit:
+    resource: "@ClientBundle/Controller/UnitController.php"
+    type: annotation
+
+client_service:
+    resource: "@ClientBundle/Controller/ServiceController.php"
+    type: annotation
+
+client_service_checkout:
+    resource: "@ClientBundle/Controller/CheckoutController.php"
+    type: annotation
+
+client_orders:
+    resource: "@ClientBundle/Controller/OrderController.php"
+    type: annotation
+
+client_news:
+    resource: "@ClientBundle/Controller/NewsController.php"
+    type: annotation
+
+client_issue:
+    resource: "@ClientBundle/Controller/IssueController.php"
+    type: annotation
+
+client_feedback:
+    resource: "@ClientBundle/Controller/FeedbackController.php"
+    type: annotation

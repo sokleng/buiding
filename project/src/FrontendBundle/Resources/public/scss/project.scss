@@ -1,0 +1,41 @@
+@import 'variable';
+
+.container-fluid {
+    background: $selver-color;
+    .image-condominium {
+        position: relative;
+    }
+
+    .name-condominuim {
+        position: absolute;
+        top: 35%;
+        color: $white-color;
+        width: 100%;
+        text-align: center;
+        padding: 0 20px;
+    }
+
+    .text-gray {
+        color: $dark-gray-color;
+        font-size: 13px;
+    }
+
+    .btn-round {
+        border-radius: 50%;
+    }
+
+    .container-hr-condominuim {
+        padding: 15px 0;
+        hr {
+            border-top: 1px solid $gray-color;
+        }
+    }
+
+    .image-condominium {
+        height: 240px;
+    }
+
+    .image-condominium img {
+        width: 255px;
+    }
+}

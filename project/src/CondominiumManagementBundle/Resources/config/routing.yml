@@ -1,0 +1,54 @@
+condominium_defaults:
+    resource: "@CondominiumManagementBundle/Controller/DefaultController.php"
+    type: annotation
+
+condominium_dashboard:
+    resource: "@CondominiumManagementBundle/Controller/DashboardController.php"
+    type: annotation
+
+condominium_income:
+    resource: "@CondominiumManagementBundle/Controller/IncomeController.php"
+    type: annotation
+
+condominium_expend_category:
+    resource: "@CondominiumManagementBundle/Controller/ExpendCategoryController.php"
+    type: annotation
+
+condominium_residents:
+    resource: "@CondominiumManagementBundle/Controller/ResidentController.php"
+    type: annotation
+
+condominium_service:
+    resource: "@CondominiumManagementBundle/Controller/ServiceController.php"
+    type: annotation
+
+condominium_news:
+    resource: "@CondominiumManagementBundle/Controller/NewsController.php"
+    type: annotation
+
+condominium_issues:
+    resource: "@CondominiumManagementBundle/Controller/IssueController.php"
+    type: annotation
+
+condominium_feedback:
+    resource: "@CondominiumManagementBundle/Controller/FeedbackController.php"
+    type: annotation
+
+condominium_unit_type:
+    resource: "@CondominiumManagementBundle/Controller/UnitTypeController.php"
+    type: annotation
+
+condominium_unit:
+    resource: "@CondominiumManagementBundle/Controller/UnitController.php"
+    type: annotation
+
+condominium_report:
+    resource: "@CondominiumManagementBundle/Controller/ReportController.php"
+    type: annotation
+
+condominium_setting:
+    resource: "@CondominiumManagementBundle/Controller/SettingController.php"
+    type: annotation
+condominium_supplier:
+    resource: "@CondominiumManagementBundle/Controller/SupplierController.php"
+    type: annotation

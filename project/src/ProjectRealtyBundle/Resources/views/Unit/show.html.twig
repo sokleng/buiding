@@ -1,0 +1,77 @@
+{% extends 'ProjectRealtyBundle::content_page_layout.html.twig' %}
+{% set title =  'unit.project.name'|trans ~ ' - Units' %}
+
+{% block content %}
+    <div class="panel panel-body">
+        <div class="row">
+            <div class="col-lg-12">
+                <table class="table table-striped">
+                    <tbody>
+                        <tr>
+                            <th>{{ 'project.unit.label.id'|trans }}</th>
+                            <td>{{ unit.id }}</td>
+                        </tr>
+                        <tr>
+                            <th>{{ 'project.unit.label.floor'|trans }}</th>
+                            <td>{{ unit.floor }}</td>
+                        </tr>
+                        <tr>
+                            <th>{{ 'project.unit.label.roomNumber'|trans }}</th>
+                            <td>{{ unit.roomNumber }}</td>
+                        </tr>
+                        <tr>
+                            <th>{{ 'project.unit.label.price'|trans }}</th>
+                            <td>{{ unit.price }}</td>
+                        </tr>
+                        <tr>
+                            <th>{{ 'project.unit.label.type'|trans }}</th>
+                            <td>{{ unit.type.code }}</td>
+                        </tr>
+                        <tr>
+                            <th>{{ 'project.unit.label.status'|trans }}</th>
+                            <td>{{ unit.status }}</td>
+                        </tr>
+                        <tr>
+                        <td colspan="2">
+                            <div class="form-group">
+                                <div class="row">
+                                    <div class="col-xs-10">
+                                        <a
+                                            href=""
+                                            class="btn btn-primary"
+                                        >
+                                            {{ 'link.action.edit'|trans }}
+                                        </a>
+                                        <a
+                                            href="{{
+                                                path('project_units_list',
+                                                {'project': project.id})
+                                            }}"
+                                            class="btn btn-default"
+                                        >
+                                            {{ 'link.back'|trans }}
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                            {{ form_start(delete_form) }}
+                                <div class="form-group">
+                                    <div class="row">
+                                        <div class="col-xs-10">
+                                            <input
+                                                type="submit"
+                                                value="{{ 'btn.delete'|trans }}"
+                                                class="btn btn-danger pull-left"
+                                            >
+                                        </div>
+                                    </div>
+                                </div>
+                            {{ form_end(delete_form) }}
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+{% endblock %}

@@ -1,0 +1,94 @@
+{% extends "PlatformBundle::content_page_layout.html.twig" %}
+{% set title = 'A.I Testing Ground' %}
+{% block content %}
+    <div class="row">
+        <div class="col-lg-3">
+            <div class="panel panel-warning">
+                <div class="panel-heading">
+                    What it learnt so far:
+                </div>
+                <div class="panel-body">
+                    <div class="well well-sm">
+                        <h4 class="text-warning">Available Unit Count</h4>
+                        With parameters:
+                        <ul>
+                            <li class="text-success">Building (mandatory)</li>
+                            <li class="text-success">Unit Type (Optional)</li>
+                            <li class="text-warning">Unit floor (Optional)</li>
+                        </ul>
+
+                        <div class="alert alert-warning">
+                            Unit floor parameter is currently unstable due to
+                            conversational context matching not yet being implemented.
+                        </div>
+
+                        <a href="{{ path('homepage', {'converse_query': 'How many D4 units are available at De Castle?'}) }}"
+                           class="btn btn-default btn-outline col-xs-12"
+                        >
+                            Try me
+                        </a>
+                        <div class="clearfix"></div>
+                    </div>
+                    <div class="well well-sm">
+                        <h4 class="text-warning">Sold Unit Count</h4>
+                        With parameters:
+                        <ul>
+                            <li class="text-success">Building (Optional)</li>
+                            <li class="text-success">Unit Type (Optional)</li>
+                            <li class="text-success">Date or Time Range (Optional)</li>
+                            <li class="text-danger">Unit floor (Optional)</li>
+                        </ul>
+
+                        <div class="alert alert-danger">
+                            Unit floor parameter is currently not working due to
+                            conversational context matching not yet being implemented.
+                        </div>
+
+                        <a href="{{ path('homepage', {'converse_query': 'How many units did we sell in the last 20 hours?'}) }}"
+                           class="btn btn-default btn-outline col-xs-12"
+                        >
+                            Try me
+                        </a>
+                        <div class="clearfix"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-6">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    Artificial Intelligence (Testing)
+                </div>
+                <div class="panel-body">
+                    <form method="GET" role="form">
+                        <div class="form-group input-group">
+                            <input type="text"
+                                   class="form-control"
+                                   title="A.I Query"
+                                   placeholder="Ask me anything!"
+                                   name="converse_query"
+                            >
+                            <span class="input-group-btn">
+                                <button type="submit"
+                                        class="btn btn-success btn-inverse"
+                                >
+                                    Ask
+                                </button>
+                            </span>
+                        </div>
+                    </form>
+                    {% if converse_response is defined %}
+                        <div>
+                            <p class="col-xs-12">{{ converse_query }}</p>
+                            <p class="lead col-xs-12 text-right">
+                                {{ converse_response }}
+                            </p>
+                            <div class="clearfix"></div>
+                        </div>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+

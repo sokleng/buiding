@@ -1,0 +1,146 @@
+link.buildings: Buildings
+link.homepage: Page D'accueil
+link.users: Utilisateurs
+link.service.providers: Les Fournisseurs De Services
+link.services: Services
+link.realty.projects: Projets Immobiliers
+link.countries: Des Pays
+link.login.page: Page De Connexion
+link.tables: Tables
+link.forms: Formes
+link.panels.and.wells: Panel et Wells
+link.buttons: Buttons
+link.notifications: Notifications
+link.typography: Typography
+link.icons: Icons
+link.grid: Grid
+link.developers: Développeurs
+
+title.dropdown.page.samples: Page Échantillons
+title.dropdown.ui.elements: Éléments De L'interface
+title.dropdown.sample.pages: Pages Exemples
+
+developers.th.id: ID
+developers.th.name: Nom
+developers.th.description: Description
+developers.th.creation.date: Date De Création
+developers.title: Développeurs
+developers.action.create: Créer Un Nouveau Développeur
+developers.th.actions: Actions
+
+users.title: Utilisateurs
+users.title.panel.users.list: Liste Des Utilisateurs
+users.th.id: ID
+users.th.name: Nom
+users.th.phone.number: Numéro De Téléphone
+users.th.action: Action
+
+buildings.title: Buildings
+buildings.title.show: Building
+buildings.title.new: Nouveau Buildings
+buildings.title.edit: Modifier Buildings
+buildings.title.panel.managers: Gestionnaires
+buildings.title.input.username: Nom D'utilisateur
+buildings.label.id: ID
+buildings.label.name: Nom
+buildings.label.address: Adresse
+buildings.label.district: District
+buildings.label.creation.date: Date De Création
+buildings.th.id: ID
+buildings.th.name: Nom
+buildings.th.address: Adresse
+buildings.th.district: District
+buildings.th.email: Email
+buildings.th.phone.number: Numéro De Téléphone
+buildings.th.creation.date: Date De Création
+buildings.th.actions: Actions
+buildings.placeholder.username: Nom D'utilisateur
+buildings.action.create: Créer Un Nouveau Condominium
+buildings.btn.add.user: Ajouter Un Utilisateur
+
+service_providers.title: Les Fournisseurs De Services
+service_providers.title.show: Fournisseur De Services
+service_providers.title.new: Nouveau Fournisseur De Services
+service_providers.title.edit: Modifier Le Fournisseur De Service
+service_providers.title.panel.managers: Gestionnaires
+service_providers.title.input.username: Nom D'utilisateur
+service_providers.label.id: ID
+service_providers.label.company.name: Nom de La Compagnie
+service_providers.label.description: Description
+service_providers.label.contact.number: Numéro De Contact
+service_providers.label.creation.date: Date De Création
+service_providers.th.id: ID
+service_providers.th.name: Nom
+service_providers.th.email: Email
+service_providers.th.phone.number: Numéro De Téléphone
+service_providers.th.company.name: Nom de La Compagnie
+service_providers.th.description: Description
+service_providers.th.contact.number: Numéro De Contact
+service_providers.th.creation.date: Date De Création
+service_providers.placeholder.username: Nom D'utilisateur
+service_providers.th.actions: Actions
+service_providers.th.action: Action
+service_providers.action.create: Créer Un Nouveau Fournisseur De Services
+service_providers.btn.add.user: Ajouter Un Utilisateur
+
+services.title: Services
+services.title.show: Service
+services.title.new: Nouveau Service
+services.title.edit: Modifier Service
+services.label.id: ID
+services.label.type: Type
+services.label.title: Titre
+services.label.description: Description
+services.label.service.provider: Fournisseur De Services
+services.label.creation.date: Date De Création
+services.label.managers: Gestionnaires
+services.th.id: ID
+services.th.type: Type
+services.th.title: Titre
+services.th.creation.date: Date De Création
+services.th.description: Description
+services.th.actions: Actions
+services.action.create: Créer Un Nouveau Service
+
+realty_projects.title: Projets Immobiliers
+realty_projects.title.show: Projet Immobilier
+realty_projects.title.new: Nouveau Projet Immobilier
+realty_projects.title.edit: Modifier Projet Immobilier
+realty_projects.title.panel.managers: Gestionnaires
+realty_projects.title.input.username: Nom D'utilisateur
+realty_projects.label.id: ID
+realty_projects.label.name: Nom
+realty_projects.label.address: Adresse
+realty_projects.label.floor.count: Count Étage
+realty_projects.label.contact.name: Nom Du Contact
+realty_projects.label.contact.number: Numéro De Contact
+realty_projects.label.description: Description
+realty_projects.label.developer: Développeur
+realty_projects.th.id: ID
+realty_projects.th.name: Nom
+realty_projects.th.email: Email
+realty_projects.th.phone.number: Numéro De Téléphone
+realty_projects.th.address: Adresse
+realty_projects.th.floor.count: Count Étage
+realty_projects.th.contact.name: Nom Du Contact
+realty_projects.th.contact.number: Numéro De Contact
+realty_projects.th.description: Description
+realty_projects.th.developer: Développeur
+realty_projects.th.creation.date: Date De Création
+realty_projects.th.actions: Actions
+realty_projects.placeholder.username: Nom D'utilisateur
+realty_projects.action.create: Créer Un Nouveau Projet
+realty_projects.btn.add.user: Ajouter Un Utilisateur
+
+countries.title: Countries
+countries.title.panel.datatables.advanced.tables: Tables DataTables Avancée
+countries.title.input.country.code: Code Postal
+countries.title.input.country.name: Nom Du Pays
+countries.th.code: Code
+countries.th.name: Nom
+countries.th.action: Action
+countries.btn.add.country: Ajouter Pays
+
+homepage.title: Page D'accueil
+
+realty_companies.action.create: Créer Une Nouvelle Société Immobilière

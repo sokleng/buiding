@@ -1,0 +1,59 @@
+{% set params = app.request.get('_route_params') %}
+{% if app.request.locale is not empty %}
+    {% set countryCode = app.request.locale | split('-') | last | lower %}
+{% else %}
+    {% set countryCode = 'gb' %}
+{% endif %}
+
+<li class="dropdown">
+    <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+        <span class="flag-icon flag-icon-{{ countryCode }}"></span>
+        <i class="fa fa-caret-down"></i>
+    </a>
+    <ul class="dropdown-menu">
+        <li>
+            <a href="{{
+                path(
+                    app.request.attributes.get('_route'),
+                    params | merge({'_locale': 'km-KH'})
+                )
+            }}">
+                <span class="flag-icon flag-icon-kh"></span>
+                ខ្មែរ
+            </a>
+        </li>
+        <li>
+            <a href="{{
+                path(
+                    app.request.attributes.get('_route'),
+                    params | merge({'_locale': 'en-US'})
+                )
+            }}">
+                <span class="flag-icon flag-icon-us"></span>
+                English
+            </a>
+        </li>
+        <li>
+            <a href="{{
+                path(
+                    app.request.attributes.get('_route'),
+                    params | merge({'_locale': 'zh-CN'})
+                )
+            }}">
+                <span class="flag-icon flag-icon-cn"></span>
+                中文
+            </a>
+        </li>
+        <li>
+            <a href="{{
+                path(
+                    app.request.attributes.get('_route'),
+                    params | merge({'_locale': 'fr-FR'})
+                )
+            }}">
+                <span class="flag-icon flag-icon-fr"></span>
+                Français
+            </a>
+        </li>
+    </ul>
+</li>

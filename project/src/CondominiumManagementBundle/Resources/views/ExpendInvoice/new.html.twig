@@ -1,0 +1,13 @@
+{% extends 'CondominiumManagementBundle::content_page_layout.html.twig' %}
+{% set title = condominium.name ~ ' - ' ~ 'condo.expense.title.invoice'|trans ~ ' - ' ~ 'condo.expense.invoice.title.new'|trans %}
+
+{% block content %}
+    {% set currencySign = ''%}
+    {% if condominium.currency is not null %}
+        {% set currencySign = condominium.currency.sign %}
+    {% endif %}
+    {%
+        include 'CondominiumManagementBundle:Partial:expend_invoice_form.html.twig'
+        with {'currencySign': currencySign }
+    %}
+{% endblock %}

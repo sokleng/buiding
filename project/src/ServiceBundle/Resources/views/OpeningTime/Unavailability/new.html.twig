@@ -1,0 +1,165 @@
+{% extends 'ServiceBundle::content_page_layout.html.twig' %}
+{% set title = 'opening_time.unavailability.title.new'|trans %}
+
+{% block content %}
+    {{ form_start(form) }}
+        <div class="form-group">
+            <div class="row">
+                <label class="col-xs-2 control-label">
+                    {{ 'opening_time.label.start.date'|trans }}
+                </label>
+                <div class="col-xs-2">
+                    {{form_widget(
+                        form.startDateTime.date.month,
+                        {
+                            'attr': {
+                                'class': 'form-control'
+                            }
+                        }
+                    )}}
+                </div>
+                <div class="col-xs-2">
+                    {{form_widget(
+                        form.startDateTime.date.day,
+                        {
+                            'attr': {
+                                'class': 'form-control'
+                            }
+                        }
+                    )}}
+                </div>
+                <div class="col-xs-2">
+                    {{form_widget(
+                        form.startDateTime.date.year,
+                        {
+                            'attr': {
+                                'class': 'form-control'
+                            }
+                        }
+                    )}}
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="row">
+                <label class="col-xs-2 control-label">
+                    {{ 'opening_time.label.start.time'|trans }}
+                </label>
+                <div class="col-xs-2">
+                    {{form_widget(
+                        form.startDateTime.time.hour,
+                        {
+                            'attr': {
+                                'class': 'form-control'
+                            }
+                        }
+                    )}}
+                </div>
+                <div class="col-xs-2">
+                    {{form_widget(
+                        form.startDateTime.time.minute,
+                        {
+                            'attr': {
+                                'class': 'form-control'
+                            }
+                        }
+                    )}}
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="row">
+                <label class="col-xs-2 control-label">
+                    {{ 'opening_time.label.end.date'|trans }}
+                </label>
+                <div class="col-xs-2">
+                    {{form_widget(
+                        form.endDateTime.date.month,
+                        {
+                            'attr': {
+                                'class': 'form-control'
+                            }
+                        }
+                    )}}
+                </div>
+                <div class="col-xs-2">
+                    {{form_widget(
+                        form.endDateTime.date.day,
+                        {
+                            'attr': {
+                                'class': 'form-control'
+                            }
+                        }
+                    )}}
+                </div>
+                <div class="col-xs-2">
+                    {{form_widget(
+                        form.endDateTime.date.year,
+                        {
+                            'attr': {
+                                'class': 'form-control'
+                            }
+                        }
+                    )}}
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="row">
+                <label class="col-xs-2 control-label">
+                    {{ 'opening_time.label.end.time'|trans }}
+                </label>
+                <div class="col-xs-2">
+                    {{form_widget(
+                        form.endDateTime.time.hour,
+                        {
+                            'attr': {
+                                'class': 'form-control'
+                            }
+                        }
+                    )}}
+                </div>
+                <div class="col-xs-2">
+                    {{form_widget(
+                        form.endDateTime.time.minute,
+                        {
+                            'attr': {
+                                'class': 'form-control'
+                            }
+                        }
+                    )}}
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-xs-offset-2 col-xs-10">
+                <div class="checkbox">
+                    <label>
+                        {{form_widget(form.enabled)}}
+                        {{ 'opening_time.label.enabled'|trans }}
+                    </label>
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-xs-offset-2 col-xs-10">
+                <input
+                    type="submit"
+                    value="{{ 'btn.create'|trans }}"
+                    class="btn btn-success"
+                />
+                <a
+                    href="{{
+                        path(
+                            'service_openingTime_list',
+                            {'service': service.id}
+                        )
+                    }}"
+                    class="btn btn-default"
+                >
+                    {{ 'link.back'|trans }}
+                </a>
+            </div>
+        </div>
+    {{ form_end(form) }}
+{% endblock %}

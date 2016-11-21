@@ -1,0 +1,36 @@
+{
+    "exclude": [
+        "(^project/vendor/)",
+        "(^project/web/)",
+        "(^project/var/)"
+    ],
+    "linters": {
+        "Merge Conflict Checker": {
+            "type": "merge-conflict"
+        },
+        "Spelling Checker": {
+            "type": "spelling"
+        },
+        "Composer Checker": {
+            "type": "composer"
+        },
+        "PHP Linter": {
+            "include": [
+                "(\\.php$)"
+            ],
+            "type": "php"
+        },
+        "Json linter": {
+            "include": [
+                "(\\.json$)"
+            ],
+            "type": "json"
+        },
+        "XML linter": {
+            "include": [
+                "(\\.xml$)"
+            ],
+            "type": "xml"
+        }
+    }
+}

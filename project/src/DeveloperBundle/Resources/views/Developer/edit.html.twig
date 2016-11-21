@@ -1,0 +1,48 @@
+{% extends 'DeveloperBundle::content_page_layout.html.twig' %}
+{% set title = 'developer.title.edit'|trans %}
+
+{% block content %}
+    {{ form_start(edit_form) }}
+        <div class="form-group">
+            <div class="row">
+                <label class="col-xs-2 control-label">
+                    {{ 'developer.label.name'|trans }}
+                </label>
+                <div class="col-xs-4">
+                    {{ form_widget(
+                        edit_form.name,
+                        {'attr': {'class' : 'form-control'}}
+                    ) }}
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="row">
+                <label class="col-xs-2 control-label">
+                    {{ 'developer.label.description'|trans }}
+                </label>
+                <div class="col-xs-4">
+                    {{ form_widget(
+                        edit_form.description,
+                        {'attr': {'class' : 'form-control', 'rows' : 10}}
+                    ) }}
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-xs-offset-2 col-xs-10">
+                <input
+                    type="submit"
+                    value="{{ 'btn.save'|trans }}"
+                    class="btn btn-success"
+                />
+                <a
+                    href="#"
+                    class="btn btn-default"
+                >
+                    {{ 'link.back'|trans }}
+                </a>
+            </div>
+        </div>
+    {{ form_end(edit_form) }}
+{% endblock %}

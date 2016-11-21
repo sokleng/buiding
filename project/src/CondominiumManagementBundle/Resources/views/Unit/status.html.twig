@@ -1,0 +1,34 @@
+{% if unit.clientUnits is not empty %}
+    {% set clientUnit = unit.clientUnits[0] %}
+    <span class="my-tooltips">
+        <center>
+            <div class="badge btn-danger">
+                <i class="glyphicon glyphicon-user"></i>
+            </div>
+        </center>
+        <span>
+            {{
+                'client.th.id.card'|trans ~
+                ': ' ~ clientUnit.idCard
+            }}<br/>
+            {{
+                'condo.label.resident.name'|trans ~
+                ': ' ~ clientUnit.user.name
+            }}<br/>
+            {{
+                'condo.client.label.phone'|trans ~
+                ': ' ~ clientUnit.phoneNumber
+            }}<br/>
+            {{
+                'condo.client.label.email'|trans ~
+                ': ' ~ clientUnit.user.email
+            }}<br/>
+        </span>
+    </span>
+{% else %}
+    <center>
+        <span class="label label-success">
+            {{'condo.client.label.status.available'|trans }}
+        </span>
+    </center>
+{% endif %}

@@ -1,0 +1,194 @@
+{% extends 'ClientBundle::content_page_layout.html.twig' %}
+{% set title = 'checkout.title'|trans %}
+
+{% block content %}
+    <form method="post">
+        <div class="row">
+            <div class="col-lg-6 col-lg-offset-3 col-sm-8 col-sm-offset-2">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        {{ 'checkout.title.panel.your.order'|trans }}
+                    </div>
+                    <div class="panel-body">
+                        <div class="table-responsive">
+                            <table class="table">
+                                <thead>
+                                <tr>
+                                    <th>{{ 'checkout.th.item'|trans }}</th>
+                                    <th>{{ 'checkout.th.unit.price'|trans }}</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                {% set orderTotal = 0 %}
+                                {% set currencySign = "" %}
+                                {% set vat = "" %}
+                                {% for cartItem in shoppingCart.cartItems %}
+                                    {% if cartItem.currency is not null %}
+                                        {% set currencySign = cartItem.currency.sign %}
+                                    {% endif %}
+                                    {% set vat = cartItem.vat %}
+                                    {% set rowTotal = cartItem.shopItem.price * cartItem.quantity %}
+                                    {% set orderTotal = orderTotal + rowTotal %}
+                                    <tr>
+                                        <td>{{ cartItem.shopItem.name }}</td>
+                                        <td>
+                                            {{ cartItem.quantity }}
+                                            x
+                                            {{ currencySign }}
+                                            {{ cartItem.shopItem.price|number_format(2, '.', ',') }}
+                                        </td>
+                                    </tr>
+                                {% endfor %}
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <div class="panel-footer">
+                        <table class="table table-striped table-hover table-bordered">
+                            <tbody>
+                                <tr>
+                                    <th colspan="3">
+                                        <span class="pull-left">
+                                            {{ 'checkout.label.sub.total'|trans }}
+                                        </span>
+                                    </th>
+                                    <th>
+                                        {{ currencySign }}
+                                        {{ orderTotal|number_format(2, '.', ',') }}
+                                    </th>
+                                </tr>
+                                {% if service.serviceProvider.isVat %}
+                                    <tr>
+                                        <th colspan="3">
+                                            <span class="pull-left">
+                                                {{ 'service.label.vat'|trans }}
+                                                {{ vat }}%
+                                            </span>
+                                        </th>
+                                        <th>
+                                            {{ currencySign }}
+                                            {{ (orderTotal * vat / 100)|number_format(2, '.', ',') }}
+                                        </th>
+                                    </tr>
+                                    <tr>
+                                        <th colspan="3">
+                                            <span class="pull-left">
+                                                {{ 'service.label.grand.total'|trans }}
+                                            </span>
+                                        </th>
+                                        <th>
+                                            {{ currencySign }}
+                                            {{ ((orderTotal * vat / 100) + orderTotal)|number_format(2, '.', ',') }}
+                                        </th>
+                                    </tr>
+                                {% endif %}
+                            </tbody>
+                        </table>
+                        <div class="clearfix"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-6 col-lg-offset-3 col-sm-8 col-sm-offset-2">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        {{ 'checkout.title.panel.delivery.details'|trans }}
+                    </div>
+                    <div class="panel-body">
+                        <div class="row">
+                            <div class="col-xs-6 col-sm-4">
+                                {{ 'checkout.label.condominium'|trans }}:
+                            </div>
+                            <div class="col-xs-6 col-sm-8">
+                                {{ unit.condominium.name }}
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-xs-6 col-sm-4">
+                                {{ 'checkout.label.address'|trans }}:
+                            </div>
+                            <div class="col-xs-6 col-sm-8">
+                                {{ unit.condominium.address }}
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-xs-6 col-sm-4">
+                                {{ 'checkout.label.room.number'|trans }}:
+                            </div>
+                            <div class="col-xs-6 col-sm-8">
+                                {{ unit.roomNumber }}
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-xs-6 col-sm-4">
+                                {{ 'checkout.label.contact.name'|trans }}:
+                            </div>
+                            <div class="col-xs-6 col-sm-8">
+                                {{ app.user.name }}
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-xs-6 col-sm-4">
+                                {{ 'checkout.label.contact.number'|trans }}:
+                            </div>
+                            <div class="col-xs-6 col-sm-8">
+                                {% if app.user.roles | length > 1 %}
+                                    {{ app.user.phoneNumber }}
+                                {% else %}
+                                   {{ render(controller(
+                                            'ClientBundle:Checkout:getUserPhone',
+                                            {
+                                                'condominium': unit.condominium.id,
+                                                'user': app.user.id
+                                            }
+                                        )
+                                    )}}
+                                {% endif %}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-6 col-lg-offset-3 col-sm-8 col-sm-offset-2">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        {{ 'checkout.title.panel.additional.comments'|trans }}
+                    </div>
+                    <div class="panel-body">
+                        <textarea
+                            class="col-xs-12"
+                            title="additional_info"
+                            name="additional_info"
+                        ></textarea>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-6 col-lg-offset-3 col-sm-8 col-sm-offset-2">
+                <button
+                    class="btn btn-success pull-right btn-spaced"
+                    type="submit"
+                >
+                    {{ 'checkout.btn.submit.order'|trans }}
+                </button>
+                <p class="pull-right">
+                    <a class="btn btn-danger"
+                        href="{{ path(
+                            'client_service_show',
+                            {
+                                'unit': unit.id,
+                                'service': service.id
+                            }
+                        ) }}"
+                    >
+                        {{ 'btn.cancel'|trans }}
+                    </a>
+                </p>
+            </div>
+        </div>
+    </form>
+{% endblock %}

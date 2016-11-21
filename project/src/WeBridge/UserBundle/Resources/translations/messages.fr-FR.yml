@@ -1,0 +1,14 @@
+profile.title: Update Profile
+
+profile.th.username : Username
+profile.th.email : Email
+profile.th.phone.number : Phone Number
+
+profile.label.username : Username
+profile.label.email : Email
+profile.label.phone.number : Phone Number
+profile.label.user.profile : User Profile
+profile.label.logout : Logout
+profile.label.current.password : Current Password
+profile.label.new.password : New Password
+profile.label.confirm.password : Confirm Password

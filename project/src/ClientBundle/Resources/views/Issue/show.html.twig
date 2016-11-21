@@ -1,0 +1,111 @@
+{% extends 'ClientBundle::content_page_layout.html.twig' %}
+{% set title = unit.condominium.name ~ ' - #' ~ unit.roomNumber ~' - Issue #' ~ issue.id %}
+
+{% block content %}
+    <div class="row">
+        <div class="col-lg-8">
+            <div class="panel panel-default">
+                <div class="panel-heading lead">
+                    <span>
+                        {{ 'client.issue'|trans }} #{{ issue.id }}
+                    </span>
+                    -
+                    <small>
+                        {{ issue.creationDate | date }}
+                    </small>
+                    <div class="pull-right">
+                        <span>{{'client_issue.label.status'|trans}}:</span>
+                        <span class="label label-default">
+                             {{ issue.status | issueStatus }}
+                         </span>
+                    </div>
+                </div>
+                <div class="panel-body">
+                    {{ issue.description }}
+                </div>
+                <div class="panel-footer">
+                    {% if issue.isOpen %}
+                    <form method="post"
+                          action="{{ path('client_issues_cancel', {'issue': issue.id, 'unit': unit.id}) }}"
+                    >
+                        <input type="hidden"
+                               name="_method"
+                               value="DELETE"
+                        >
+                        <button type="submit"
+                                class="btn btn-danger pull-right"
+                        >
+                            {{ 'btn.cancel.issue'|trans }}
+                        </button>
+                    </form>
+                    {% else %}
+                        <span class="col-xs-12 lead text-danger text-center">
+                            {{ 'client_issue.label.this.issue.was.cancelled'|trans }}
+                            {{ issue.closingDate | time_diff }}
+                        </span>
+                    {% endif %}
+                    <div class="clearfix"></div>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-4">
+            <div class="panel panel-default">
+                <div class="panel-heading lead">
+                    <i class="fa fa-comments fa-fw"></i>
+                    {{ 'client_issue.label.comment'|trans }}
+                </div>
+                <div class="panel-body">
+                    <ul class="chat">
+                        {% for message in issue.comments %}
+                            {% set isCurrent = message.user == app.user %}
+                            <li class="clearfix">
+                                <span class="chat-img {{ isCurrent ? 'pull-right' : 'pull-left' }}">
+                                    <i class="fa fa-fw text-primary {{ isCurrent ? 'fa-user' : 'fa-life-ring' }}"></i>
+                                </span>
+                                <div class="chat-body clearfix">
+                                    <div class="header">
+                                        <small class="text-muted {{ isCurrent ? '' : 'pull-right' }}">
+                                            <i class="fa fa-clock-o fa-fw"></i>
+                                            {{ message.creationDate | time_diff }}
+                                        </small>
+                                        <strong class="primary-font {{ isCurrent ? 'pull-right' : '' }}">
+                                            {{ message.user.name }}
+                                        </strong>
+                                    </div>
+                                    <p>{{ message.comment }}</p>
+                                </div>
+                            </li>
+                        {% endfor %}
+                    </ul>
+                </div>
+                <div class="panel-footer">
+                    <form method="post"
+                          action="{{ path('client_issues_comments_new', {'issue': issue.id, 'unit': unit.id}) }}"
+                    >
+                        <div class="input-group">
+                            <input class="form-control input-sm {{ issue.isOpen ? '' : 'disabled' }}"
+                                   title="Comment"
+                                   name="issue_comment"
+                                   placeholder="Type your comment here..."
+                                   type="text"
+                                   aria-required="true"
+                                   required
+                                   {{ issue.isOpen ? '' : 'disabled' }}
+                            >
+                            <span class="input-group-btn">
+                                <button type="submit"
+                                        class="btn btn-primary btn-sm {{ issue.isOpen ? '' : 'disabled' }}"
+                                        {{ issue.isOpen ? '' : 'disabled' }}
+                                >
+                                    {{ 'btn.send'|trans }}
+                                </button>
+                            </span>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    {% include 'CondominiumManagementBundle:Partial:issue_photos_videos.html.twig' %}
+{% endblock %}
+

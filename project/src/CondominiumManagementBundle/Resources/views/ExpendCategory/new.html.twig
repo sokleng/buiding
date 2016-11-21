@@ -1,0 +1,6 @@
+{% extends 'CondominiumManagementBundle::content_page_layout.html.twig' %}
+{% set title = condominium.name ~ ' - ' ~ 'link.expense'|trans ~ ' - ' ~ 'condo.expense.title.new'|trans  %}
+
+{% block content %}
+    {% include 'CondominiumManagementBundle:Partial:expend_category_form.html.twig' %}
+{% endblock %}

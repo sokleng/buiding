@@ -1,0 +1,122 @@
+{% extends "ClientBundle::content_page_layout.html.twig" %}
+
+{% set title = '#' ~ unit.roomNumber ~ ' ' ~ 'title.at'|trans ~ ' ' ~ unit.condominium.name %}
+
+{% block content %}
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h2>
+                        <a href="{{ path('client_service_list', { 'unit': unit.id}) }}">
+                            <i class="fa fa-shopping-basket fa-fw"></i>
+                            {{ 'unit.services'|trans }}
+                        </a>
+                    </h2>
+                </div>
+                <div class="panel-body">
+                    {% for service in services %}
+                        <a href="{{ path(
+                        'client_service_show',
+                        {'service': service.id, 'unit': unit.id}
+                        ) }}">
+                            <div class="col-lg-3 col-md-4">
+                                <div class="panel panel-default">
+                                    <div class="panel-heading">
+                                        {% if service.isOpen %}
+                                            <span class="label label-success">{{ 'unit.open'|trans }}</span>
+                                        {% else %}
+                                            <span class="label label-danger">{{ 'unit.closed'|trans }}</span>
+                                        {% endif %}
+                                        {{ service.title }}
+                                    </div>
+                                    <div class="panel-body text-default">
+                                        <span class="text-default text-color-default" >{{ service.description }}</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-6 col-xs-12">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <a href="{{ path('client_issues_list', {'unit': unit.id}) }}">
+                        <h2 class="col-xs-5 pull-left">
+                            <i class="fa fa-life-ring fa-fw"></i>
+                            {{ 'unit.issues'|trans }}
+                        </h2>
+                        <span class="col-xs-5 label label-warning pull-right">
+                            {{ issueCounts[constant('CondoBundle\\Constant\\IssueStatus::OPEN')]['issue_count'] }}
+                            {{ 'unit.issue.opened'|trans }}
+                        </span>
+                        <span class="col-xs-5 label label-primary pull-right">
+                            {{ issueCounts[constant('CondoBundle\\Constant\\IssueStatus::IN_PROGRESS')]['issue_count'] }}
+                            {{ 'unit.issue.in.progress'|trans }}
+                        </span>
+                        <span class="col-xs-5 label label-success pull-right">
+                            {{ issueCounts[constant('CondoBundle\\Constant\\IssueStatus::CLOSED')]['issue_count'] }}
+                            {{ 'unit.issue.closed'|trans }}
+                        </span>
+                        <div class="clearfix"></div>
+                    </a>
+                </div>
+                <div class="panel-body">
+                    <span class="col-md-7">
+                        {% if userLastThreeIssues|length != 0 %}
+                            {{ 'unit.message.issue.thanks'|trans }} :
+                            <ul>
+                                {% for issue in userLastThreeIssues %}
+                                    <li>
+                                        <a href="{{ path('condominium_issues_show', {'issue' : issue.id, 'condominium' : unit.condominium.id}) }}"
+                                        >
+                                            {%
+                                                include 'CondominiumManagementBundle:Partial:sub_string.html.twig'
+                                                with {'string' : issue.description, 'limit' : 100}
+                                            %}
+                                        </a>
+
+                                    </li>
+                                {% endfor %}
+                            </ul>
+                        {% else %}
+                            {{ 'unit.message.issues'|trans }}
+                        {% endif %}
+                    </span>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-6 col-xs-12">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <a href="{{ path('client_feedback_new', {'unit': unit.id}) }}">
+                        <h2>
+                            <i class="fa fa-comment fa-fw"></i>
+                            {{ 'unit.feedback'|trans }}
+                        </h2>
+                    </a>
+                </div>
+                <div class="panel-body">
+                    {% if lastFeedback is not null and lastFeedback.message is not null %}
+                        <div>
+                            {{ 'unit.message.thanks'|trans }}
+                            <span class="text-primary">
+                                {{ lastFeedback.message|lower }}
+                            </span>
+                        </div>
+                        <div>
+                            {{ 'unit.message.sorry'|trans }}
+                        </div>
+                    {% else %}
+                        {{ 'unit.message.feedback'|trans }}
+                        {{ unit.condominium.name }}.
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

@@ -1,0 +1,98 @@
+{% extends 'CondominiumManagementBundle::content_page_layout.html.twig' %}
+{% set title = condominium.name ~ ' - ' ~ 'link.suppliers'|trans ~ ' - ' ~ 'link.individual'|trans %}
+
+{% block content %}
+    {% include 'CondominiumManagementBundle:Partial:alert_flash_message.html.twig' %}
+    <div class="row">
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+            {%
+                include 'CondominiumManagementBundle:Supplier:tabs_head.html.twig'
+                with {'active' : 'individual', 'condominium': condominium.id}
+            %}
+            <div class="tab-content">
+                <div class="tab-pane fade in active">
+                    <br />
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <a
+                                href="{{
+                                    path(
+                                        'condominium_individual_suppliers_new',
+                                        {
+                                            'condominium': condominium.id
+                                        }
+                                    )
+                                }}"
+                                class="btn btn-success"
+                            >
+                                {{ 'btn.condo.suppliers.individual.new'|trans }}
+                            </a>
+                        </div>
+                        <div class="panel-body">
+                            <div class="dataTable_wrapper">
+                                <table class="table table-striped table-bordered table-hover">
+                                    <thead>
+                                        <tr>
+                                            <th>{{ 'condo.suppliers.id'|trans }}</th>
+                                            <th>{{ 'condo.suppliers.name'|trans }}</th>
+                                            <th>{{ 'condo.suppliers.tel'|trans }}</th>
+                                            <th>{{ 'condo.suppliers.address'|trans }}</th>
+                                            <th>{{ 'condo.suppliers.individual.id.card'|trans }}</th>
+                                            <th>{{ 'condo.label.actions'|trans }}</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        {% for individualSupplier in individualSuppliers %}
+                                            <tr>
+                                                <td>{{ individualSupplier.getId }}</td>
+                                                <td>{{ individualSupplier.getName }}</td>
+                                                <td>{{ individualSupplier.getPhoneNumber }}</td>
+                                                <td>{{ individualSupplier.getAddress }}</td>
+                                                <td>{{ individualSupplier.getIDCard }}</td>
+                                                <td>
+                                                    <a
+                                                        href="{{
+                                                            path(
+                                                                'condominium_individual_suppliers_edit',
+                                                                {
+                                                                    'condominium': condominium.id,
+                                                                    'individualSupplier': individualSupplier.id
+                                                                }
+                                                            )
+                                                        }}"
+                                                        class="btn btn-primary btn-sm"
+                                                    >
+                                                        {{ 'action.edit'|trans }}
+                                                    </a>
+                                                    <form method="post"
+                                                        action="{{ path(
+                                                                  'condominium_individual_suppliers_delete',
+                                                                  {
+                                                                    'condominium': condominium.id,
+                                                                    'individualSupplier': individualSupplier.id
+                                                                  }
+                                                                  ) }}"
+                                                    >
+                                                        <input type="hidden"
+                                                               name="_method"
+                                                               value="DELETE"
+                                                        >
+                                                        <input type="submit"
+                                                               class="btn btn-sm btn-danger"
+                                                               value="{{ 'btn.delete'|trans }}"
+                                                        >
+                                                    </form>
+                                                </td>
+                                            </tr>
+                                        {% endfor %}
+                                    </tbody>
+                                </table>
+                                {{ knp_pagination_render(individualSuppliers) }}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

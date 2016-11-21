@@ -1,0 +1,18 @@
+{% stylesheets filter='cssrewrite'
+
+%}
+    <link rel="stylesheet" type="text/css" href="{{ asset_url }}"/>
+{% endstylesheets %}
+
+
+{% javascripts
+    "@file_saver_js"
+    "@jspdf_js"
+    "@jspdf_plugin_autotable_js"
+    "@html2canvas_js"
+    "@table_export_js"
+    "@CondoBundle/Resources/public/js/export.js"
+
+%}
+    <script type="application/javascript" src="{{ asset_url }}"></script>
+{% endjavascripts %}

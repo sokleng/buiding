@@ -1,0 +1,25 @@
+home.label.coming.soon: Coming Soon
+home.title.dashboard: Dashboard
+home.discription: Discription
+home.text.client.management: Client Management
+home.text.condominium.management: Condominium Management
+home.text.service.management: Service Managemen
+home.text.developer.management: Developer Management
+home.text.project.management: Project Management
+home.text.realty.company.management: Realty Company
+home.label.access.page: Access Page
+
+role.type.service: Service
+role.type.condominium: Condominium
+role.service.dashboard: Dashboard
+role.service.order: Order
+role.service.open.time: Open Time
+role.service.product: Product
+role.service.condominiums: Condominiums
+role.condominium.dashboard: Dashboard
+role.condominium.client: Client
+role.condominium.unit: Unit
+role.condominium.services: Services
+role.condominium.issues: Issues
+role.condominium.news: News
+role.condominium.feedback: Feedback

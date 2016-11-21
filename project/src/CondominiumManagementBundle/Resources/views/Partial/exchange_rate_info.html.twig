@@ -1,0 +1,32 @@
+<div>
+    <h4 class="text-center">{{ 'currency.exchange.rate'|trans }}</h4>
+    <div class="row">
+        <div class="col-xs-12 col-md-12">
+            <ul class="list-group">
+                {% for currency in currencies %}
+                    {% set value = "currency.exchange.rate.unknown"|trans %}
+                    {% if condominium.exchangeSetting is not null %}
+                        {% for key, rate in condominium.exchangeSetting.value %}
+                            {% if key == currency.id %}
+                                {% set value = rate %}
+                            {% endif %}
+                        {% endfor %}
+                    {% endif %}
+                    {% if currency.getCurrency != "USD" %}
+                        <li class="list-group-item text-muted">
+                            1 USD =
+                            <span class="pull-right small">
+                                <span {% if condominium.exchangeSetting is null %}
+                                    class="label label-danger"{% endif %}
+                                >
+                                    {{ value }}
+                                </span>&nbsp;
+                                {{ currency.getCurrency }}
+                            </span>
+                        </li>
+                    {% endif %}
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
+</div>

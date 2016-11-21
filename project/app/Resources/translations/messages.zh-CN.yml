@@ -1,0 +1,40 @@
+placeholder.search: 搜索...
+progress.bar.label.complete: 完
+pagination.label.page: 页
+pagination.btn.jump: 跳
+navigation.label.toggle.navigation: 切换导航
+action.edit: 编辑
+action.delete: 删除
+action.show: 查看
+
+btn.delete: 删除
+btn.create: 创建
+btn.save: 保存
+
+title.webridge.backend.template: WeBridge Backend Template
+
+link.action.edit: 编辑
+link.back: 返回
+link.see.all.alerts: 查看所有通知
+link.new.comment: 新评论
+link.new.followers: 新的追随者
+link.message.sent: 发送留言
+link.task.completed: 任务完成
+link.read.all.messages: 阅读全部信息
+link.see.all.tasks: 查看所有任务
+link.settings: 设置
+link.logout: 退出
+link.clients: 顾客
+link.condominiums: 共管
+link.services: 服务
+link.projects: 项目
+link.platforms: 平台
+link.developers: 开发人员
+link.realty.companies: 房地产公司
+
+flash.create.success: 数据已被成功创建
+flash.edit.success: 数据已被成功更新
+flash.delete.success: 成功删除
+flash.create.error: 创建时有错误发生
+flash.edit.error: 更新时有错误发生
+flash.delete.error: 删除时有错误发生

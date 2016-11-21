@@ -1,0 +1,86 @@
+@import 'variable';
+
+.container-fluid {
+    background: $selver-color;
+    .image-condominium {
+        position: relative;
+        float: left;
+    }
+
+    .text-gray {
+        color: $dark-gray-color;
+        font-size: 13px;
+    }
+
+    .btn-round {
+        border-radius: 50%;
+    }
+
+    .container-hr-condominuim {
+        padding:15px 30px;
+        hr {
+            border-top: 1px solid $gray-color;
+        }
+    }
+
+    .image-condominium {
+        height: 100px;
+    }
+
+    .image-condominium img {
+        width: 80px;
+        height: 84px;
+    }
+
+    .map-search {
+        width: 100%;
+        height: 515px;
+        border: 2px solid red;
+    }
+
+    .h4, .h5, .h6, h4, h5, h6 {
+        margin-top: 18px;
+    }
+
+    .search-map-menu-condominium {
+        background: $white-color;
+        padding: 1px 0;
+    }
+
+    #map {
+        width:100%;
+        height: 500px;
+    }
+
+    .navbar-collapse {
+        padding-right: 0;
+        padding-left: 0;
+        background: $white-color;
+    }
+
+    h4, h5, h6 {
+        margin-top: 7px;
+    }
+
+    .nav > li > a {
+        padding: 12px 24px;
+    }
+
+    .information-condo {
+        padding-left: 105px;
+        padding-top: 3px;
+    }
+
+    .no-padding {
+        padding-right: 0px;
+        padding-left: 0px;
+    }
+
+    .address-text {
+        margin-top: -7px;
+    }
+
+    .lat-and-lng.active {
+        border-left: 5px solid $dark-pink-color;
+    }
+}

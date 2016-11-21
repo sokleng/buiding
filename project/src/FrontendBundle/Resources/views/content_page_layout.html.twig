@@ -1,0 +1,27 @@
+{% extends 'FrontendBundle::base_frontend_layout.html.twig' %}
+{% block title %}
+    {% if title is defined %}
+        {{ title }}
+    {% endif %}
+{% endblock %}
+
+{% block base_content %}
+    <div id="wrapper">
+        <!-- Navigation -->
+        <nav class="navbar navbar-default navbar-static-top"
+             role="navigation"
+             style="margin-bottom: 0">
+
+            {% include 'FrontendBundle:navigation:header.html.twig' %}
+        </nav>
+
+        <!-- Page Content -->
+        <div id="page-wrapper">
+            <div class="container-fluid">
+                {% block content %}{% endblock %}
+            </div>
+            <!-- /.container-fluid -->
+        </div>
+        {% include 'FrontendBundle:navigation:footer.html.twig' %}
+    </div>
+{% endblock %}

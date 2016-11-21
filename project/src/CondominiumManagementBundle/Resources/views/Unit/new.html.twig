@@ -1,0 +1,14 @@
+{% extends 'CondominiumManagementBundle::content_page_layout.html.twig' %}
+{% set title = condominium.name ~ ' - ' ~ 'unit.title.new'|trans %}
+
+{% block content %}
+    {% set currencySign = ''%}
+    {% if condominium.currency is not null %}
+        {% set currencySign = condominium.currency.sign %}
+    {% endif %}
+
+    {%
+        include 'CondominiumManagementBundle:Partial:unit_form.html.twig'
+        with {'currencySign': currencySign}
+    %}
+{% endblock %}

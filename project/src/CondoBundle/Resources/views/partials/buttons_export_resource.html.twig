@@ -1,0 +1,17 @@
+<div class="btn-group pull-right">
+    <a
+        onclick="Export.do_export('{{ selector }}', 'csv', '{{ function_name }}')"
+        class="btn btn-default"
+    >
+        {{ 'condo.label.excel'|trans }}
+        <i class="fa fa-file-excel-o"></i>
+    </a>
+    <a
+        onclick="Export.do_export('{{ selector }}', 'pdf', '{{ function_name }}')"
+        class="btn btn-default"
+    >
+        {{ 'condo.label.pdf'|trans }}
+        <i class="fa fa-file-pdf-o"></i>
+    </a>
+</div>
+<div class="clearfix"></div>

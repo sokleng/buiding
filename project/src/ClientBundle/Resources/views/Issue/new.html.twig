@@ -1,0 +1,50 @@
+{% extends 'ClientBundle::content_page_layout.html.twig' %}
+{% set title = unit.condominium.name ~ ' - #' ~ unit.roomNumber ~' - New Issue' %}
+
+{% block content %}
+    {{ form_start(form) }}
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="panel panel-default">
+                <div class="panel-body">
+                    <div class="form-group">
+                        {{ form_widget(
+                            form.description,
+                            {
+                                'attr': {
+                                    'class': 'form-control',
+                                    'placeholder': 'Describe your problem...',
+                                    'style': 'min-height: 120px; resize: vertical;',
+                                }
+                            }
+                        )}}
+                    </div>
+                    <div class="form-group">
+                        {{ form_widget(
+                            form.databaseFiles,
+                            {
+                                'attr': {
+                                    'class': 'form-control'
+                                }
+                            }
+                        )}}
+                    </div>
+                </div>
+                <div class="panel-footer">
+                    <input class="btn btn-success pull-right btn-spaced"
+                           type="submit"
+                           value="{{'btn.create'|trans}}"
+                    />
+                    <a href="{{ path('client_issues_list', {'unit': unit.id}) }}"
+                       class="btn btn-danger pull-right btn-spaced"
+                    >
+                        {{'btn.cancel'|trans}}
+                    </a>
+                    <div class="clearfix"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    {{ form_end(form) }}
+{% endblock %}
+

@@ -1,0 +1,75 @@
+{% extends '::base_layout.html.twig' %}
+
+{% block title %}
+    {% if title is defined %}
+        {{ title }}
+    {% endif %}
+{% endblock %}
+
+{% block stylesheets %}
+    {% stylesheets
+        "@CondominiumManagementBundle/Resources/public/css/bootstrap-datetimepicker.min.css"
+        "@CondominiumManagementBundle/Resources/public/css/datepicker.css"
+        "@StarRatingBundle/Resources/public/css/rating.css"
+    %}
+        <link rel="stylesheet" type="text/css" href="{{ asset_url }}"/>
+    {% endstylesheets %}
+    {% stylesheets filter="cssrewrite"
+        "@CondominiumManagementBundle/Resources/public/css/countrySelect.css"
+    %}
+        <link rel="stylesheet" type="text/css" href="{{ asset_url }}"/>
+    {% endstylesheets %}
+    {% stylesheets filter="scssphp"
+        "@CondominiumManagementBundle/Resources/public/scss/unit.scss"
+        "@CondominiumManagementBundle/Resources/public/scss/issue.scss"
+        "@CondominiumManagementBundle/Resources/public/scss/feedback.scss"
+        "@CondominiumManagementBundle/Resources/public/scss/expense.scss"
+        "@CondominiumManagementBundle/Resources/public/scss/income.scss"
+        "@CondominiumManagementBundle/Resources/public/scss/client.scss"
+    %}
+        <link rel="stylesheet" href="{{ asset_url }}"/>
+    {% endstylesheets %}
+{% endblock %}
+{% block base_content %}
+    <div id="wrapper">
+        <!-- Navigation -->
+        <nav class="navbar navbar-default navbar-static-top"
+             role="navigation"
+             style="margin-bottom: 0">
+            {% include ':navigation:header.html.twig' %}
+        </nav>
+
+        <!-- Page Content -->
+        <div id="page-wrapper">
+            <div class="navsidebar-fixed-left navbar-collapse">  <!--class to be added navsidebar-collapsed-->
+                {% include 'CondominiumManagementBundle::left_menu.html.twig' %}
+            </div>
+            <div class="main-content-area"> <!--class to be added content-expanded-->
+                <div class="container-fluid">
+                    {% if title is defined %}
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <h1 class="page-header">{{ title }}</h1>
+                        </div>
+                    </div>
+                    {% endif %}
+                    {% block content %}{% endblock %}
+                </div>
+                <!-- /.container-fluid -->
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block javascripts %}
+    {% javascripts
+        "@CondominiumManagementBundle/Resources/public/js/moment.min.js"
+        "@CondominiumManagementBundle/Resources/public/js/bootstrap-datetimepicker.min.js"
+        "@CondominiumManagementBundle/Resources/public/js/date-picker.js"
+        "@CondominiumManagementBundle/Resources/public/js/client-unit.js"
+        "@StarRatingBundle/Resources/public/js/rating.js"
+        "@CondoBundle/Resources/public/js/dropdown-button.js"
+    %}
+        <script type="application/javascript" src="{{ asset_url }}"></script>
+    {% endjavascripts %}
+{% endblock %}

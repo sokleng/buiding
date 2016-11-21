@@ -1,0 +1,88 @@
+{% extends 'CondominiumManagementBundle::content_page_layout.html.twig' %}
+{% set title =  unit.condominium.name ~ ' - ' ~ 'unit.title.show'|trans ~ ' - #' ~ unit.id %}
+
+{% set currencySign = ''%}
+{% if condominium.currency is not null %}
+    {% set currencySign = condominium.currency.sign %}
+{% endif %}
+
+{% block content %}
+    <div class="panel panel-body">
+        <div class="row">
+            <div class="col-lg-12">
+                <table class="table table-striped">
+                    <tbody>
+                        <tr>
+                            <th>{{ 'condo.unit.label.id'|trans }}</th>
+                            <td>{{ unit.id }}</td>
+                        </tr>
+                        <tr>
+                            <th>{{ 'condo.unit.label.floor'|trans }}</th>
+                            <td>{{ unit.floor }}</td>
+                        </tr>
+                        <tr>
+                            <th>{{ 'condo.unit.label.room.number'|trans }}</th>
+                            <td>{{ unit.roomNumber }}</td>
+                        </tr>
+                        <tr>
+                            <th>
+                                {{ 'condo.unit.price'|trans }}
+                                ({{ currencySign }})
+                            </th>
+                            <td>{{ unit.price|number_format(2, '.', ',') }}</td>
+                        </tr>
+                        <tr>
+                            <th>{{ 'condo.unit.label.type'|trans }}</th>
+                            <td>
+                                {% if unit.type is not null %}
+                                    {{ unit.type.code }}
+                                {% endif %}
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="2">
+                                <div class="form-group">
+                                    <div class="row">
+                                        <div class="col-xs-10">
+                                            <a
+                                                href="{{ path('condominium_unit_edit',
+                                                    {
+                                                        'condominium': condominium.id,
+                                                        'unit': unit.id
+                                                    })
+                                                }}"
+                                                class="btn btn-primary"
+                                            >
+                                                {{ 'link.action.edit'|trans }}
+                                            </a>
+                                            <a
+                                                href="{{ path('condominium_unit_delete',
+                                                    {
+                                                        'condominium': condominium.id,
+                                                        'unit': unit.id
+                                                    })
+                                                }}"
+                                                class="btn btn-danger"
+                                            >
+                                                {{ 'action.delete'| trans }}
+                                            </a>
+                                            <a
+                                                href="{{
+                                                    path('condominium_units_list',
+                                                    {'condominium': condominium.id})
+                                                }}"
+                                                class="btn btn-default"
+                                            >
+                                                {{ 'link.back'|trans }}
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+{% endblock %}

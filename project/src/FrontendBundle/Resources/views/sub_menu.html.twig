@@ -1,0 +1,57 @@
+<div id="logo">
+    <a >
+        <img src="https://placeholdit.imgix.net/~text?txtsize=9&txt=100%C3%97100&w=100&h=100" alt="logo" />
+    </a>
+</div>
+<div id="contain-sub-menu">
+    <div class="container">
+        <div class="sidebar-nav navbar-collapse">
+            <ul class="nav navbar-nav sub-menu">
+                <li {% if  app.request.queryString  == null %} class="active" {% endif %}>
+                    <a href="{{ path(app.request.attributes.get('_route')) }}">ALL</a>
+                </li>
+                <li {% if  app.request.queryString  == 'type=0' %} class="active" {% endif %} >
+                    <a href="?type=0">FOR RANT</a>
+                </li>
+                <li {% if  app.request.queryString  == 'type=1' %} class="active" {% endif %}>
+                    <a href="?type=1">FOR SALE</a>
+                </li>
+            </ul>
+        </div>
+        <nav class="navbar navbar-default filter-type">
+            <ul class="nav navbar-nav second-sub-menu">
+                <li>
+                    <a  href="">Type : ALL</a>
+                </li>
+                <li>
+                    <a href="">Number of bedrooms: ALL</a>
+                </li>
+                <li>
+                    <a href="">Sale Prices : ALL</a>
+                </li>
+                <li>
+                    <a href="">Rentail Prices : ALL</a>
+                </li>
+                <li class="active">
+                    <a href=""><i class="glyphicon glyphicon-menu-down"></i></a>
+                </li>
+            </ul>
+            <button class="btn fixed-btn-clear-options">
+                <i class="glyphicon glyphicon-trash"></i> CLEAR OPTIONS
+            </button>
+            {% if app.request.attributes.get('_route') != 'map_search'%}
+                <a href="{{ path('map_search') }}">
+                    <button class="btn btn-info fixed-btn-map-search">
+                        <i class="glyphicon glyphicon-map-marker"></i>&nbsp;&nbsp; MAP SEARCH
+                    </button>
+                </a>
+            {% else %}
+                <a href="{{ path('homepage') }}">
+                    <button class="btn btn-info fixed-btn-map-search">
+                        <i class="glyphicon glyphicon-th-large"></i>&nbsp;&nbsp; LIST SEARCH
+                    </button>
+                </a>
+            {% endif %}
+        </nav>
+    </div>
+</div>

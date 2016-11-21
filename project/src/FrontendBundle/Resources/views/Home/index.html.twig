@@ -1,0 +1,49 @@
+{% extends "FrontendBundle::content_page_layout.html.twig" %}
+
+{% block local_stylesheets %}
+    {% stylesheets filter='scssphp'
+        "@FrontendBundle/Resources/public/scss/project.scss"
+    %}
+        <link rel="stylesheet" href="{{ asset_url }}"/>
+    {% endstylesheets %}
+{% endblock %}
+
+{% block content %}
+    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+        <br><br>
+    </div>
+    <section id="list-condomunium">
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 ">
+            <div class="container">
+                {% for projectProfile in projectPublicListings %}
+                    <a href="{{path('unit_types', {'project': projectProfile.id})}}">
+                        <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3">
+                            <div class="image-condominium">
+                                {% include 'CondoBundle:partials:image_resource.html.twig'
+                                    with {'resource' : projectProfile.databaseFile}
+                                %}
+                                <div class="name-condominuim">
+                                    <h2> {{ projectProfile.project.name }}</h2>
+                                </div>
+                            </div><br/>
+                            <div class="information-condo">
+                                <h4> {{ projectProfile.project.address }} </h4>
+                                <p><span class="text-gray"> FOR UNIT: {{ projectProfile.totalUnit }} </span></p>
+                                <i class="glyphicon glyphicon-time"></i>
+                                <span class="text-gray"> {{projectProfile.completionDate| date("M-d-Y")}} </span>
+                            </div>
+                        </div>
+                    </a>
+                    {% if loop.index % 4 == 0 and not loop.last %}
+                        <div class="col-xs-12 col-sm-6 col-md-12 col-lg-12">
+                            <div class="container-hr-condominuim">
+                                <hr>
+                            </div>
+                        </div>
+                    {% endif %}
+                {% endfor %}
+            </div>
+        </div>
+        {{ knp_pagination_render(projectPublicListings) }}
+    </section>
+{% endblock %}

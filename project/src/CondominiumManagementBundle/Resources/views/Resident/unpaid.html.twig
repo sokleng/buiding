@@ -1,0 +1,7 @@
+{% set amount = 0 %}
+{% if unpaids is not null %}
+    {% for unpaid in unpaids %}
+        {% set amount = unpaid.amount %}
+    {% endfor %}
+{% endif %}
+{{ (amount * rate)|number_format(2, '.', ',') }}

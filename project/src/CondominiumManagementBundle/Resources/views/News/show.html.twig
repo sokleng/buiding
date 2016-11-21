@@ -1,0 +1,110 @@
+{% extends 'CondominiumManagementBundle::content_page_layout.html.twig' %}
+{% set title = 'condo.news.show.title'|trans ~ ': ' ~ news.title %}
+
+{% block content %}
+    <div class="panel panel-body">
+        <div class="row">
+            <div class="col-lg-12 nopadding-left">
+                <table class="table table-striped">
+                    <tbody>
+                        <tr>
+                            <th class="col-lg-2">{{ 'condo.news.label.id'|trans }}</th>
+                            <td>{{ news.id }}</td>
+                        </tr>
+                        <tr>
+                            <th>{{ 'condo.news.label.title'|trans }}</th>
+                            <td>{{ news.title }}</td>
+                        </tr>
+                        <tr>
+                            <th>{{ 'condo.news.label.short.description'|trans }}</th>
+                            <td>{{ news.shortDescription }}</td>
+                        </tr>
+                        <tr>
+                            <th>{{ 'condo.news.label.description'|trans }}</th>
+                            <td>{{ news.description|striptags }}</td>
+                        </tr>
+                        <tr>
+                            <th>{{ 'condo.news.label.picture'|trans }}</th>
+                            <td>
+                                {% include 'CondoBundle:partials:image_resource.html.twig'
+                                    with {'resource': news.picture}
+                                %}
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>{{ 'condo.news.label.publish.date'|trans }}</th>
+                            <td>{{ news.publishDate|date('d-M-Y H:m') }}</td>
+                        </tr>
+                        <tr>
+                            <th>{{ 'condo.news.label.end.date'|trans }}</th>
+                            <td>
+                                {% if news.endDate is not null %}
+                                    {{ news.endDate|date('d-M-Y H:m') }}
+                                {% endif %}
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>{{ 'condo.news.label.is.published'|trans }}</th>
+                            <td>
+                                {% if news.isPublished %}
+                                    {{ 'condo.news.is.published.yes'|trans }}
+                                {% else %}
+                                    {{ 'condo.news.is.published.no'|trans }}
+                                {% endif %}
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td colspan="2">
+                                <div class="form-group">
+                                    <div class="row">
+                                        <div class="col-xs-10">
+                                            <a
+                                                href="{{ path('condominium_news_edit',
+                                                    {
+                                                        'condominium': condominium.id,
+                                                        'news': news.id
+                                                    })
+                                                }}"
+                                                class="btn btn-primary"
+                                            >
+                                                {{ 'link.action.edit'|trans }}
+                                            </a>
+                                            <a
+                                                href="{{
+                                                    path('condominium_news_list',
+                                                    {'condominium': condominium.id})
+                                                }}"
+                                                class="btn btn-default"
+                                            >
+                                                {{ 'link.back'|trans }}
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <form method="post"
+                                      action="{{ path(
+                                      'condominium_news_delete',
+                                      {
+                                          'condominium': condominium.id,
+                                          'news': news.id
+                                      }
+                                      ) }}"
+                                >
+                                    <input type="hidden"
+                                           name="_method"
+                                           value="DELETE"
+                                    >
+                                    <input type="submit"
+                                           class="btn btn-danger"
+                                           value="{{ 'btn.delete'|trans }}"
+                                    >
+                                </form>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+{% endblock %}

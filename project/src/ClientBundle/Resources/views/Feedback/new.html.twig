@@ -1,0 +1,47 @@
+{% extends 'ClientBundle::content_page_layout.html.twig' %}
+{% set title = unit.condominium.name ~ ' - ' ~ 'feedback.title'|trans %}
+
+{% block content %}
+    {{ form_start(form) }}
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="panel panel-default">
+                    <div class="panel-body">
+                        {{ form_widget(
+                            form.message,
+                            {
+                                'attr': {
+                                    'class': 'col-xs-12 form-control',
+                                    'placeholder': 'feedback.placeholder.describe.your.feedback'|trans,
+                                    'style': 'min-height: 120px; resize: vertical;',
+                                }
+                            }
+                        )}}
+                    </div>
+                    <div class="panel-footer">
+                        <div class="pull-left ">
+                            <div class="pull-left quality-star">
+                                <label> {{ 'feedback.label.rate'|trans }} </label>
+                            </div>
+                            <div class="pull-right">
+                                {{ form_widget( form.rate )}}
+                            </div>
+                            </div>
+                        <input
+                            class="btn btn-success pull-right btn-spaced"
+                            type="submit"
+                            value="{{ 'btn.create'|trans }}"
+                        />
+                        <a href="{{ path('client_unit_home', {'unit': unit.id}) }}"
+                           class="btn btn-danger pull-right btn-spaced"
+                        >
+                            {{ 'btn.cancel'|trans }}
+                        </a>
+                        <div class="clearfix"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    {{ form_end(form) }}
+{% endblock %}
+

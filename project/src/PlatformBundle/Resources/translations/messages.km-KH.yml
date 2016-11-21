@@ -1,0 +1,160 @@
+link.buildings: ខុនដូ
+link.homepage: ទំព័រដើម
+link.users: អ្នកប្រើប្រាស់
+link.service.providers: អ្នកផ្តល់សេវាកម្ម
+link.services: សេវាកម្ម
+link.realty.projects: គម្រោងអចលនទ្រព្យ
+link.countries: ប្រទេស
+link.login.page: ទំព័រចូល
+link.tables: តារាង
+link.forms: ទម្រង់
+link.panels.and.wells: Panels and Wells
+link.buttons: Buttons
+link.notifications: Notifications
+link.typography: Typography
+link.icons: Icons
+link.grid: Grid
+link.developers: អ្នកអភិវឌ្ឍ
+
+title.dropdown.page.samples: ទំព័រគំរូ
+title.dropdown.ui.elements: ធាតុ UI
+title.dropdown.sample.pages: គំរូទំព័រ
+
+developers.th.id: លេខសម្គាល់
+developers.th.name: ឈ្មោះ
+developers.th.description: ពិពណ៌នា
+developers.th.creation.date: កាលបរិច្ឆេទ​បង្កើត
+developers.title: អ្នកអភិវឌ្ឍ
+developers.action.create: បង្កើតអ្នកអភិវឌ្ឍថ្មីម្នាក់
+developers.th.actions: សកម្មភាព
+
+users.title: អ្នកប្រើប្រាស់
+users.title.panel.users.list: បញ្ជីអ្នកប្រើប្រាស់
+users.th.id: លេខសម្គាល់
+users.th.name: ឈ្មោះ
+users.th.phone.number: លេខទូរសព្ទ
+users.th.action: សកម្មភាព
+
+buildings.title: ខុនដូ
+buildings.title.show: ខុនដូ
+buildings.title.new: ខុនដូថ្មី
+buildings.title.edit: កែសម្រួលខុនដូ
+buildings.title.panel.managers: អ្នកចាត់ការទូទៅ
+buildings.title.input.username: ឈ្មោះ​អ្នកប្រើប្រាស់
+buildings.label.id: លេខសម្គាល់
+buildings.label.name: ឈ្មោះ
+buildings.label.address: អាសយដ្ឋាន
+buildings.label.district: ស្រុក
+buildings.label.creation.date: កាលបរិច្ឆេទ​បង្កើត
+
+buildings.th.id: លេខសម្គាល់
+buildings.th.name: ឈ្មោះ
+buildings.th.address: អាសយដ្ឋាន
+buildings.th.district: ស្រុក
+buildings.th.email: អ៊ីម៉ែល
+buildings.th.phone.number: លេខទូរសព្ទ
+buildings.th.creation.date: កាលបរិច្ឆេទ​បង្កើត
+buildings.th.actions: សកម្មភាព
+buildings.placeholder.username: ឈ្មោះ​អ្នកប្រើប្រាស់
+buildings.action.create: បង្កើតខុនដូថ្មីមួយ
+buildings.btn.add.user: បន្ថែមអ្នកប្រើ
+
+service_providers.title: អ្នកផ្តល់សេវាកម្ម
+service_providers.title.show: អ្នកផ្តល់សេវាកម្ម
+service_providers.title.new: អ្នកផ្តល់សេវាកម្មថ្មី
+service_providers.title.edit: កែសម្រួល អ្នកផ្តល់សេវាកម្ម
+service_providers.title.input.username: ឈ្មោះ​អ្នកប្រើប្រាស់
+service_providers.label.id: លេខសម្គាល់
+service_providers.label.company.name: ក្រុមហ៊ុនឈ្មោះ
+service_providers.label.description: ពិពណ៌នា
+service_providers.label.contact.number: លេខ​ទំនាក់​ទំនង
+service_providers.label.creation.date: កាលបរិច្ឆេទ​បង្កើត
+service_providers.label.vat: តម្លៃនៃការបង់ពន្ធ
+service_providers.label.currency: រូបិយប័ណ្ណ
+service_providers.label.rate: អត្រា
+service_providers.th.id: លេខសម្គាល់
+service_providers.th.company.name: ក្រុមហ៊ុនឈ្មោះ
+service_providers.th.description: ពិពណ៌នា
+service_providers.th.contact.number: លេខ​ទំនាក់​ទំនង
+service_providers.th.creation.date: កាលបរិច្ឆេទ​បង្កើត
+service_providers.action.create: បង្កើតអ្នកផ្តល់សេវាកម្មថ្មីមួយ
+service.title.panel.managers: អ្នកចាត់ការទូទៅ
+service.th.id: លេខសម្គាល់
+service.th.name: ឈ្មោះ
+service.th.email: អ៊ីម៉ែល
+service.th.phone.number: លេខទូរសព្ទ
+service_providers.th.actions: សកម្មភាព
+service.th.action: សកម្មភាព
+service.placeholder.username: ឈ្មោះ​អ្នកប្រើប្រាស់
+service.btn.add.user: បន្ថែមអ្នកប្រើ
+
+services.title: សេវាកម្ម
+services.title.show: សេវាកម្ម
+services.title.new: សេវាកម្មថ្មី
+services.title.edit: កែសម្រួល សេវាកម្ម
+services.label.id: លេខសម្គាល់
+services.label.type: ប្រភេទ
+services.label.title: ចំណងជើង
+services.label.description: ពិពណ៌នា
+services.label.service.provider: អ្នកផ្តល់សេវាកម្ម
+services.label.creation.date: កាលបរិច្ឆេទ​បង្កើត
+services.label.managers: អ្នកចាត់ការទូទៅ
+services.th.id: លេខសម្គាល់
+services.th.type: ប្រភេទ
+services.th.title: ចំណងជើង
+services.th.creation.date: កាលបរិច្ឆេទ​បង្កើត
+services.th.description: ពិពណ៌នា
+services.th.actions: សកម្មភាព
+services.action.create: បង្កើតសេវាកម្មថ្មីមួយ
+
+realty_projects.title: គម្រោងអចលនទ្រព្យ
+realty_projects.title.show: គម្រោងអចលនទ្រព្យ
+realty_projects.title.new: គម្រោងអចលនទ្រព្យថ្មី
+realty_projects.title.edit: កែសម្រួល គម្រោងអចលនទ្រព្យ
+realty_projects.title.panel.managers: អ្នកចាត់ការទូទៅ
+realty_projects.title.input.username: ឈ្មោះ​អ្នកប្រើប្រាស់
+realty_projects.label.id: លេខសម្គាល់
+realty_projects.label.name: ឈ្មោះ
+realty_projects.label.address: អាសយដ្ឋាន
+realty_projects.label.floor.count: ការរាប់ជាន់
+realty_projects.label.contact.name: ឈ្មោះ​ទំនាក់ទំនង
+realty_projects.label.contact.number: លេខ​ទំនាក់​ទំនង
+realty_projects.label.description: ពិពណ៌នា
+realty_projects.label.developer: Developer
+realty_projects.th.id: លេខសម្គាល់
+realty_projects.th.name: ឈ្មោះ
+realty_projects.th.email: អ៊ីម៉ែល
+realty_projects.th.phone.number: លេខទូរសព្ទ
+realty_projects.th.address: អាសយដ្ឋាន
+realty_projects.th.floor.count: ការរាប់ជាន់
+realty_projects.th.contact.name: ឈ្មោះ​ទំនាក់ទំនង
+realty_projects.th.contact.number: លេខ​ទំនាក់​ទំនង
+realty_projects.th.description: ពិពណ៌នា
+realty_projects.th.developer: Developer
+realty_projects.th.creation.date: កាលបរិច្ឆេទ​បង្កើត
+realty_projects.th.actions: សកម្មភាព
+realty_projects.placeholder.username: ឈ្មោះ​អ្នកប្រើប្រាស់
+realty_projects.action.create: បង្កើតគម្រោងថ្មីមួយ
+realty_projects.btn.add.user: បន្ថែមអ្នកប្រើ
+
+countries.title: ប្រទេស
+countries.title.panel.datatables.advanced.tables: តារាង DataTables កម្រិតខ្ពស់
+countries.title.input.country.code: លេខកូដប្រទេស
+countries.title.input.country.name: ឈ្មោះប្រទេស
+countries.th.code: លេខកូដ
+countries.th.name: ឈ្មោះ
+countries.th.action: សកម្មភាព
+countries.btn.add.country: បន្ថែមប្រទេស
+
+homepage.title: ទំព័រដើម
+
+realty_companies.action.create: បង្កើតក្រុមហ៊ុនអចលនទ្រព្យថ្មីមួយ
+realty_company.th.id: លេខសម្គាល់
+realty_company.th.company.name: ឈ្មោះ​ក្រុម​ហ៊ុន
+realty_company.th.contact.number: លេខ​ទំនាក់​ទំនង
+realty_company.th.description: បរិយាយ
+realty_company.th.creation.date: កាលបរិច្ឆេទ​បង្កើត
+realty_company.th.actions: សកម្មភាព
+realty_company.label.name: ឈ្មោះ
+realty_company.label.contact.number: លេខ​ទំនាក់​ទំនង
+realty_company.label.description: បរិយាយ

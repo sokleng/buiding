@@ -1,0 +1,114 @@
+<div class="navbar-default sidebar" role="navigation" xmlns="http://www.w3.org/1999/html">
+    <div class="sidebar-nav">
+        <ul class="nav" id="side-menu">
+            {% for condo in condominiums %}
+            <li>
+                <a href="#">
+                    <i class="fa fa-building fa-fw"></i>
+                    {{ condo.name }}
+                </a>
+                <ul class="nav nav-second-level collapse">
+                    <li>
+                        <a href="{{ path('condominium_dashboard', { 'condominium':condo.id }) }}">
+                            <i class="fa fa-tachometer"></i>
+                            <span class="menu-title"> {{ 'link.dashboard'|trans }} </span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="{{ path('condominium_suppliers_list', { 'condominium':condo.id }) }}">
+                            <i class="fa fa-truck"></i>
+                            <span class="menu-title"> {{ 'link.suppliers'|trans }} </span>
+                        </a>
+                        <a href="{{ path('condominium_income_list', { 'condominium':condo.id }) }}">
+                            <i class="fa fa-usd"></i>
+                            <span class="menu-title">{{ 'link.income'|trans }}</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="{{ path('condominium_expend_invoice_list', { 'condominium':condo.id }) }}">
+                            <i class="fa fa-money"></i>
+                            <span class="menu-title">{{ 'link.expense'|trans }}</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="{{ path('condominium_residents_list', {'condominium': condo.id}) }}">
+                            <i class="fa fa-users fa-fw"></i>
+                            <span class="menu-title"> {{ 'link.clients'|trans }} </span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="{{
+                                path(
+                                    'condominium_units_list',
+                                    {'condominium': condo.id}
+                                )
+                            }}"
+                        >
+                            <i class="fa fa-building fa-fw"></i>
+                            <span class="menu-title"> {{ 'link.units'|trans }} </span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="{{
+                                path(
+                                    'condominium_unit_type_list',
+                                    {'condominium': condo.id}
+                                )
+                            }}"
+                        >
+                            <i class="fa fa-bed fa-fw"></i>
+                            <span class="menu-title"> {{ 'link.unit.type'|trans }} </span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="{{ path('condominium_services_list', {'condominium': condo.id}) }}">
+                            <i class="fa fa-shopping-basket fa-fw"></i>
+                            <span class="menu-title"> {{ 'link.services'|trans }} </span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="{{ path('condominium_news_list', {'condominium': condo.id}) }}">
+                            <i class="fa fa-newspaper-o fa-fw"></i>
+                            <span class="menu-title"> {{ 'link.news'|trans }} </span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="{{ path('condominium_issues_list', {'condominium': condo.id}) }}">
+                            <i class="fa fa-support fa-fw"></i>
+                            <span class="menu-title"> {{ 'link.issues'|trans }} </span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="{{ path('condominium_feedback_list', {'condominium': condo.id}) }}">
+                            <i class="fa fa-comment fa-fw"></i>
+                            <span class="menu-title"> {{ 'link.feedback'|trans }} </span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="{{ path('condominium_report_client', { 'condominium':condo.id }) }}">
+                            <i class="fa fa-bar-chart"></i>
+                            <span class="menu-title"> {{ 'link.reports'|trans }} </span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <i class="fa fa-cogs"></i>
+                            <span class="menu-title"> {{ 'link.setting'|trans }} </span>
+                        </a>
+                        <ul class="nav nav-third-level">
+                            <li>
+                                <a href="{{ path('condominium_setting_exchange', { 'condominium':condo.id }) }}">
+                                    <i class="fa fa-exchange fa-fw"></i>
+                                    <span class="menu-title">{{ 'link.exchange'|trans }}</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </li>
+            {% endfor %}
+        </ul>
+        {% include 'CondoBundle:partials:button_expand_collapse_menu.html.twig' %}
+    </div>
+    <!-- /.sidebar-collapse -->
+</div>

@@ -1,0 +1,23 @@
+project_home:
+    resource: "@ProjectRealtyBundle/Controller/HomeController.php"
+    type:     annotation
+
+project_unit_status:
+    resource: "@ProjectRealtyBundle/Controller/UnitStatusController.php"
+    type:     annotation
+
+project_unit_types:
+    resource: "@ProjectRealtyBundle/Controller/UnitTypeController.php"
+    type:     annotation
+
+project_units:
+    resource: "@ProjectRealtyBundle/Controller/UnitController.php"
+    type:     annotation
+
+project_payments:
+    resource: "@ProjectRealtyBundle/Controller/PaymentController.php"
+    type:     annotation
+
+project_public_listing:
+    resource: "@ProjectRealtyBundle/Controller/PublicListingController.php"
+    type:     annotation

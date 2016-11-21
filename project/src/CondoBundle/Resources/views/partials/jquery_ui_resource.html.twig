@@ -1,0 +1,11 @@
+{% stylesheets filter='cssrewrite'
+    "@jquery_ui_css"
+%}
+    <link rel="stylesheet" href="{{ asset_url }}"/>
+{% endstylesheets %}
+
+{% javascripts
+    "@jquery_ui_js"
+%}
+    <script src="{{ asset_url }}"></script>
+{% endjavascripts %}

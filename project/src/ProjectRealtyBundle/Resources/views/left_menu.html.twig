@@ -1,0 +1,58 @@
+<div class="navbar-default sidebar" role="navigation" xmlns="http://www.w3.org/1999/html">
+    <div class="sidebar-nav">
+        <ul class="nav metismenu" id="side-menu">
+            {% for project in projects %}
+            <li>
+                <a href="#">
+                    <i class="fa fa-building"></i>
+                    <span class="menu-title">{{ project.name }}</span>
+                    <span class="fa arrow"></span>
+                </a>
+                <ul class="nav nav-second-level">
+                    <li>
+                        <a href="{{ path('project_units_list', {'project': project.id}) }}">
+                            <i class="fa fa-building fa-fw"></i>
+                            <span class="menu-title">{{ 'link.units'|trans }}</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="{{ path('project_payments_list', {'project': project.id}) }}">
+                            <i class="fa fa-money fa-fw"></i>
+                            <span class="menu-title">{{ 'link.payments'|trans }}</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <i class="fa fa-cogs fa-fw"></i>
+                            <span class="menu-title">{{ 'link.setting'|trans }}</span>
+                            <span class="fa arrow"></span>
+                        </a>
+                        <ul class="nav nav-third-level">
+                            <li>
+                                <a href="{{ path('project_unitStatus_list', {'project': project.id}) }}">
+                                    <i class="fa fa-check-square fa-fw"></i>
+                                    <span class="menu-title">{{ 'link.unit.status'|trans }}</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="{{ path('project_unitType_list', {'project': project.id}) }}">
+                                    <i class="fa fa-bed fa-fw"></i>
+                                    <span class="menu-title">{{ 'link.unit.types'|trans }}</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="{{ path('project_public_listing_list', {'project': project.id}) }}">
+                                    <i class="fa fa-newspaper-o fa-fw"></i>
+                                    <span class="menu-title">{{ 'link.public.listing'|trans }}</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </li>
+            {% endfor %}
+        </ul>
+        {% include 'CondoBundle:partials:button_expand_collapse_menu.html.twig' %}
+    </div>
+    <!-- /.sidebar-collapse -->
+</div>

@@ -1,0 +1,73 @@
+<div class="navbar-default sidebar" role="navigation" xmlns="http://www.w3.org/1999/html">
+    <div class="sidebar-nav">
+        <ul class="nav" id="side-menu">
+        {% if unit.id is defined %}
+            <li class="sidebar-select">
+                <select
+                    id="unit-selector"
+                    name="unit"
+                    class="form-control input-group"
+                    title="{{ 'title.dropdown.select.space'|trans }}"
+                    onChange="Unit.switch_unit(this)"
+                >
+                    {% set url  = app.request.pathinfo %}
+                    {% for condo in menuData.condominiums %}
+                        {% for unit in condo.units %}
+                            <option
+                                {% set path = path('client_unit_home', { 'unit': unit.id }) %}
+                                value="{{ path }}"
+                                {% if 'client/units/' ~ unit.id in url %}
+                                    selected="selected"
+                                {% endif %}
+                            >
+                                {{ condo.name }} - {{ unit.roomNumber }}
+                            </option>
+                        {% endfor %}
+                    {% endfor %}
+                </select>
+            </li>
+            <li>
+                <a
+                    href="{{ path('client_default') }}"
+                    class="{% if app.request.attributes.get('_route') == 'client_unit_home' %}active{% endif %}"
+                >
+                    <i class="fa fa-pie-chart fa-fw"></i>
+                    <span class="menu-title"> {{ 'link.dashboard'|trans }} </span>
+                </a>
+            </li>
+            <li>
+                <a href="{{ path('client_news_list', { 'unit': unit.id }) }}">
+                    <i class="fa fa-newspaper-o fa-fw"></i>
+                    <span class="menu-title"> {{ 'link.news'|trans }} </span>
+                </a>
+            </li>
+            <li>
+                <a href="{{ path('client_orders_list', { 'unit': unit.id }) }}">
+                    <i class="fa fa-history fa-fw"></i>
+                    <span class="menu-title"> {{ 'link.order.history'|trans }} </span>
+                </a>
+            </li>
+            <li>
+                <a href="{{ path('client_service_list', { 'unit': unit.id}) }}">
+                    <i class="fa fa-shopping-basket fa-fw"></i>
+                    <span class="menu-title"> {{ 'link.services'|trans }} </span>
+                </a>
+            </li>
+            <li>
+                <a href="{{ path('client_issues_list', {'unit': unit.id}) }}">
+                    <i class="fa fa-life-ring fa-fw"></i>
+                    <span class="menu-title"> {{ 'link.issues'|trans }} </span>
+                </a>
+            </li>
+            <li>
+                <a href="{{ path('client_feedback_new', {'unit': unit.id}) }}">
+                    <i class="fa fa-comment fa-fw"></i>
+                    <span class="menu-title"> {{ 'link.feedback'|trans }} </span>
+                </a>
+            </li>
+        {% endif %}
+        </ul>
+        {% include 'CondoBundle:partials:button_expand_collapse_menu.html.twig' %}
+    </div>
+    <!-- /.sidebar-collapse -->
+</div>

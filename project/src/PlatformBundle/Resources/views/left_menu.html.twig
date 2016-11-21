@@ -1,0 +1,89 @@
+<div class="navbar-default sidebar" role="navigation" xmlns="http://www.w3.org/1999/html">
+    <div class="sidebar-nav navbar-collapse">
+        <ul class="nav" id="side-menu">
+            <li>
+                <a href="#">
+                    <i class="fa fa-cogs fa-fw"></i>
+                    <span class="menu-title">{{ 'link.global.setting'|trans }}</span>
+                    <span class="fa arrow"></span>
+                </a>
+                <ul class="nav nav-second-level">
+                    <li>
+                        <a href="{{ path('platform_user_list') }}">
+                            <i class="fa fa-users fa-fw"></i>
+                            <span class="menu-title">{{ 'link.users'|trans }}</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="{{ path('platform_condominium_list') }}">
+                            <i class="fa fa-building fa-fw"></i>
+                            <span class="menu-title">{{ 'link.buildings'|trans }}</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="{{ path('admin_area_country') }}">
+                            <i class="fa fa-flag fa-fw"></i>
+                            <span class="menu-title">{{ 'link.countries'|trans }}</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="{{ path('homepage') }}">
+                            <i class="fa fa-dashboard fa-fw"></i>
+                            A.I Testing Ground
+                        </a>
+                    </li>
+                    <li>
+                        <a href="{{ path('platform_developer_list') }}">
+                            <i class="fa fa-user fa-fw"></i>
+                            <span class="menu-title">{{ 'link.developers'|trans }}</span>
+                        </a>
+                    </li>
+                </ul>
+            </li>
+            <li>
+                <a href="#">
+                    <i class="fa fa-shopping-basket fa-fw"></i>
+                    <span class="menu-title">{{ 'link.service'|trans }}</span>
+                    <span class="fa arrow"></span>
+                </a>
+                <ul class="nav nav-second-level">
+                    <li>
+                        <a href="{{ path('platform_serviceProvider_list') }}">
+                            <i class="fa fa-industry fa-fw"></i>
+                            <span class="menu-title">{{ 'link.service.providers'|trans }}</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="{{ path('platform_service_list') }}">
+                            <i class="fa fa-shopping-basket fa-fw"></i>
+                            <span class="menu-title">{{ 'link.services'|trans }}</span>
+                        </a>
+                    </li>
+                </ul>
+            </li>
+            <li>
+                <a href="#">
+                    <i class="fa fa-building fa-fw"></i>
+                    <span class="menu-title">{{ 'link.realty'|trans }}</span>
+                    <span class="fa arrow"></span>
+                </a>
+                <ul class="nav nav-second-level">
+                    <li>
+                        <a href="{{ path('platform_project_list') }}">
+                            <i class="fa fa-briefcase fa-fw"></i>
+                            <span class="menu-title">{{ 'link.realty.projects'|trans }}</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="{{ path('realty_company_list') }}">
+                            <i class="fa fa-university fa-fw"></i>
+                           <span class="menu-title">{{ 'link.realty.companies'|trans }}</span>
+                        </a>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+        {% include 'CondoBundle:partials:button_expand_collapse_menu.html.twig' %}
+    </div>
+    <!-- /.sidebar-collapse -->
+</div>

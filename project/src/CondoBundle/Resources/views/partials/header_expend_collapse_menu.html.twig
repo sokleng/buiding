@@ -1,0 +1,9 @@
+{% if app.request.attributes.get('_route') != 'condo_homepage' %}
+    <div class="col-sm-1 trigger-sidebar-nav hidden-xs hidden-sm">
+        <a href="#" class="trigger-btn">
+            <div class="collapse-icon">
+                <i class="fa fa-bars fa-lg"></i>
+            </div>
+        </a>
+    </div>
+{% endif %}

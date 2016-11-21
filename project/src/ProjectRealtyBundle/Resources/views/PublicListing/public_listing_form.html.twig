@@ -1,0 +1,184 @@
+{{ form_start(form) }}
+    <div class="form-group">
+        <div class="row">
+            <label class="col-xs-2 control-label">
+                {{ 'public.listing.label.construction.date'|trans }}
+            </label>
+            <div class="col-xs-4">
+                {{form_widget(
+                    form.constructionDate,
+                    {
+                        'attr': {
+                            'class': 'form-control'
+                        }
+                    }
+                )}}
+            </div>
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="row">
+            <label class="col-xs-2 control-label">
+                {{ 'public.listing.label.completetion.date'|trans }}
+            </label>
+            <div class="col-xs-4">
+                {{form_widget(
+                    form.completionDate,
+                    {
+                        'attr': {
+                            'class': 'form-control'
+                        }
+                    }
+                )}}
+            </div>
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="row">
+            <label class="col-xs-2 control-label">
+                {{ 'public.listing.label.latitute'|trans }}
+            </label>
+            <div class="col-xs-4">
+                {{form_widget(
+                    form.latitude,
+                    {
+                        'attr': {
+                            'class': 'form-control'
+                        }
+                    }
+                )}}
+            </div>
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="row">
+            <label class="col-xs-2 control-label">
+                {{ 'public.listing.label.longtitute'|trans }}
+            </label>
+            <div class="col-xs-4">
+                {{form_widget(
+                    form.longitude,
+                    {
+                        'attr': {
+                            'class': 'form-control'
+                        }
+                    }
+                )}}
+            </div>
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="row">
+            <label class="col-xs-2 control-label">
+                {{ 'public.listing.label.image'|trans }}
+            </label>
+            <div class="col-xs-4">
+                {{form_widget(
+                    form.databaseFile,
+                    {
+                        'attr': {
+                            'class': 'form-control'
+                        }
+                    }
+                )}}
+            </div>
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="row">
+            <label class="col-xs-2 control-label">
+                {{ 'public.listing.label.total.unit'|trans }}
+            </label>
+            <div class="col-xs-4">
+                {{form_widget(
+                    form.totalUnit,
+                    {
+                        'attr': {
+                            'class': 'form-control'
+                        }
+                    }
+                )}}
+            </div>
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="row">
+            <label class="col-xs-2 control-label">
+                {{ 'public.listing.label.description'|trans }}
+            </label>
+            <div class="col-xs-4">
+                {{form_widget(
+                    form.description,
+                    {
+                        'attr': {
+                            'class': 'form-control'
+                        }
+                    }
+                )}}
+            </div>
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="row">
+            <label class="col-xs-2 control-label">
+                {{ 'public.listing.label.type'|trans }}
+            </label>
+            <div class="col-xs-4">
+                {{form_widget(
+                    form.type,
+                    {
+                        'attr': {
+                            'class': 'form-control'
+                        }
+                    }
+                )}}
+            </div>
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="row">
+            <label class="col-xs-2 control-label">
+                {{ 'public.listing.label.published'|trans }}
+            </label>
+            <div class="col-xs-4">
+                {{form_widget(
+                    form.published,
+                    {
+                        'attr': {
+                            'class': 'form-control'
+                        }
+                    }
+                )}}
+            </div>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <div class="row">
+            <div class="col-xs-offset-2 col-xs-10">
+                {% if isEditpage is defined %}
+                    <input
+                        type="submit"
+                        value="{{ 'btn.edit'|trans }}"
+                        class="btn btn-success"
+                    >
+                {% else %}
+                    <input
+                        type="submit"
+                        value="{{ 'btn.create'|trans }}"
+                        class="btn btn-success"
+                    >
+                {% endif %}
+                <a
+                    href="{{
+                        path('project_public_listing_list',
+                        {'project': project.id})
+                    }}"
+                    class="btn btn-default"
+                >
+                    {{ 'link.back'|trans }}
+                </a>
+            </div>
+        </div>
+    </div>
+{{ form_end(form) }}

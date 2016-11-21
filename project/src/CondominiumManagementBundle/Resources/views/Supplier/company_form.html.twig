@@ -1,0 +1,201 @@
+{{ form_start(form) }}
+    <div class="row">
+        <div class="col-sm-6 col-lg-8">
+            <div class="form-group">
+                <div class="row">
+                    <div class="col-md-4">
+                        <label class="control-label">
+                            {{ 'condo.suppliers.company.name'|trans }}
+                            <span class="required-field">*</span>
+                        </label>
+                    </div>
+                    <div class="col-md-6">
+                        {{form_widget(
+                            form.name,
+                            {
+                                'attr': {
+                                    'class': 'form-control'
+                                }
+                            }
+                        )}}
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="row">
+                    <div class="col-md-4">
+                        <label class="control-label">
+                            {{ 'condo.suppliers.contact.name'|trans }}
+                        </label>
+                    </div>
+                    <div class="col-md-6">
+                        {{form_widget(
+                            form.contactName,
+                            {
+                                'attr': {
+                                    'class': 'form-control'
+                                }
+                            }
+                        )}}
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="row">
+                    <div class="col-md-4">
+                        <label class="control-label">
+                            {{ 'condo.suppliers.email'|trans }}
+                        </label>
+                    </div>
+                    <div class="col-md-6">
+                        {{form_widget(
+                            form.email,
+                            {
+                                'attr': {
+                                    'class': 'form-control'
+                                }
+                            }
+                        )}}
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="row">
+                    <div class="col-md-4">
+                        <label class="control-label">
+                            {{ 'condo.suppliers.tel'|trans }}
+                        </label>
+                    </div>
+                    <div class="col-md-6">
+                        {{form_widget(
+                            form.phoneNumber,
+                            {
+                                'attr': {
+                                    'class': 'form-control'
+                                }
+                            }
+                        )}}
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="row">
+                    <div class="col-md-4">
+                        <label class="control-label">
+                            {{ 'condo.suppliers.fax'|trans }}
+                        </label>
+                    </div>
+                    <div class="col-md-6">
+                        {{form_widget(
+                            form.fax,
+                            {
+                                'attr': {
+                                    'class': 'form-control'
+                                }
+                            }
+                        )}}
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="row">
+                    <div class="col-md-4">
+                        <label class="control-label">
+                            {{ 'condo.suppliers.address'|trans }}
+                            <span class="required-field">*</span>
+                        </label>
+                    </div>
+                    <div class="col-md-6">
+                        {{form_widget(
+                            form.address,
+                            {
+                                'attr': {
+                                    'class': 'form-control'
+                                }
+                            }
+                        )}}
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="row">
+                    <div class="col-md-4">
+                        <label class="control-label">
+                            {{ 'condo.suppliers.is.vat'|trans }}
+                        </label>
+                    </div>
+                    <div class="col-md-1">
+                        <input
+                            type="checkbox"
+                            id="is-vat"
+                            value="1"
+                            name="isVat"
+                            onchange="Supplier.is_vat()"
+                        >
+                    </div>
+                </div>
+            </div>
+            <div class="form-group" id="company-vatin">
+                <div class="form-group">
+                    <div class="row">
+                        <div class="col-md-4">
+                            <label class="control-label">
+                                {{ 'condo.suppliers.company.vat'|trans }} (%)
+                            </label>
+                        </div>
+                        <div class="col-md-6">
+                            {{form_widget(
+                                form.vat,
+                                {
+                                    'attr': {
+                                        'class': 'form-control'
+                                    }
+                                }
+                            )}}
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="row">
+                        <div class="col-md-4">
+                            <label class="control-label">
+                                {{ 'condo.suppliers.company.vatin'|trans }}
+                                <span class="required-field">*</span>
+                            </label>
+                        </div>
+                        <div class="col-md-6">
+                            {{form_widget(
+                                form.vatin,
+                                {
+                                    'attr': {
+                                        'class': 'form-control'
+                                    }
+                                }
+                            )}}
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="row">
+                    <div class="col-md-offset-4 col-md-10">
+                        <input
+                            type="submit"
+                            value="{{ 'btn.save'|trans }}"
+                            class="btn btn-success"
+                        >
+                        <a
+                            href="{{ path(
+                                'condominium_suppliers_list',
+                                {'condominium': condominium.id}
+                            ) }}"
+                            class="btn btn-default"
+                        >
+                            {{ 'link.back'|trans }}
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{{ form_end(form) }}

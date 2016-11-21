@@ -1,0 +1,37 @@
+<ul class="nav nav-tabs">
+    <li {% if active == 'client' %} class="active" {% endif %}>
+        <a href="{{ path('condominium_report_client', {'condominium' : condominium}) }}">
+            {{ 'condo.label.clients'|trans }}
+        </a>
+    </li>
+    <li {% if active == 'unit' %} class="active" {% endif %}>
+        <a href="{{ path('condominium_report_unit', {'condominium' : condominium}) }}">
+            {{ 'condo.label.unit'|trans }}
+        </a>
+    </li>
+    <li {% if active == 'feedback' %} class="active" {% endif %}>
+        <a href="{{ path('condominium_report_feedback', {'condominium' : condominium}) }}">
+            {{ 'link.feedback'|trans }}
+        </a>
+    </li>
+    <li {% if active == 'issues' %} class="active" {% endif %}>
+        <a href="{{ path('condominium_report_issue', {'condominium' : condominium}) }}">
+            {{ 'link.issues'|trans }}
+        </a>
+    </li>
+    <li {% if active == 'income' %} class="active" {% endif %}>
+        <a href="{{ path('condominium_report_income', {'condominium' : condominium}) }}">
+            {{ 'link.income'|trans }}
+        </a>
+    </li>
+    <li {% if active == 'expense' %} class="active" {% endif %}>
+        <a href="{{ path('condominium_report_expend', {'condominium' : condominium}) }}">
+            {{ 'link.expense'|trans }}
+        </a>
+    </li>
+    <li {% if active == 'profit' %} class="active" {% endif %}>
+        <a href="{{ path('condominium_report_profit', {'condominium' : condominium}) }}">
+            {{ 'link.profit'|trans }}
+        </a>
+    </li>
+</ul>

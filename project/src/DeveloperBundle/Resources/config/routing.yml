@@ -1,0 +1,11 @@
+developer_projects:
+    resource: "@DeveloperBundle/Controller/ProjectController.php"
+    type: annotation
+
+developer:
+    resource: "@DeveloperBundle/Controller/DeveloperController.php"
+    type: annotation
+
+developer_payment:
+    resource: "@DeveloperBundle/Controller/DeveloperPaymentController.php"
+    type: annotation

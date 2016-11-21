@@ -1,0 +1,285 @@
+resident.title.clients: អតិថិជន
+resident.title.panel.clients.list: បញ្ជីអតិថិជន
+resident.th.floor: ជាន់
+resident.th.room.number: លេខ​បន្ទប់
+resident.th.clients: អតិថិជន
+
+service.title.services: សេវាកម្ម
+service.title.panel.services.list: បញ្ជីការផ្តល់សេវា
+service.th.company.name: ឈ្មោះ​ក្រុម​ហ៊ុន
+service.th.contact.number: លេខ​ទំនាក់​ទំនង
+service.th.service: សេវា
+service.th.status: ស្ថានភាព
+
+news.th.title: ចំណងជើង
+news.th.author: អ្នកនិពន្ធ
+news.th.date: កាលបរិច្ឆេទ
+news.th.action: សកម្មភាព
+
+condo.label.message.rollback: តើ​អ្នក​ប្រាកដ​ឬ​អត់ថាត្រឡប់​មកដូចមុន​
+condo.report.income.expense.profit: របាយការណ៍ ប្រាក់ចំណូល, ប្រាក់ចំណាយ, ប្រាក់ចំណេញ,
+condo.label.report.income: ប្រាក់ចំណូល
+condo.label.report.expense: ប្រាក់ចំណាយ
+condo.suppliers.company.vat: តម្លៃនៃការបង់ពន្ធ
+condo.report.title.expense: ការចំណាយ
+condo.report.feedback.title.chart: របាយការណ៍យោបល់​ត្រឡប់
+condo.report.income.title.chart: របាយការណ៍ប្រាក់ចំណូល
+condo.report.feedback.issue.room: របាយការណ៍ ខុនដូយោបល់​ត្រឡប់, បញ្ហា​នានា, បន្ទប់
+condo.report.unit.title.chart: រាយការណ៍អង្គភាព
+condo.report.room.available: អាច​ប្រើ​បាន
+condo.report.room.not.available: មិនអាច​ប្រើ​បាន
+condo.report.feedback.one.star: 1 ផ្កាយ
+condo.report.feedback.two.star: 2 ផ្កាយ
+condo.report.feedback.three.star: 3 ផ្កាយ
+condo.report.feedback.four.star: 4 ផ្កាយ
+condo.report.feedback.five.star: 5 ផ្កាយ
+condo.report.creation: ថ្ងៃបង្កើត
+condo.report.paid: ថ្ងៃបានបង់ប្រាក់
+condo.label.date: កាលបរិច្ឆេទ
+condo.th.invoice.description: បរិយាយ
+condo.label.expense.name: ឈ្មោះ
+condo.label.expense.descrition: បរិយាយ
+condo.label.expense.expense.category: ប្រភេទការចំណាយ
+condo.label.expense.vat: តម្លៃនៃការបង់ពន្ធ
+condo.label.expense.sub.total: សរុបរង
+condo.label.expense.include.vat: រួមបញ្ចូលទាំងតម្លៃនៃការបង់ពន្ធ
+condo.label.report.issue: បញ្ហា​នានា
+condo.label.report.room: បន្ទប់
+condo.label.report.feedback: យោបល់​ត្រឡប់
+condo.label.report.feedback.one.star: 1 ផ្កាយ
+condo.label.report.feedback.two.stars: 2 ផ្កាយ
+condo.label.report.feedback.three.stars: 3 ផ្កាយ
+condo.label.report.feedback.four.stars: 4  ផ្កាយ
+condo.label.report.feedback.five.stars: 5 ផ្កាយ
+condo.label.report.income.vat: តម្លៃនៃការបង់ពន្ធ
+condo.label.report.income.sub.total: សរុបរង
+condo.label.report.income.grand.total: តំលៃ​បូក​សរុប
+condo.label.report.issue.title.chart: រាយការណ៍បញ្ហា
+condo.label.report.issue.beginning: ការចាប់ផ្តើម
+condo.label.report.issue.new: ថ្មី
+condo.label.report.issue.closed: បាន​ដោះស្រាយ
+condo.label.report.issue.ending: ការបញ្ចប់
+condo.label.report.client.clients: អតិថិជន
+condo.label.report.client.title.chart: របាយការណ៍អតិថិជន
+condo.label.report.client.total.peoples: មនុស្សសរុប
+condo.label.report.unit.total.room: បន្ទប់សរុប
+condo.label.report.unit.available: ទំនេរ
+condo.label.report.unit.unavailable: មិន​ទំនេរ
+condo.label.report.expense.grand.total: តំលៃ​បូក​សរុប
+condo.label.report.expense.sub.total: សរុបរង
+condo.label.report.expense.vat: តម្លៃនៃការបង់ពន្ធ
+condo.label.income.category.name: ប្រភេទឈ្មោះ
+condo.label.income.invoice.category.name: ឈ្មោះប្រភេទ
+condo.label.invoice.title: ចំណងជើង
+condo.label.invoice.expense: ប្រាក់ចំណាយ
+condo.label.invoice.profit: ប្រាក់ចំណេញ
+condo.label.invoice.income: ប្រាក់ចំណូល
+condo.label.income.invoice.category.vat: តម្លៃនៃការបង់ពន្ធ
+condo.label.income.invoice.category.sub.total: សរុបរង
+condo.label.income.invoice.description: បរិយាយ
+condo.label.income.include.vat: រួមបញ្ចូលទាំងតម្លៃនៃការបង់ពន្ធ
+condo.th.report.expense.date: កាលបរិច្ឆេទ
+condo.th.report.expense.amount.expense: ចំនួនការចំណាយ
+condo.th.report.expense.vat: តម្លៃនៃការបង់ពន្ធ
+condo.th.report.expense.sub.total: សរុបរង
+condo.th.report.expense.grand.total: តំលៃ​បូក​សរុប
+condo.th.report.income.date: កាលបរិច្ឆេទ
+condo.th.report.income.amount: ចំនួនចំណូល
+condo.th.report.income.vat: តម្លៃនៃការបង់ពន្ធ
+condo.th.report.income.sub.total: សរុបរង
+condo.th.report.income.grand.total: តំលៃ​បូក​សរុប
+condo.th.report.client.clients: អតិថិជន
+condo.th.report.client.title.chart: របាយការណ៍អតិថិជន
+condo.th.report.client.total.peoples: មនុស្សសរុប
+condo.th.report.unit.total.room: បន្ទប់សរុប
+condo.th.report.unit.available: ទំនេរ
+condo.th.report.unit.unavailable: មិន​ទំនេរ
+condo.th.report.feedback.date: កាលបរិច្ឆេទ
+condo.th.report.client.total.peoples: Total Peoples
+condo.th.report.feedback.one.star: 1 ផ្កាយ
+condo.th.report.feedback.two.stars: 2 ផ្កាយ
+condo.th.report.feedback.three.stars: 3 ផ្កាយ
+condo.th.report.feedback.four.stars: 4 ផ្កាយ
+condo.th.report.feedback.five.stars: 5 ផ្កាយ
+condo.th.income.category.id: លេខសម្គាល់
+condo.th.income.category.actions: សកម្មភាព
+condo.th.income.invoice.status: ស្ថានភាព
+condo.th.income.invoice.user.name: ឈ្មោះ​អ្នកប្រើប្រាស់
+condo.th.income.creation.date: កាលបរិច្ឆេទ​បង្កើត
+condo.th.income.invoice.category.grand.total: តំលៃ​បូក​សរុប
+condo.th.income.invoice.category.sub.total: សរុបរង
+condo.th.income.invoice.category.vat: តម្លៃនៃការបង់ពន្ធ
+condo.th.income.invoice.title: ជា​ចំណង​ជើង
+condo.th.income.category.name: ឈ្មោះ
+condo.th.income.invoice.category.name: ប្រភេទប្រាក់ចំណូល
+condo.th.invoice.description: បរិយាយ
+condo.th.invoice.id: លេខសម្គាល់
+condo.th.invoice.title: ជា​ចំណង​ជើង
+condo.th.invoice.date: កាលបរិច្ឆេទ
+condo.th.invoice.income: ប្រាក់ចំណូល
+condo.th.invoice.expense: ប្រាក់រចំណាយ
+condo.th.invoice.profit: ប្រាក់ចំណេញ
+condo.th.invoice.expense.category: ប្រភេទការចំណាយ
+condo.th.invoice.issue: ការចំណាយបញ្ហា
+condo.th.invoice.creation.date: កាលបរិច្ឆេទ​បង្កើត
+condo.th.invoice.vat: តម្លៃនៃការបង់ពន្ធ
+condo.th.invoice.sub.total: សរុបរង
+condo.th.invoice.grand.total: តំលៃ​បូក​សរុប
+condo.th.invoice.status: ស្ថានភាព
+condo.th.invoice.action: សកម្មភាព
+condo.th.client.unit.floor: ជាន់
+condo.th.client.unit.room.number: លេខ​បន្ទប់
+condo.th.client.unit.size: ទំហំអង្គភាព
+condo.th.client.unit.rental.price: តម្លៃ
+condo.th.client.unit.type: ប្រភេទ
+condo.th.client.unit.pay.by: ការទូទាត់ដោយ
+condo.th.issue.supplier.email: អ៊ីម៉ែល
+condo.th.issue.supplier.phone: លេខទូរស័ព្ទ
+condo.th.issue.supplier.address: អាសយដ្ឋាន
+condo.label.issue.supplier.include.vat: រួមបញ្ចូលទាំងតម្លៃនៃការបង់ពន្ធ
+condo.label.client.invoice.description: បរិយាយ
+condo.label.client.invoice.vat: តម្លៃនៃការបង់ពន្ធ
+condo.label.client.invoice.price: តម្លៃ
+condo.label.client.invoice.title: ចំណងជើង
+condo.label.client.invoice.include.vat: រួមបញ្ចូលទាំងតម្លៃនៃការបង់ពន្ធ
+
+condo.report.room.new: ថ្មី
+condo.report.room.closed: ដោះស្រាយ
+condo.report.room.inprogress: កំពុង​ដំណើរការ
+condo.rate: អត្រា
+condo.label.date: កាលបរិច្ឆេទ
+condo.label.id: លេខសម្គាល់
+condo.th.report.client.date: កាលបរិច្ឆេទ
+condo.th.report.unit.date: កាលបរិច្ឆេទ
+condo.label.unit: អង្គភាព
+condo.label.clients: អតិថិជន
+condo.label.description: បរិយាយ
+condo.label.status: ស្ថានភាព
+condo.label.actions: សកម្មភាព
+condo.client.label.status.available: នៅទំ​នេរ
+condo.client.label.name: ឈ្មោះ
+condo.client.label.email: អ៊ីម៉ែល
+condo.client.label.phone: ទូរស័ព្ទ
+condo.client.unit.label.vat: តម្លៃនៃការបង់ពន្ធ
+condo.client.unit.amount.grand.total: ចំនួនទឹកប្រាក់សរុប
+condo.client.label.password: ពាក្យសម្ងាត់
+condo.client.label.id.card: លេខអត្តសញ្ញាណប័ណ្ណ / លេខសម្គាល់លិខិតឆ្លងដែន
+condo.client.label.repeat.password: ពាក្យសម្ងាត់ម្តងទៀត
+condo.client.label.profile.picture:  រូបភាពអតិថិជន
+condo.client.label.id.card.picture: រូបភាពអត្តសញ្ញាណប័ណ្ណ / រូបភាពលិខិតឆ្លងដែន
+condo.client.unit.label.start.date: ថ្ងៃ​ចាប់​ផ្តើ​ម
+condo.client.unit.label.end.date: ថ្ងៃ​បញ្ចប់
+condo.client.unit.label.pay.by: បង់ដោយ
+condo.client.unit.label.unit.price: តម្លៃ
+condo.unit.floor: ជាន់
+condo.unit.room.number: លេខ​បន្ទប់
+condo.unit.size: ទំហំ
+condo.unit.type: ប្រភេទ
+condo.unit.price: តម្លៃ
+condo.unit.action: សកម្មភាព
+condo.unit.label.id: លេខសម្គាល់
+condo.unit.label.floor: ជាន់
+condo.unit.label.room.number: លេខ​បន្ទប់
+condo.unit.label.price: តម្លៃ
+condo.unit.label.type: ប្រភេទ
+unit.title: បញ្ជីអង្គភាព
+codno.th.expense.id: លេខសម្គាល់
+condo.th.expense.name: ឈ្មោះ
+condo.th.expense.action: សកម្មភាព
+condo.th.report.issue.date: កាលបរិច្ឆេទ
+condo.th.report.issue.beginning: ការចាប់ផ្តើម
+condo.th.report.issue.new: ថ្មី
+condo.th.report.issue.closed: បាន​ដោះស្រាយ
+condo.th.report.issue.ending: ការបញ្ចប់
+condo.income.category.new.btn: បង្កើតប្រភេទថ្មី
+condo.expense.invoice.title.new: វិក័យប័ត្រថ្មី
+condo.expense.title.invoice: វិក័យប័ត្រការចំណាយ
+condo.expense.title.new: ប្រភេទថ្មី
+condo.invoice.profit.title.chart:  របាយការណ៍ប្រាក់ចំណេញ
+condo.invoice.paid: ប្រាក់បានបង់រួចទៅហើយ
+
+condo.issue.information: ព័ត៌មានពីបញ្ហា
+condo.issue.supplier.type: ប្រភេទអ្នកផ្គត់ផ្គង់
+condo.issue.supplier.type.company: ក្រុមហ៊ុន
+condo.issue.supplier.type.individual: បុគ្គល
+condo.issue.supplier.name: ឈ្មោះ​អ្នក​ផ្គត់ផ្គង់
+condo.issue.price: តម្លៃ
+condo.issue.vat: តម្លៃនៃការបង់ពន្ធ
+
+feedback.title: ផ្តល់​យោបល់​ត្រឡប់
+feedback.title.feedback: យោបល់​ត្រឡប់
+feedback.th.id: លេខសម្គាល់
+feedback.th.date: កាលបរិច្ឆេទ
+feedback.th.feedback: យោបល់​ត្រឡប់
+feedback.th.action: សកម្មភាព
+feedback.th.rate: អត្រា
+feedback.label.rate: អត្រា
+feedback.rate.very.low: ទាបណាស់
+feedback.rate.low: កម្រិត​ទាប
+feedback.rate.average: មធ្យម
+feedback.rate.high: ខ្ពស់
+feedback.rate.very.high: ខ្ពស់​ណាស់
+feedback.read: បានអាន
+
+issue.title.issues: បញ្ហា​នានា
+new.title.news: ព័ត៌មាន
+link.profit: ប្រាក់ចំណេញ
+link.category: ប្រភេទ
+link.invoice: វិ​ក័​យ​ប​ត្រ
+link.unit.type: ប្រភេទអង្គភាព
+link.income: ប្រាក់ចំណូល
+link.expense: ប្រាក់រចំណាយ
+link.clients: អតិថិជន
+link.news: ពត៌មាន
+link.issues: បញ្ហានានា
+link.feedback: យោបល់​ត្រឡប់
+link.dashboard: ផ្ទាំង​គ្រប់គ្រង​
+link.reports: របាយការណ៍
+link.exchange: អត្រា​ប្តូ​រ​ប្រាក់
+link.suppliers: អ្នកផ្គត់ផ្គង់
+link.company: ក្រុមហ៊ុន
+link.individual: បុគ្គល
+link.create.new.client: បង្កើតអតិថិជនថ្មី
+link.create.new.expense: បង្កើតកាចំណាយថ្មី
+link.create.new.invoice: បង្កើត​ប្រាក់ចំណាយថ្មី
+btn.public.a.news: បង្កើត​ថ្មី
+btn.mark.as.read: ដែលបានអាន
+btn.mark.as.paid: សញ្ញាប្រាប់ថាបានបង់ប្រាក់
+btn.search: ស្វែងរក
+btn.issue.inoivced: បានបន្តែមចូលវិក័យប័ត្រ
+btn.issue.add.to.inoivce: បន្ថែមចូលវិ​ក័​យ​ប​ត្រ
+btn.condo.suppliers.company.new: បង្កើតក្រុមហ៊ុនផ្គត់ផ្គង់ថ្មី
+btn.condo.income.invoice.new: បង្កើតប្រាក់ចំណូលថ្មី
+btn.yes: បាទ
+btn.no: ទេ
+
+client.title.list: អតិថិជន
+client.title.new: អតិថិជនថ្មី
+client.th.name: ឈ្មោះ
+client.th.phone: លេខទូរសព្ទ
+client.th.id.card: លេខអត្តសញ្ញាណប័ណ្ណ
+client.th.start.date: ថ្ងៃ​ចាប់​ផ្តើ​ម
+client.th.end.date: ថ្ងៃ​បញ្ចប់
+client.th.pay.by: បង់ដោយ
+client.th.price: តម្លៃ
+client.th.unit.room: លេខ​បន្ទប់
+client.th.actions: សកម្មភាព
+client.th.total.vat: តម្លៃនៃការបង់ពន្ធ
+client.th.total.price: តម្លៃ​សរុប
+
+label.report.room: បន្ទប់
+label.report.issue: បញ្ហា​នានា
+label.report.feedback: យោបល់​ត្រឡប់
+
+flast.unitType.message.not.allow.user.to.delete.unitType.relationship.with.unit:
+
+the.value.should.be.number: តម្លៃត្រូវតែជាលេខ
+condo.btn.issue.inoivced: បានបន្តែមចូលវិក័យប័ត្រ
+
+condo.suppliers.id: លេខសម្គាល់
+condo.suppliers.name: ឈ្មោះ
+condo.suppliers.tel: ទូរស័ព្ទ
+condo.suppliers.company.vatin:
+condo.suppliers.address: លេខអាសយដ្ឋានអ្នកផ្គត់ផ្គង់ខុនដូ
+condo.suppliers.individual.id.card: អត្តសញ្ញាណប័ណ្ណបុគ្គល
+btn.condo.suppliers.individual.new: បង្កើតបុគ្គលផ្គត់ផ្គង់ថ្មី

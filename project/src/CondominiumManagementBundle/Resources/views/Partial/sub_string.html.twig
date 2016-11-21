@@ -1,0 +1,5 @@
+{% if string|length > limit %}
+    {{ string|slice(1, limit) }}...
+{% else %}
+    {{ string }}
+{% endif %}

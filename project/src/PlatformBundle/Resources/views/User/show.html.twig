@@ -1,0 +1,101 @@
+{% extends 'PlatformBundle::content_page_layout.html.twig' %}
+{% set title =  user.name ~ ' - ' ~ 'user.title.show'|trans %}
+
+{% block content %}
+    <div class="panel panel-body">
+        <div class="row">
+            <div class="col-lg-12">
+                <table class="table table-striped">
+                    <tbody>
+                        <tr>
+                            <th>{{ 'user.label.id'|trans }}</th>
+                            <td>{{ user.id }}</td>
+                        </tr>
+                        <tr>
+                            <th>{{ 'user.label.name'|trans }}</th>
+                            <td>{{ user.name }}</td>
+                        </tr>
+                        <tr>
+                            <th>{{ 'user.label.email'|trans }}</th>
+                            <td>{{ user.email }}</td>
+                        </tr>
+                        <tr>
+                            <th>{{ 'user.label.phone.number'|trans }}</th>
+                            <td>{{ user.phoneNumber }}</td>
+                        </tr>
+                        <tr>
+                            <th>{{ 'user.label.profile.picture'|trans }}</th>
+                            <td>
+                                {% if user.picture is not null %}
+                                    {% include 'CondoBundle:partials:image_resource.html.twig'
+                                        with {'resource': user.picture}
+                                    %}
+                                {% else %}
+                                    {{ 'user.label.no.picture'|trans }}
+                                {% endif %}
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>{{ 'user.label.role.type'|trans }}</th>
+                            <td>
+                                {% for roleType in roleTypes%}
+                                    {% if userRoleTypes is not null %}
+                                        {% if roleType.id == userRoleTypes[0].getRoleType().getId() %}
+                                            {{ roleType.name|trans }}
+                                        {% endif %}
+                                    {% endif %}
+                                {% endfor %}
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>{{ 'user.label.modules'|trans }}</th>
+                            <td>
+                                {% for role in userRoleTypes %}
+                                    - {{ role.name|trans }}
+                                    <br/>
+                                {% endfor %}
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="2">
+                                <div class="form-group">
+                                    <div class="row">
+                                        <div class="col-xs-10">
+                                            <a
+                                                href="{{ path('platform_user_edit',
+                                                    {
+                                                        'user': user.id
+                                                    })
+                                                }}"
+                                                class="btn btn-primary"
+                                            >
+                                                {{ 'link.action.edit'|trans }}
+                                            </a>
+                                            <a
+                                                href="{{path('platform_user_list')}}"
+                                                class="btn btn-default"
+                                            >
+                                                {{ 'link.back'|trans }}
+                                            </a>
+                                            <a
+                                                href="{{path('platform_user_delete',
+                                                    {
+                                                        'user': user.id
+                                                    })
+                                                }}"
+                                                class="btn btn-danger"
+                                            >
+                                                {{ 'btn.delete'|trans }}
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+

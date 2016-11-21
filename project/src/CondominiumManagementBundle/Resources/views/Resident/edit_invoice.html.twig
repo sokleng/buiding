@@ -1,0 +1,9 @@
+{% extends 'CondominiumManagementBundle::content_page_layout.html.twig' %}
+{% set title = condominium.name ~ ' - ' ~
+    'link.invoice'|trans ~ ' - ' ~
+    'condo.client.invoice.edit'|trans
+%}
+
+{% block content %}
+    {% include 'CondominiumManagementBundle:Partial:client_invoice_form.html.twig' %}
+{% endblock %}

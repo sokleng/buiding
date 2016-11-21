@@ -1,0 +1,89 @@
+{% extends 'CondominiumManagementBundle::content_page_layout.html.twig' %}
+{% set title = condominium.name ~ ' - ' ~ 'link.reports'|trans ~ ' - ' ~ 'link.profit'|trans %}
+
+{% block content %}
+    <div class="row">
+        <div class="col-xs-12">
+            {% include 'CondominiumManagementBundle:Report:tabs_head.html.twig'
+                with {'active' : 'profit', 'condominium': condominium.id} %}
+            <div class="tab-content">
+                <div class="tab-pane fade in active" id="home">
+                    <div class="panel panel-default margin-top-20">
+                        <div class="panel-heading">
+                            {% include 'CondominiumManagementBundle:Report:filter_status_form.html.twig'
+                                with {
+                                    'action': path('condominium_report_client', {'condominium': condominium.id})
+                                }
+                            %}
+                        </div>
+                        <div class="panel-body">
+                            <div class="dataTable_wrapper">
+                                <table class="table table-striped table-bordered table-hover">
+                                    {% set currentSign = ''%}
+                                    {% if condominium.currency is not null %}
+                                        {% set currentSign = condominium.currency.sign %}
+                                    {% endif %}
+                                    <thead>
+                                        <tr>
+                                            <th class="text-center">{{ 'condo.th.invoice.date'|trans }}</th>
+                                            <th>
+                                                {{ 'condo.th.invoice.income'|trans }}
+                                                ({{ currentSign }})
+                                            </th>
+                                            <th>
+                                                {{ 'condo.th.invoice.expense'|trans }}
+                                                ({{ currentSign }})
+                                            </th>
+                                            <th>
+                                                {{ 'condo.th.invoice.profit'|trans }}
+                                                ({{ currentSign }})
+                                            </th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        {% for date in arrInvoices.dates %}
+                                            <tr>
+                                                <td class="text-center">{{ date }}</td>
+                                                <td>
+                                                    {{ currentSign }}
+                                                    {{ arrInvoices.income[loop.index0]|number_format(2, '.', ',') }}
+                                                </td>
+                                                <td>
+                                                    {{ currentSign }}
+                                                    {{ arrInvoices.expend[loop.index0]|number_format(2, '.', ',') }}
+                                                </td>
+                                                <td>
+                                                    {{ currentSign }}
+                                                    {{ arrInvoices.profit[loop.index0]|number_format(2, '.', ',') }}
+                                                </td>
+                                            </tr>
+                                        {% endfor %}
+                                    </tbody>
+                                </table>
+                                <hr/>
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <div id="report"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+{% block javascripts %}
+    {% javascripts
+        "@CondominiumManagementBundle/Resources/public/js/bootstrap-datepicker.js"
+        "@CondominiumManagementBundle/Resources/public/js/report-showby-filter.js"
+        "@CondominiumManagementBundle/Resources/public/js/highcharts.js"
+        "@CondominiumManagementBundle/Resources/public/js/exporting.js"
+    %}
+        <script src="{{ asset_url }}"></script>
+    {% endjavascripts %}
+    <script type="text/javascript">
+        {{ chart(chartReport) }}
+    </script>
+{% endblock %}

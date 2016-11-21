@@ -1,0 +1,70 @@
+{% extends 'ClientBundle::content_page_layout.html.twig' %}
+{% set title = 'news.title'|trans %}
+
+{% block content %}
+    {% for news in newses %}
+        <div class="col-lg-12">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <span class="label label-primary">
+                        {% if news.condominium is defined %}
+                            {{ news.condominium.name }}
+                        {% endif %}
+                    </span>
+                    <span class="pull-right">
+                        {{ news.publishDate|date }}
+                    </span>
+                    <div class="clearfix"></div>
+                </div>
+                <div class="panel-body">
+                    <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
+                        {% if news.picture is not null %}
+                            <img class="img-responsive"
+                                src="{{
+                                    path(
+                                        'condo_resource',
+                                        {'fileId': news.picture.id }
+                                    )
+                                }}"
+                                alt="{{ news.title }}"
+                            >
+                        {% endif %}
+                    </div>
+                    <div
+                        class="
+                            {% if news.picture is not null %}
+                                col-lg-8 col-md-8
+                            {% else %}
+                                col-lg-12 col-md-12
+                            {% endif %}
+                            col-sm-12 col-xs-12
+                        "
+                    >
+                        <div class="label-spaced">
+                            <h3>{{ news.title }}</h3>
+                        </div>
+                        <div>
+                            {{ news.shortDescription }}
+                        </div>
+                        <a
+                            href="{{
+                                path(
+                                    'client_news_read_more',
+                                    {
+                                        'unit': unit.id,
+                                        'news': news.id
+                                    }
+                                )
+                            }}"
+                        >
+                            {{ 'client.read.more'|trans }}...
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    {% endfor %}
+    <div class="navigation">
+        {{ knp_pagination_render(newses) }}
+    </div>
+{% endblock %}

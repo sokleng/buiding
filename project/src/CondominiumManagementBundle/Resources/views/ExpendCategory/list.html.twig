@@ -1,0 +1,81 @@
+{% extends 'CondominiumManagementBundle::content_page_layout.html.twig' %}
+{% set title = condominium.name ~ ' - ' ~ 'link.expense'|trans ~ ' - ' ~ 'condo.invoice.category'|trans %}
+
+{% block content %}
+    {% include 'CondominiumManagementBundle:ExpendCategory:tabs_head.html.twig'
+        with {'active' : 'expend_category', 'condominium': condominium.id}
+    %}
+    <div class="row">
+        <div class="col-xs-12">
+            <div class="tab-content">
+                <div class="tab-pane fade in active">
+                    <div class="panel panel-default margin-top-20">
+                        <div class="panel-heading">
+                             <a href="{{ path('condominium_expend_category_new',  {'condominium': condominium.id}) }}"
+                           class="btn btn-success"
+                        >
+                            {{ 'link.create.new.expense'|trans }}
+                        </a>
+                        </div>
+                        <div class="panel-body">
+                            <div class="dataTable_wrapper">
+                                <table class="table table-striped table-bordered table-hover">
+                                    <thead>
+                                        <tr>
+                                            <th>{{ 'codno.th.expense.id'|trans }}</th>
+                                            <th>{{ 'condo.th.expense.name'|trans }}</th>
+                                            <th>{{ 'condo.th.expense.action'|trans }}</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        {% for expendCategory in expendCategorys %}
+                                            <tr>
+                                                <td>{{expendCategory.id}}</td>
+                                                <td>{{expendCategory.name}}</td>
+                                                <td>
+                                                    <a
+                                                        href="{{
+                                                            path(
+                                                                'condominium_expend_category_edit',
+                                                                {
+                                                                    'id':expendCategory.id,
+                                                                    'condominium': condominium.id
+                                                                }
+                                                            )
+                                                        }}"
+                                                        class="btn btn-primary btn-sm"
+                                                    >
+                                                        {{ 'action.edit'|trans }}
+                                                    </a>
+                                                    <form method="post"
+                                                        action="{{ path(
+                                                            'condominium_expend_category_delete',
+                                                            {
+                                                                'id': expendCategory.id,
+                                                                'condominium': condominium.id
+                                                            }
+                                                        )}}"
+                                                    >
+                                                        <input type="hidden"
+                                                               name="_method"
+                                                               value="DELETE"
+                                                        >
+                                                        <input type="submit"
+                                                               class="btn btn-sm btn-danger"
+                                                               value="{{ 'btn.delete'|trans }}"
+                                                        >
+                                                    </form>
+                                                </td>
+                                            </tr>
+                                        {% endfor %}
+                                    </tbody>
+                                </table>
+                                {{ knp_pagination_render(expendCategorys) }}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

@@ -1,0 +1,128 @@
+# app/config/routing.yml
+fos_user:
+    resource: "@FOSUserBundle/Resources/config/routing/all.xml"
+
+we_bridge_user:
+    resource: "@WeBridgeUserBundle/Controller/"
+    type:     annotation
+    prefix:   /
+
+platform_default:
+    methods: GET
+    path: /platform
+    defaults:
+        _controller: FrameworkBundle:Redirect:urlRedirect
+        path: /en-US/platform/
+        permanent: true
+
+platform:
+    resource: "@PlatformBundle/Resources/config/routing.yml"
+    prefix:   /{_locale}/platform/
+
+service_default:
+    methods: GET
+    path: /service
+    defaults:
+        _controller: FrameworkBundle:Redirect:urlRedirect
+        path: /en-US/services/
+        permanent: true
+
+service:
+    resource: "@ServiceBundle/Resources/config/routing.yml"
+    prefix:   /{_locale}/services/
+
+client_default:
+    methods: GET
+    path: /client
+    defaults:
+        _controller: FrameworkBundle:Redirect:urlRedirect
+        path: /en-US/client/
+        permanent: true
+
+client:
+    resource: "@ClientBundle/Resources/config/routing.yml"
+    prefix:   /{_locale}/client/
+
+app_resource:
+    resource: "@CondoBundle/Resources/config/routing.yml"
+    prefix: /resource/
+
+condo_default:
+    methods: GET
+    path: /
+    defaults:
+        _controller: FrameworkBundle:Redirect:urlRedirect
+        path: /en-US/home
+        permanent: true
+
+condo:
+    resource: "@CondoBundle/Resources/config/routing.yml"
+    prefix:  /{_locale}/home
+
+condominium_management_default:
+    methods: GET
+    path: /condominium
+    defaults:
+        _controller: FrameworkBundle:Redirect:urlRedirect
+        path: /en-US/condominium
+        permanent: true
+
+condominium_management:
+    resource: "@CondominiumManagementBundle/Resources/config/routing.yml"
+    prefix:   /{_locale}/condominium/
+
+project_realty_default:
+    methods: GET
+    path: /project
+    defaults:
+        _controller: FrameworkBundle:Redirect:urlRedirect
+        path: /en-US/project
+        permanent: true
+
+project_realty:
+    resource: "@ProjectRealtyBundle/Resources/config/routing.yml"
+    prefix:   /{_locale}/project
+
+fos_user_profile:
+    resource: "@FOSUserBundle/Resources/config/routing/profile.xml"
+    prefix: /{_locale}/profile
+
+fos_user_change_password:
+    resource: "@FOSUserBundle/Resources/config/routing/change_password.xml"
+    prefix: /{_locale}/profile/edit
+
+developer_default:
+    methods: GET
+    path: /developer
+    defaults:
+        _controller: FrameworkBundle:Redirect:urlRedirect
+        path: /en-US/developer
+        permanent: true
+
+developer:
+    resource: "@DeveloperBundle/Resources/config/routing.yml"
+    prefix:   /{_locale}/developer
+
+realty_company_default:
+    methods: GET
+    path: /realty
+    defaults:
+        _controller: FrameworkBundle:Redirect:urlRedirect
+        path: /en-US/realty/
+        permanent: true
+
+realty_company:
+    resource: "@RealtyCompanyBundle/Resources/config/routing.yml"
+    prefix:   /{_locale}/realty
+
+frontend_default:
+    methods: GET
+    path: /frontend
+    defaults:
+        _controller: FrameworkBundle:Redirect:urlRedirect
+        path: /en-US/frontend/
+        permanent: true
+
+frontend:
+    resource: "@FrontendBundle/Resources/config/routing.yml"
+    prefix:   /{_locale}/frontend

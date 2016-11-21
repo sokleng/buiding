@@ -1,0 +1,36 @@
+<div
+ id="modal-action"
+    class="modal fade"
+    tabindex="-1"
+    role="dialog"
+    aria-labelledby="mySmallModalLabel"
+>
+    <div class="modal-dialog bs-example-modal-sm" role="document">
+        <div class="modal-content">
+            <div class="modal-body">
+                <div class="alert alert-warning" role="alert">
+                    <b>
+                        {{ 'condo.label.message.rollback'|trans }}
+                    </b>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button
+                    type="button"
+                    class="btn btn-danger btn-sm"
+                    data-dismiss="modal"
+                >
+                    {{ 'btn.no'|trans }}
+                </button>
+                <a
+                    type="submit"
+                    class="btn btn-primary btn-sm pull-right"
+                    id='save'
+                >
+                    {{ 'btn.yes'|trans }}
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+

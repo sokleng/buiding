@@ -1,0 +1,256 @@
+{% extends 'CondominiumManagementBundle::content_page_layout.html.twig' %}
+{% set title = condominium.name ~ ' - ' ~ 'link.income'|trans %}
+
+{% block content %}
+    <div class="row">
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 condominium-client">
+            {% include 'CondominiumManagementBundle:Income:tabs_head.html.twig'
+                with {'active' : 'income', 'condominium': condominium.id} %}
+            <div class="tab-content">
+                <div class="tab-pane fade in active">
+                    <div class="panel panel-default margin-top-20">
+                        <div class="panel-heading">
+                            <div class="col-xs-12 col-sm-12 col-md-2 col-lg-2">
+                                <label class="create-new-income">
+                                    <a
+                                        href="{{
+                                            path(
+                                                'condominium_income_new',
+                                                {
+                                                    'condominium': condominium.id
+                                                }
+                                            )
+                                        }}"
+                                        class="btn btn-success"
+                                    >
+                                        {{ 'btn.condo.income.invoice.new'|trans }}
+                                    </a>
+                                </label>
+                            </div>
+                            <div class="col-xs-12 col-sm-12 col-md-10 col-lg-10">
+                                {%
+                                    include 'CondominiumManagementBundle:Partial:invoice_filter_form.html.twig'
+                                %}
+                            </div>
+                            <div class="clearfix"></div>
+                        </div>
+                        <div class="panel-body">
+                            <div class="table-responsive table-dropdown-button">
+                                <table class="table table-striped table-bordered table-hover">
+                                    <thead>
+                                        <tr>
+                                            <th>{{ 'condo.th.income.category.id'|trans }}</th>
+                                            <th>{{ 'condo.th.income.invoice.title'|trans }}</th>
+                                            <th>{{ 'condo.th.income.invoice.category.name'|trans }}</th>
+                                            <th>{{ 'condo.th.income.invoice.client'|trans }}</th>
+                                            <th>{{ 'condo.th.income.creation.date'|trans }}</th>
+                                            <th>{{ 'condo.th.income.invoice.category.sub.total'|trans }}</th>
+                                            <th>{{ 'condo.th.income.invoice.category.vat'|trans }} (%)</th>
+                                            <th>{{ 'condo.th.income.invoice.category.grand.total'|trans }}</th>
+                                            <th>{{ 'condo.th.income.invoice.status'|trans }}</th>
+                                            <th>{{ 'condo.th.income.category.actions'|trans }}</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        {% for income in incomes %}
+                                            {% set currentSign = ''%}
+                                            {% if income.currency is not null %}
+                                                {% set currentSign = income.currency.sign %}
+                                            {% endif %}
+                                            <tr>
+                                                <td>{{ income.id }}</td>
+                                                <td>{{ income.title }}</td>
+                                                <td>
+                                                    {% if income.incomeCategory is not null %}
+                                                        {{ income.incomeCategory.name }}
+                                                    {% endif %}
+                                                </td>
+                                                <td>
+                                                    {% if income.client is not null %}
+                                                        {{ income.client.user.name }}
+                                                    {% endif %}
+                                                </td>
+                                                <td>{{ income.creationDate|date('d-M-y H:i')}}</td>
+                                                <td>
+                                                    {{ income.subTotal|number_format(2, '.', ',') }}
+                                                    {{ currentSign }}
+                                                </td>
+                                                <td>
+                                                    {{ income.vat }}%
+                                                </td>
+                                                <td>
+                                                    {{ income.grandTotal|number_format(2, '.', ',')}}
+                                                    {{ currentSign }}
+                                                </td>
+                                                <td>
+                                                    {% if income.isPaid() %}
+                                                        <label class="label label-danger">
+                                                            {{ income.status|InvoiceStatus|trans }}
+                                                        </label>
+                                                        <span class="text-muted small">
+                                                            <i class="fa fa-clock-o fa-fw"></i>
+                                                            {{ income.paymentDate|date('d-M-y H:i') }}
+                                                        </span>
+                                                    {% endif %}
+
+                                                    {% if income.isUnPaid() %}
+                                                        <form
+                                                            method="POST"
+                                                            action="{{ path(
+                                                                  'condominium_income_mark_as_paid',
+                                                                  {
+                                                                      'condominium': condominium.id,
+                                                                      'income': income.id
+                                                                  }
+                                                                  ) }}"
+                                                        >
+                                                            <button
+                                                                class="btn btn-success btn-sm"
+                                                            >
+                                                                {{ 'btn.mark.as.paid'|trans }}
+                                                            </button>
+                                                        </form>
+                                                    {% endif %}
+                                                </td>
+                                                <td>
+                                                    <div class="btn-group pull-left wrapper-btn-group">
+                                                        <button
+                                                            type="button"
+                                                            class="btn btn-default btn-sm dropdown-toggle"
+                                                            aria-haspopup="true"
+                                                            data-toggle="dropdown"
+                                                            onblur="DropdownButton.toggle_class_table_responsive(this)"
+                                                            onclick="DropdownButton.toggle_class_table_responsive(this)"
+                                                        >
+                                                            <span class="caret"></span>
+                                                        </button>
+                                                        <ul
+                                                            class="dropdown-menu pull-right"
+                                                            role="menu"
+                                                        >
+                                                            {% if income.isPaid() and is_granted('ROLE_ADMIN') %}
+                                                                <li>
+                                                                    <a
+                                                                        onclick="ConfirmDialog.show_modal_confirm_dialog(this)"
+                                                                        action="{{ path(
+                                                                                    'condominium_income_rollback',
+                                                                                    {
+                                                                                        'condominium': condominium.id,
+                                                                                        'income': income.id
+                                                                                    }
+                                                                                )
+                                                                            }}"
+                                                                        >
+                                                                        <i class="fa fa-undo" aria-hidden="true"></i>
+                                                                        {{ 'btn.mark.as.rollback'|trans }}
+                                                                    </a>
+                                                                </li>
+                                                            {% endif %}
+                                                            <li>
+                                                                <a
+                                                                    href="{{
+                                                                        path(
+                                                                            'condominium_income_show',
+                                                                            {
+                                                                                'condominium': condominium.id,
+                                                                                'income': income.id
+                                                                            }
+                                                                        )
+                                                                    }}"
+                                                                >
+                                                                    <i class="fa fa-eye" aria-hidden="true"></i>
+                                                                    {{ 'action.show'|trans }}
+                                                                </a>
+                                                            </li>
+                                                            {% if income.isUnPaid() %}
+                                                                <li>
+                                                                    <a
+                                                                        {% if income.client is not null %}
+                                                                            href="{{
+                                                                                path(
+                                                                                    'condominium_client_invoice_edit',
+                                                                                    {
+                                                                                        'condominium': condominium.id,
+                                                                                        'clientUnit': income.client.id,
+                                                                                        'invoice': income.id
+                                                                                    }
+                                                                                )
+                                                                            }}"
+                                                                        {% else %}
+                                                                            href="{{
+                                                                                path(
+                                                                                    'condominium_income_edit',
+                                                                                    {
+                                                                                        'condominium': condominium.id,
+                                                                                        'income': income.id
+                                                                                    }
+                                                                                )
+                                                                            }}"
+                                                                        {% endif %}
+
+                                                                    >
+                                                                        <i class="fa fa-pencil" aria-hidden="true"></i>
+                                                                        {{ 'action.edit'|trans }}
+                                                                    </a>
+                                                                </li>
+                                                                <li>
+                                                                    <a
+                                                                        href="{{
+                                                                            path(
+                                                                              'condominium_income_delete',
+                                                                              {
+                                                                                  'condominium': condominium.id,
+                                                                                  'income': income.id
+                                                                              }
+                                                                            )
+                                                                        }}"
+
+                                                                    >
+                                                                        <i class="fa fa-trash" aria-hidden="true"></i>
+                                                                        {{ 'btn.delete'|trans }}
+                                                                    </a>
+                                                                </li>
+                                                            {% endif %}
+                                                            <li class="divider"></li>
+                                                            <li>
+                                                                <a
+                                                                    href="{{
+                                                                        path(
+                                                                            'condominium_income_download_invoice',
+                                                                            {
+                                                                                'condominium': condominium.id,
+                                                                                'income': income.id
+                                                                            }
+                                                                        )
+                                                                    }}"
+
+                                                                >
+                                                                    <i class="fa fa-download" aria-hidden="true"></i>
+                                                                    {{ 'action.download.pdf'|trans }}
+                                                                </a>
+                                                            </li>
+                                                        </ul>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                        {% endfor %}
+                                    </tbody>
+                                </table>
+                                {{ knp_pagination_render(incomes) }}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    {% include 'CondominiumManagementBundle:Partial:confirm_dialog.html.twig' %}
+{% endblock %}
+
+{% block additional_resources %}
+    {% javascripts
+        "@CondominiumManagementBundle/Resources/public/js/confirm-dialog.js"
+    %}
+        <script src="{{ asset_url }}"></script>
+    {% endjavascripts %}
+{% endblock %}

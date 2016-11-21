@@ -1,0 +1,84 @@
+{% extends 'PlatformBundle::content_page_layout.html.twig' %}
+{% set title = 'services.title'|trans ~ ': ' ~ service.title %}
+
+{% block content %}
+    {{ form_start(edit_form, {'attr': {'class' : 'form-horizontal'}}) }}
+        <div class="form-group">
+            <div class="row">
+                <label class="col-xs-2 control-label">
+                    {{ 'services.label.type'|trans }}
+                </label>
+                <div class="col-xs-4">
+                    {{ form_widget(edit_form.type, {'attr': {'class' : 'form-control'}}) }}
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="row">
+                <label class="col-xs-2 control-label">
+                    {{ 'services.label.title'|trans }}
+                </label>
+                <div class="col-xs-4">
+                    {{ form_widget(edit_form.title, {'attr': {'class' : 'form-control'}}) }}
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="row">
+                <label class="col-xs-2 control-label">
+                    {{ 'services.label.description'|trans }}
+                </label>
+                <div class="col-xs-4">
+                    {{ form_widget(edit_form.description, {'attr': {'class' : 'form-control'}}) }}
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="row">
+                <label class="col-xs-2 control-label">
+                    {{ 'services.label.service.provider'|trans }}
+                </label>
+                <div class="col-xs-4">
+                    {{ form_widget(edit_form.serviceProvider, {'attr': {'class' : 'form-control'}}) }}
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="row">
+                <label class="col-xs-2 control-label">
+                    {{ 'services.label.managers'|trans }}
+                </label>
+                <div class="col-xs-1">
+                    {{ form_widget(edit_form.managers)}}
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="row">
+                <div class="col-xs-offset-2 col-xs-10">
+                    <input class="btn btn-success" type="submit" value="{{'btn.save'|trans}}" />
+                    <a
+                        href="{{ path('platform_service_list') }}"
+                        class="btn btn-default"
+                    >
+                        {{ 'link.back'|trans }}
+                    </a>
+                </div>
+            </div>
+        </div>
+        {{ form_end(edit_form) }}
+            <div class="form-group">
+                <div class="row">
+                    <div class="col-xs-offset-2 control-label">
+                        {{ form_start(delete_form) }}
+                            <input
+                                class="btn btn-danger"
+                                type="submit"
+                                value="{{'btn.delete'|trans}}"
+                            />
+                        {{ form_end(delete_form) }}
+                    </div>
+                </div>
+            </div>
+        {{ form_end(edit_form) }}
+{% endblock %}
